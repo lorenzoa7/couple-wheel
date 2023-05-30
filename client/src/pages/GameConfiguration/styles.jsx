@@ -94,3 +94,18 @@ export const AddActivity = tw.button`
     font-medium
     duration-300
 `
+
+export const PlayerInput = tw.input`
+
+    bg-transparent 
+    border-none 
+    outline-none 
+    text-lg 
+    font-medium 
+    text-white 
+    text-center
+    cursor-pointer
+    duration-300
+
+    hover:bg-rose-50/10
+`

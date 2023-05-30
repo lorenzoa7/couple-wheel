@@ -1,6 +1,22 @@
+import { useState } from 'react'
 import * as C from './styles'
 
 export default function GameConfiguration() {
+
+    const [playerName, setPlayerName] = useState({ player1: 'Player 1', player2: 'Player 2' })
+
+    const handleChange = e => setPlayerName({ ...playerName, [e.target.name]: e.target.value })
+
+    const handleKeyDown = e => {
+        if (e.key === 'Enter') {
+            e.target.blur()
+        }
+    }
+
+    const handleBlur = () => {
+        // API save
+    }
+
 
     return (
         <C.PageContainer>
@@ -8,7 +24,14 @@ export default function GameConfiguration() {
             <C.Main>
                 <C.Section>
                     <C.PlayerContainer>
-                        <p>Player 1</p>
+                        <C.PlayerInput
+                            name='player1'
+                            value={playerName.player1}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            onClick={e => e.target.select()}
+                            onBlur={handleBlur}
+                        />
                     </C.PlayerContainer>
 
                     <C.ActivitiesContainer>
@@ -26,7 +49,14 @@ export default function GameConfiguration() {
 
                 <C.Section>
                     <C.PlayerContainer color={'blue'}>
-                        <p>Player 2</p>
+                        <C.PlayerInput
+                            name='player2'
+                            value={playerName.player2}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            onClick={e => e.target.select()}
+                            onBlur={handleBlur}
+                        />
                     </C.PlayerContainer>
 
                     <C.ActivitiesContainer color={'blue'}>
