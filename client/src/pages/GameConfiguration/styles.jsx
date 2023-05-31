@@ -58,11 +58,12 @@ export const ActivitiesContainer = tw.div`
 
     flex
     flex-col
+    flex-grow
     items-center
     gap-2
-    flex-grow
     pt-2
     rounded-b
+    pb-4
 `
 
 export const Activity = tw.div`

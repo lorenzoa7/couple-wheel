@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import * as C from './styles'
+import ActivitiesList from './ActivitiesList'
 
 export default function GameConfiguration() {
 
@@ -35,15 +36,7 @@ export default function GameConfiguration() {
                     </C.PlayerContainer>
 
                     <C.ActivitiesContainer>
-                        <C.Activity>
-                            Atividade 1
-                        </C.Activity>
-
-                        <C.Activity>
-                            Atividade 2
-                        </C.Activity>
-
-                        <C.AddActivity>+</C.AddActivity>
+                        <ActivitiesList />
                     </C.ActivitiesContainer>
                 </C.Section>
 
