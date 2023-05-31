@@ -4,6 +4,41 @@ export const PlayerContext = createContext({})
 
 export const PlayerProvider = ({ children }) => {
 
+    /*
+    Example Player Data:
+
+        {
+            player1: {
+                name: "Player 1",
+                theme: "rose",
+                coins: 0,
+                activities: [
+                    {
+                        id: 1,
+                        name: "Assistir Star Wars",
+                        reroll_cost: 1,
+                        weight: 1
+                    }
+                ]
+            },
+            
+            player2: {
+                name: "Player 2",
+                theme: "cyan",
+                coins: 0,
+                activities: [
+                    {
+                        id: 1,
+                        name: "Jogar God of War",
+                        reroll_cost: 1,
+                        weight: 1
+                    }
+                ]
+            }
+        } 
+    
+    */
+
     const [playerData, setPlayerData] = useState(
         localStorage.getItem('playerData') ?
             JSON.parse(localStorage.getItem('playerData')) :
@@ -12,46 +47,14 @@ export const PlayerProvider = ({ children }) => {
                     name: "Player 1",
                     theme: "rose",
                     coins: 0,
-                    activities: [
-                        {
-                            id: 1,
-                            name: "Assistir Star Wars",
-                            reroll_cost: 1,
-                            weight: 10
-                        },
-                        {
-                            id: 2,
-                            name: "Jogar God of War",
-                            reroll_cost: 1,
-                            weight: 10
-                        }
-                    ]
+                    activities: []
                 },
 
                 player2: {
                     name: "Player 2",
                     theme: "cyan",
                     coins: 0,
-                    activities: [
-                        {
-                            id: 1,
-                            name: "Assistir Game of Thrones",
-                            reroll_cost: 1,
-                            weight: 10
-                        },
-                        {
-                            id: 2,
-                            name: "Assistir Xuxa",
-                            reroll_cost: 1,
-                            weight: 10
-                        },
-                        {
-                            id: 3,
-                            name: "Jantar no Gendai",
-                            reroll_cost: 1,
-                            weight: 10
-                        },
-                    ]
+                    activities: []
                 },
             })
 

@@ -166,3 +166,18 @@ export const DeleteActivity = tw.div`
     duration-150
     cursor-pointer
 `
+
+export const Label = tw.p`
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'bg-cyan-700/20 text-black') ||
+        'bg-rose-700/20 text-white'
+    )}
+
+    text-lg
+    p-3
+    h-12
+    rounded
+    flex
+    items-center
+`

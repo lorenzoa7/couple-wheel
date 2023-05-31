@@ -21,7 +21,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                 name: value,
             }
 
-            setPlayerData({ ...playerData, [player]: {...playerData[player], activities: updatedActivities} })
+            setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: updatedActivities } })
         }
     }
 
@@ -33,37 +33,41 @@ export default function ActivitiesList({ player = 'player1' }) {
     }
 
     const addActivity = () => {
-        const newActivity = { id: findHighestId(player) + 1, name: `Activity ${playerData[player].activities.length + 1}` }
-        setPlayerData({ ...playerData, [player]: {...playerData[player], activities: playerData[player].activities.concat(newActivity)} })
+        const newActivity = { id: findHighestId(player) + 1, name: `Activity ${playerData[player].activities.length + 1}`, reroll_cost: 1, weight: 10 }
+        setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: playerData[player].activities.concat(newActivity) } })
     }
 
     const deleteActivity = (player, activityId) => {
         const playerActivities = playerData[player].activities
         const updatedActivities = playerActivities.filter((activity) => activity.id !== activityId)
 
-        setPlayerData({ ...playerData, [player]: {...playerData[player], activities: updatedActivities} })
+        setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: updatedActivities } })
     }
 
     return (
         <>
-            {playerData[player].activities?.map((activity, index) =>
-                <C.Activity theme={playerData[player].theme} key={index}
-                    onMouseEnter={() => setHover(activity.id)}
-                    onMouseLeave={() => setHover(0)}>
+            {playerData[player].activities.length === 0 ? (
+                <C.Label theme={playerData[player].theme}>Click the button below to create a new activity</C.Label>
+            ) : (
+                playerData[player].activities?.map((activity, index) =>
+                    <C.Activity theme={playerData[player].theme} key={index}
+                        onMouseEnter={() => setHover(activity.id)}
+                        onMouseLeave={() => setHover(0)}>
 
-                    <C.ActivityInput
-                        id={activity.id}
-                        value={activity.name}
-                        onChange={handleChange}
-                        onKeyDown={handleKeyDown}
-                        onClick={e => e.target.select()}
-                        onBlur={() => savePlayerData()}
-                    />
-                    <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
-                        <AiFillDelete size={'75%'} />
-                    </C.DeleteActivity>
-                </C.Activity>
-            )}
+                        <C.ActivityInput
+                            id={activity.id}
+                            value={activity.name}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            onClick={e => e.target.select()}
+                            onBlur={() => savePlayerData()}
+                        />
+                        <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
+                            <AiFillDelete size={'75%'} />
+                        </C.DeleteActivity>
+                    </C.Activity>
+                ))
+            }
 
             <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>+</C.AddActivity>
         </>
