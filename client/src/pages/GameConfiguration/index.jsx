@@ -4,7 +4,7 @@ import usePlayer from '../../hooks/usePlayer'
 
 export default function GameConfiguration() {
 
-    const { playerData, setPlayerData, savePlayerData } = usePlayer()
+    const { playerData, setPlayerData } = usePlayer()
     
     const handleChangeName = e => 
         setPlayerData({ ...playerData, [e.target.name]: {...playerData[e.target.name], name: e.target.value} })
@@ -28,7 +28,6 @@ export default function GameConfiguration() {
                                 onChange={handleChangeName}
                                 onKeyDown={handleKeyDown}
                                 onClick={e => e.target.select()}
-                                onBlur={() => savePlayerData()}
                             />
                         </C.PlayerContainer>
 
@@ -45,7 +44,6 @@ export default function GameConfiguration() {
                                 onChange={handleChangeName}
                                 onKeyDown={handleKeyDown}
                                 onClick={e => e.target.select()}
-                                onBlur={() => savePlayerData()}
                             />
                         </C.PlayerContainer>
 

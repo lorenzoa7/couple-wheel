@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useCallback, useEffect, useState } from "react"
 
 export const PlayerContext = createContext({})
 
@@ -77,12 +77,13 @@ export const PlayerProvider = ({ children }) => {
         return index !== -1 ? index : null
     }
 
-    const savePlayerData = () => {
+    const savePlayerData = useCallback(() => {
         const jsonPlayerData = JSON.stringify(playerData)
 
         localStorage.setItem('playerData', jsonPlayerData)
-    }
+    }, [playerData])
 
+    useEffect(() => savePlayerData(), [savePlayerData])
 
     return (
         <PlayerContext.Provider value={{
