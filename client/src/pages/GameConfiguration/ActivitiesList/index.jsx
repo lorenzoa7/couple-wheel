@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export default function ActivitiesList({ player = 'player1' }) {
 
-    const { findHighestId, getActivityIndex, playerData, setPlayerData } = usePlayer()
+    const { findHighestId, getActivityIndex, playerData, setPlayerData, savePlayerData } = usePlayer()
 
     const [hover, setHover] = useState(0)
 
@@ -30,10 +30,6 @@ export default function ActivitiesList({ player = 'player1' }) {
         if (e.key === 'Enter') {
             e.target.blur()
         }
-    }
-
-    const handleBlur = () => {
-        // Local Storage save
     }
 
     const addActivity = () => {
@@ -61,7 +57,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                         onChange={handleChange}
                         onKeyDown={handleKeyDown}
                         onClick={e => e.target.select()}
-                        onBlur={handleBlur}
+                        onBlur={() => savePlayerData()}
                     />
                     <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
                         <AiFillDelete size={'75%'} />
