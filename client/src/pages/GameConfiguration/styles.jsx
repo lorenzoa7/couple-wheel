@@ -126,3 +126,18 @@ export const PlayerInput = tw.input`
 
     hover:bg-rose-50/10
 `
+
+export const ActivityInput = tw.input`
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'hover:bg-cyan-50/10') ||
+        'hover:bg-rose-50/10'
+    )}
+
+    bg-transparent 
+    border-none 
+    outline-none 
+    cursor-pointer
+    duration-300
+    w-full
+`
