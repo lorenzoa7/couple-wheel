@@ -15,10 +15,6 @@ export default function GameConfiguration() {
         }
     }
 
-    const handleBlur = () => {
-        // Local Storage save
-    }
-
     return (
         <C.PageContainer>
             <C.AppTitle>Roleta do Casal</C.AppTitle>
@@ -32,7 +28,6 @@ export default function GameConfiguration() {
                                 onChange={handleChangeName}
                                 onKeyDown={handleKeyDown}
                                 onClick={e => e.target.select()}
-                                onBlur={handleBlur}
                             />
                         </C.PlayerContainer>
 
@@ -49,7 +44,6 @@ export default function GameConfiguration() {
                                 onChange={handleChangeName}
                                 onKeyDown={handleKeyDown}
                                 onClick={e => e.target.select()}
-                                onBlur={handleBlur}
                             />
                         </C.PlayerContainer>
 
