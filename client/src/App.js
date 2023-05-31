@@ -1,14 +1,14 @@
 import RoutesApp from "./routes"
 import GlobalStyle from "./styles/globals"
-import { GeneralProvider } from "./contexts/general"
+import { PlayerProvider } from "./contexts/player"
 
 
 export default function App() {
   return (
-    <GeneralProvider>
+    <PlayerProvider>
       <RoutesApp />
       <GlobalStyle />
-    </GeneralProvider>
+    </PlayerProvider>
     
   )
 }
