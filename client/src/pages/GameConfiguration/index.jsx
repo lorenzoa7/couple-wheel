@@ -1,13 +1,13 @@
 import * as C from './styles'
 import ActivitiesList from './ActivitiesList'
-import useGeneral from '../../hooks/useGeneral'
+import usePlayer from '../../hooks/usePlayer'
 
 export default function GameConfiguration() {
 
-    const { playerData, setPlayerData } = useGeneral()
+    const { playerData, setPlayerData } = usePlayer()
     
     const handleChangeName = e => 
-        setPlayerData({ ...playerData, [e.target.name]: {...e.target.name, name: e.target.value} })
+        setPlayerData({ ...playerData, [e.target.name]: {...playerData[e.target.name], name: e.target.value} })
 
     const handleKeyDown = e => {
         if (e.key === 'Enter') {
@@ -18,7 +18,6 @@ export default function GameConfiguration() {
     const handleBlur = () => {
         // Local Storage save
     }
-
 
     return (
         <C.PageContainer>

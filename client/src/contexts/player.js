@@ -1,8 +1,8 @@
 import { createContext, useState } from "react"
 
-export const GeneralContext = createContext({})
+export const PlayerContext = createContext({})
 
-export const GeneralProvider = ({ children }) => {
+export const PlayerProvider = ({ children }) => {
 
     const [playerData, setPlayerData] = useState({
         player1: {
@@ -52,29 +52,8 @@ export const GeneralProvider = ({ children }) => {
         },
     })
 
-    const [activities, setActivities] = useState({
-        player1:
-            [{ id: 1, name: 'Activity 1' }, { id: 2, name: 'Activity 2' }],
-        player2:
-            [{ id: 1, name: 'Activity 1' }, { id: 2, name: 'Activity 2' }]
-    })
-
-    const [theme, setTheme] = useState({
-        player1:
-            'rose',
-        player2:
-            'cyan'
-    })
-
-    const [playerName, setPlayerName] = useState({
-        player1:
-            'Player 1',
-        player2:
-            'Player 2'
-    })
-
-    const findHighestId = (playerType) => {
-        const playerActivities = activities[playerType]
+    const findHighestId = (player) => {
+        const playerActivities = playerData[player].activities
         let highestId = 0
 
         playerActivities.forEach((activity) => {
@@ -86,20 +65,19 @@ export const GeneralProvider = ({ children }) => {
         return highestId
     }
 
-    const getActivityIndex = (playerType, id) => {
-        const playerActivities = activities[playerType]
+    const getActivityIndex = (player, id) => {
+        const playerActivities = playerData[player].activities
         const index = playerActivities.findIndex((activity) => activity.id === parseInt(id))
         return index !== -1 ? index : null
     }
 
 
     return (
-        <GeneralContext.Provider value={{
-            activities, setActivities,
-            theme, setTheme, playerName, setPlayerName, findHighestId, getActivityIndex,
-            playerData, setPlayerData
+        <PlayerContext.Provider value={{
+            playerData, setPlayerData,
+            findHighestId, getActivityIndex,
         }}>
             {children}
-        </GeneralContext.Provider>
+        </PlayerContext.Provider>
     )
 }
