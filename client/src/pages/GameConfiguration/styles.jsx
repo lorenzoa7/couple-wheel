@@ -91,9 +91,11 @@ export const Activity = tw.div`
     w-11/12 
     rounded 
     flex
+    justify-center
     flex-none
     items-center 
     px-5
+    gap-5
 `
 
 export const AddActivity = tw.button`
@@ -140,4 +142,27 @@ export const ActivityInput = tw.input`
     cursor-pointer
     duration-300
     w-full
+`
+
+export const DeleteActivity = tw.div`
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'bg-cyan-700 hover:bg-cyan-900') ||
+        'bg-rose-700 hover:bg-rose-900'
+    )}
+
+    ${(props) => (
+        (props.$hover === true && 'scale-100') ||
+        'scale-0'
+    )}
+
+    w-8 
+    h-8 
+    rounded
+    flex 
+    items-center 
+    justify-center
+    text-white
+    duration-150
+    cursor-pointer
 `
