@@ -46,7 +46,7 @@ export const Section = tw.section`
 export const PlayerContainer = tw.div`
 
     ${(props) => (
-        (props.color === 'blue' && 'bg-cyan-700') ||
+        (props.theme === 'cyan' && 'bg-cyan-700') ||
         'bg-rose-700'
     )}
 
@@ -63,7 +63,7 @@ export const PlayerContainer = tw.div`
 export const ActivitiesContainer = tw.div`
 
     ${(props) => (
-        (props.color === 'blue' && 'bg-cyan-400 scrollbar-thumb-cyan-900 scrollbar-track-cyan-400') ||
+        (props.theme === 'cyan' && 'bg-cyan-400 scrollbar-thumb-cyan-900 scrollbar-track-cyan-400') ||
         'bg-rose-400 scrollbar-thumb-rose-900 scrollbar-track-rose-400'
     )}
 
@@ -83,7 +83,7 @@ export const ActivitiesContainer = tw.div`
 export const Activity = tw.div`
 
     ${(props) => (
-        (props.color === 'blue' && 'bg-cyan-500 text-black') ||
+        (props.theme === 'cyan' && 'bg-cyan-500 text-black') ||
         'bg-rose-500 text-white'
     )}
 
@@ -99,7 +99,7 @@ export const Activity = tw.div`
 export const AddActivity = tw.button`
 
     ${(props) => (
-        (props.color === 'blue' && 'bg-cyan-500 hover:bg-cyan-600 text-black') ||
+        (props.theme === 'cyan' && 'bg-cyan-500 hover:bg-cyan-600 text-black') ||
         'bg-rose-500 hover:bg-rose-600 text-white'
     )}
 

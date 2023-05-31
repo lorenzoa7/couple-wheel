@@ -1,20 +1,20 @@
-import { useState } from 'react'
 import * as C from '../styles'
+import useGeneral from '../../../hooks/useGeneral'
 
-export default function ActivitiesList() {
+export default function ActivitiesList({player='player1'}) {
 
-    const [activities, setActivities] = useState([{name: 'Activity 1'}, {name: 'Activity 2'}])
+    const { activities, setActivities, theme } = useGeneral()
 
     const addActivity = () => {
-        const newActivity = {name: `Activity ${activities.length + 1}`}
-        setActivities(activities.concat(newActivity))
+        const newActivity = {name: `Activity ${activities[player].length + 1}`}
+        setActivities({...activities, [player]: activities[player].concat(newActivity)})
     }
 
     return (
         <>
-            {activities?.map((activity, index) => <C.Activity key={index}>{activity.name}</C.Activity>)}
+            {activities[player]?.map((activity, index) => <C.Activity theme={theme[player]} key={index}>{activity.name}</C.Activity>)}
 
-            <C.AddActivity onClick={addActivity}>+</C.AddActivity>
+            <C.AddActivity theme={theme[player]} onClick={addActivity}>+</C.AddActivity>
         </>
     )
 }
