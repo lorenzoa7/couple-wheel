@@ -2,24 +2,33 @@ import tw from 'tailwind-styled-components'
 
 
 export const PageContainer = tw.div`
-    flex
-    flex-col
-    justify-center
-    items-center
     h-screen
     w-screen
-    py-5
+`
+
+export const PageContent = tw.div`
+    flex 
+    flex-col
+    h-full
+    items-center
     gap-3
+    pb-5
+    pt-8
 `
 
 export const AppTitle = tw.h1`
+    absolute
+    left-0
+    right-0
+    top-3
+    text-center
     font-['pacifico'] 
     text-4xl 
     text-rose-700
 `
 
 export const Main = tw.main`
-    flex 
+    flex
     p-10 
     gap-10 
     w-3/5 
@@ -27,9 +36,11 @@ export const Main = tw.main`
 `
 
 export const Section = tw.section`
-    w-full 
+    w-1/2
+    h-full
     flex 
     flex-col
+    bg-yellow-300
 `
 
 export const PlayerContainer = tw.div`
@@ -52,8 +63,8 @@ export const PlayerContainer = tw.div`
 export const ActivitiesContainer = tw.div`
 
     ${(props) => (
-        (props.color === 'blue' && 'bg-cyan-400') ||
-        'bg-rose-400'
+        (props.color === 'blue' && 'bg-cyan-400 scrollbar-thumb-cyan-900 scrollbar-track-cyan-400') ||
+        'bg-rose-400 scrollbar-thumb-rose-900 scrollbar-track-rose-400'
     )}
 
     flex
@@ -64,6 +75,9 @@ export const ActivitiesContainer = tw.div`
     pt-2
     rounded-b
     pb-4
+    pl-2
+    overflow-y-scroll
+    scrollbar-thin 
 `
 
 export const Activity = tw.div`
@@ -76,7 +90,8 @@ export const Activity = tw.div`
     h-12 
     w-11/12 
     rounded 
-    flex 
+    flex
+    flex-none
     items-center 
     px-5
 `
@@ -94,6 +109,7 @@ export const AddActivity = tw.button`
     text-3xl
     font-medium
     duration-300
+    flex-none
 `
 
 export const PlayerInput = tw.input`
