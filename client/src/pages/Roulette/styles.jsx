@@ -106,23 +106,25 @@ export const ModalCenter = tw.div`
 export const ModalActivity = tw.div`
 
     ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-700') ||
-        'bg-pink-700'
+        (props.theme === 'cyan' && 'bg-cyan-400') ||
+        'bg-pink-400'
     )}
 
     w-3/4 
     p-3 
     rounded-lg 
-    text-white 
     font-bold 
     flex 
     justify-center 
     items-center
     text-center
+    outline-dashed
+    outline-2
+    outline-black/50
 `
 
 export const AccomplishButton = tw(motion.button)`
-    w-4/6 
+    w-9/12 
     p-2
     rounded-lg 
     text-white
@@ -149,8 +151,8 @@ export const ModalPlayers = tw.div`
 export const ModalPlayerContent = tw.div`
     
     ${(props) => (
-        (props.player === 'player1' && 'rounded-br-xl mb-auto') ||
-        'rounded-tl-xl mt-auto'
+        (props.player === 'player1' && 'rounded-br-xl rounded-tl-xl mb-auto') ||
+        'rounded-tl-xl rounded-br-xl mt-auto'
     )}
 
     ${(props) => (
@@ -160,8 +162,12 @@ export const ModalPlayerContent = tw.div`
 
     flex 
     flex-col 
-    w-32
+    w-2/3
     h-48
+
+    outline-double
+    outline-2
+    outline-black/50
 `
 
 export const ModalPlayerHeader = tw.div`

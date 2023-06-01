@@ -109,7 +109,6 @@ export default function Roulette() {
         convertDataForWheel()
     }, [convertDataForWheel])
 
-
     return (
         <>
             <C.PageContainer>
