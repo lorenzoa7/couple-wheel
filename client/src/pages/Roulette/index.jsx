@@ -94,8 +94,9 @@ export default function Roulette() {
                         outerBorderWidth={3}
                         radiusLineWidth={3}
                         radiusLineColor={'white'}
+                        pointerProps={{style: {visibility: 'hidden'}}}
                     />
-                    <div onClick={handleSpinClick} className='flex items-center justify-center rounded-full cursor-pointer duration-300 bg-blue-600 hover:bg-blue-900 w-16 outline-2 outline-black h-16 absolute z-10'>Spin</div>
+                    <C.SpinButton onClick={handleSpinClick}>Spin</C.SpinButton>
                 </C.Main>
             </C.PageContent>
         </C.PageContainer>
