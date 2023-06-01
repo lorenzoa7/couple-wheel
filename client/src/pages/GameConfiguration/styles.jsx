@@ -40,7 +40,6 @@ export const Section = tw.section`
     h-full
     flex 
     flex-col
-    bg-yellow-300
 `
 
 export const PlayerContainer = tw.div`
