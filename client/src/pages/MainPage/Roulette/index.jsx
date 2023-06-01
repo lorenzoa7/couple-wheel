@@ -1,14 +1,13 @@
 import * as C from './styles'
-import usePlayer from '../../hooks/usePlayer'
+import usePlayer from '../../../hooks/usePlayer'
 import { useState, useEffect, useCallback } from 'react'
 import { Wheel } from 'react-custom-roulette'
-import Modal from '../../components/Modal'
+import Modal from '../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
 
-export default function Roulette() {
+export default function Roulette({mustSpin, setMustSpin}) {
 
     const { playerData, findActivityById } = usePlayer()
-    const [mustSpin, setMustSpin] = useState(false)
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -111,38 +110,33 @@ export default function Roulette() {
 
     return (
         <>
-            <C.PageContainer>
-                <C.AppTitle>Couple Roulette</C.AppTitle>
-                <C.PageContent>
-                    <C.Main>
-                        <Wheel
-                            mustStartSpinning={mustSpin}
-                            prizeNumber={chosenActivity}
-                            data={wheelData}
+            <C.Main>
+                <Wheel
+                    mustStartSpinning={mustSpin}
+                    prizeNumber={chosenActivity}
+                    data={wheelData}
 
-                            onStopSpinning={() => {
-                                setMustSpin(false)
-                                setModalOpen(!modalOpen)
-                            }}
-                            spinDuration={0.3}
-                            outerBorderWidth={3}
-                            radiusLineWidth={3}
-                            radiusLineColor={'white'}
-                            pointerProps={{ style: { visibility: 'hidden' } }}
-                            fontSize={15}
-                            textDistance={60}
-                        />
+                    onStopSpinning={() => {
+                        setMustSpin(false)
+                        setModalOpen(!modalOpen)
+                    }}
+                    spinDuration={0.3}
+                    outerBorderWidth={3}
+                    radiusLineWidth={3}
+                    radiusLineColor={'white'}
+                    pointerProps={{ style: { visibility: 'hidden' } }}
+                    fontSize={15}
+                    textDistance={60}
+                />
 
-                        <C.SpinButton
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={handleSpinClick}
-                        >
-                            Spin
-                        </C.SpinButton>
-                    </C.Main>
-                </C.PageContent>
-            </C.PageContainer>
+                <C.SpinButton
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handleSpinClick}
+                >
+                    Spin
+                </C.SpinButton>
+            </C.Main>
 
             <AnimatePresence
                 initial={false}

@@ -1,5 +1,5 @@
 import * as C from '../styles'
-import usePlayer from '../../../hooks/usePlayer'
+import usePlayer from '../../../../hooks/usePlayer'
 import { AiFillDelete } from 'react-icons/ai'
 import { useState } from 'react'
 
