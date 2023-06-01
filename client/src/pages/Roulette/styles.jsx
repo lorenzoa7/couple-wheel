@@ -105,10 +105,15 @@ export const ModalMain = tw.div`
 `
 
 export const ModalActivity = tw.div`
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'bg-cyan-700') ||
+        'bg-pink-700'
+    )}
+
     w-1/2 
     p-3 
     rounded-lg 
-    bg-rose-600 
     text-white 
     font-bold 
     flex 
@@ -118,8 +123,8 @@ export const ModalActivity = tw.div`
 `
 
 export const AccomplishButton = tw(motion.button)`
-    w-1/4 
-    p-2 
+    w-2/6 
+    p-2
     rounded-lg 
     text-white
     font-medium
@@ -142,22 +147,21 @@ export const ModalPlayers = tw.div`
     gap-10
 `
 
-export const ModalPlayer1 = tw.div`
+export const ModalPlayerContent = tw.div`
+    
+    ${(props) => (
+        (props.player === 'player1' && 'rounded-bl-xl rounded-tr-xl') ||
+        'rounded-br-xl rounded-tl-xl'
+    )}
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'bg-cyan-400') ||
+        'bg-pink-400'
+    )}
+
     flex 
     flex-col 
-    w-full 
-    bg-rose-400 r
-    rounded-bl-xl 
-    rounded-tr-xl
-`
-
-export const ModalPlayer2 = tw.div`
-    flex
-    flex-col
-    w-full 
-    bg-blue-400 
-    rounded-br-xl 
-    rounded-tl-xl
+    w-full
 `
 
 export const ModalPlayerHeader = tw.div`

@@ -11,6 +11,7 @@ export default function Roulette() {
     const [mustSpin, setMustSpin] = useState(false)
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
+    const [hasActivities, setHasActivities] = useState(false)
 
     const [chosenActivity, setChosenActivity] = useState(0)
 
@@ -75,7 +76,33 @@ export default function Roulette() {
             }
         }
 
-        setWheelData(modifiedData)
+        if (modifiedData.length === 0) {
+            const tempData = [
+                {
+                    id: 1,
+                    player: 'player1',
+                    option: 'Create new activities',
+                    style: { backgroundColor: convertThemeToColor(playerData.player1.theme), textColor: 'black' },
+                    optionSize: 10
+                },
+                {
+                    id: 2,
+                    player: 'player2',
+                    option: 'Create new activities',
+                    style: { backgroundColor: convertThemeToColor(playerData.player2.theme), textColor: 'black' },
+                    optionSize: 10
+                }
+            ]
+
+            setHasActivities(false)
+            setWheelData(tempData)
+        }
+
+        else {
+            setHasActivities(true)
+            setWheelData(modifiedData)
+        }
+
     }, [playerData])
 
     useEffect(() => {
@@ -124,13 +151,13 @@ export default function Roulette() {
                 mode='wait'
                 onExitComplete={() => null}
             >
-                {modalOpen &&
+                {modalOpen && hasActivities &&
                     <Modal>
                         <C.ModalContent>
-                            <C.ModalLabel>A atividade sorteada foi:</C.ModalLabel>
+                            <C.ModalLabel>The drawn activity was:</C.ModalLabel>
 
                             <C.ModalMain>
-                                <C.ModalActivity>
+                                <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
                                     {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
                                 </C.ModalActivity>
 
@@ -139,23 +166,23 @@ export default function Roulette() {
                                     whileTap={{ scale: 0.9 }}
                                     onClick={() => setModalOpen(false)}
                                 >
-                                    Realizar
+                                    Accomplish
                                 </C.AccomplishButton>
                             </C.ModalMain>
 
 
                             <C.ModalPlayers>
-                                <C.ModalPlayer1>
-                                    <C.ModalPlayerHeader>
-                                        Lorenzo
+                                <C.ModalPlayerContent player='player1' theme={playerData.player1.theme}>
+                                    <C.ModalPlayerHeader player='player1'>
+                                        {playerData.player1.name}
                                     </C.ModalPlayerHeader>
-                                </C.ModalPlayer1>
+                                </C.ModalPlayerContent>
 
-                                <C.ModalPlayer2>
+                                <C.ModalPlayerContent player='player2' theme={playerData.player2.theme}>
                                     <C.ModalPlayerHeader player='player2'>
-                                        Brenda
+                                        {playerData.player2.name}
                                     </C.ModalPlayerHeader>
-                                </C.ModalPlayer2>
+                                </C.ModalPlayerContent>
                             </C.ModalPlayers>
 
                         </C.ModalContent>
