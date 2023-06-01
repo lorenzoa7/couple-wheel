@@ -1,6 +1,5 @@
 import tw from 'tailwind-styled-components'
 
-
 export const PageContainer = tw.div`
     h-screen
     w-screen
