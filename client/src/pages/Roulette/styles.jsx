@@ -114,23 +114,23 @@ export const ModalActivity = tw.div`
     flex 
     justify-center 
     items-center
+    text-center
 `
 
 export const AccomplishButton = tw(motion.button)`
     w-1/4 
     p-2 
     rounded-lg 
-    bg-zinc-200
-    outline-2 
-    outline-zinc-800 
-    outline 
-    text-black 
+    text-white
+    font-medium
+    bg-rose-600
     flex 
     justify-center 
     items-center
+    uppercase
     duration-300
 
-    hover:bg-zinc-300
+    hover:bg-rose-700
 `
 
 export const ModalPlayers = tw.div`

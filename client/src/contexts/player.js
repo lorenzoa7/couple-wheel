@@ -10,7 +10,7 @@ export const PlayerProvider = ({ children }) => {
         {
             player1: {
                 name: "Player 1",
-                theme: "rose",
+                theme: "pink",
                 coins: 0,
                 activities: [
                     {
@@ -45,7 +45,7 @@ export const PlayerProvider = ({ children }) => {
             {
                 player1: {
                     name: "Player 1",
-                    theme: "rose",
+                    theme: "pink",
                     coins: 0,
                     activities: []
                 },
@@ -77,6 +77,12 @@ export const PlayerProvider = ({ children }) => {
         return index !== -1 ? index : null
     }
 
+    const findActivityById = (player, id) => {
+        const playerActivities = playerData[player].activities
+        console.log(playerActivities)
+        return playerActivities.find(activity => activity.id === id)
+    }
+
     const savePlayerData = useCallback(() => {
         const jsonPlayerData = JSON.stringify(playerData)
 
@@ -89,7 +95,7 @@ export const PlayerProvider = ({ children }) => {
         <PlayerContext.Provider value={{
             playerData, setPlayerData,
             findHighestId, getActivityIndex,
-            savePlayerData,
+            savePlayerData, findActivityById
         }}>
             {children}
         </PlayerContext.Provider>

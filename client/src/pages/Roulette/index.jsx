@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 
 export default function Roulette() {
 
-    const { playerData } = usePlayer()
+    const { playerData, findActivityById } = usePlayer()
     const [mustSpin, setMustSpin] = useState(false)
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
@@ -31,8 +31,8 @@ export default function Roulette() {
 
     const convertThemeToColor = theme => {
         switch (theme) {
-            case 'rose':
-                return '#fb7185'
+            case 'pink':
+                return '#f472b6'
             case 'cyan':
                 return '#22d3ee'
             default:
@@ -45,7 +45,9 @@ export default function Roulette() {
 
         const player1Activities = playerData.player1.activities.map((activity) => {
             return {
-                option: activity.name,
+                id: activity.id,
+                player: 'player1',
+                option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
                 style: { backgroundColor: convertThemeToColor(playerData.player1.theme), textColor: 'black' },
                 optionSize: activity.weight
             }
@@ -53,7 +55,9 @@ export default function Roulette() {
 
         const player2Activities = playerData.player2.activities.map((activity) => {
             return {
-                option: activity.name,
+                id: activity.id,
+                player: 'player2',
+                option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
                 style: { backgroundColor: convertThemeToColor(playerData.player2.theme), textColor: 'black' },
                 optionSize: activity.weight
             }
@@ -101,6 +105,8 @@ export default function Roulette() {
                             radiusLineWidth={3}
                             radiusLineColor={'white'}
                             pointerProps={{ style: { visibility: 'hidden' } }}
+                            fontSize={15}
+                            textDistance={60}
                         />
                         <C.SpinButton
                             whileHover={{ scale: 1.1 }}
@@ -125,7 +131,7 @@ export default function Roulette() {
 
                             <C.ModalMain>
                                 <C.ModalActivity>
-                                    {wheelData[chosenActivity].option}
+                                    {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
                                 </C.ModalActivity>
 
                                 <C.AccomplishButton

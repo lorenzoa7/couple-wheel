@@ -45,7 +45,7 @@ export const PlayerContainer = tw.div`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-700') ||
-        'bg-rose-700'
+        'bg-pink-700'
     )}
 
     p-3 
@@ -62,7 +62,7 @@ export const ActivitiesContainer = tw.div`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-400 scrollbar-thumb-cyan-900 scrollbar-track-cyan-400') ||
-        'bg-rose-400 scrollbar-thumb-rose-900 scrollbar-track-rose-400'
+        'bg-pink-400 scrollbar-thumb-pink-900 scrollbar-track-pink-400'
     )}
 
     flex
@@ -82,7 +82,7 @@ export const Activity = tw.div`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-500 text-black') ||
-        'bg-rose-500 text-white'
+        'bg-pink-500 text-white'
     )}
 
     h-12 
@@ -100,7 +100,7 @@ export const AddActivity = tw.button`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-500 hover:bg-cyan-600 text-black') ||
-        'bg-rose-500 hover:bg-rose-600 text-white'
+        'bg-pink-500 hover:bg-pink-600 text-white'
     )}
 
     w-32
@@ -131,7 +131,7 @@ export const ActivityInput = tw.input`
 
     ${(props) => (
         (props.theme === 'cyan' && 'hover:bg-cyan-50/10') ||
-        'hover:bg-rose-50/10'
+        'hover:bg-pink-50/10'
     )}
 
     bg-transparent 
@@ -146,7 +146,7 @@ export const DeleteActivity = tw.div`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-700 hover:bg-cyan-900') ||
-        'bg-rose-700 hover:bg-rose-900'
+        'bg-pink-700 hover:bg-pink-900'
     )}
 
     ${(props) => (
@@ -169,7 +169,7 @@ export const Label = tw.p`
 
     ${(props) => (
         (props.theme === 'cyan' && 'bg-cyan-700/20 text-black') ||
-        'bg-rose-700/20 text-white'
+        'bg-pink-700/20 text-white'
     )}
 
     text-lg
