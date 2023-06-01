@@ -17,7 +17,7 @@ export default function GameConfiguration() {
 
     return (
         <C.PageContainer>
-            <C.AppTitle>Roleta do Casal</C.AppTitle>
+            <C.AppTitle>Couple Roulette</C.AppTitle>
             <C.PageContent>
                 <C.Main>
                     <C.Section>

@@ -79,12 +79,10 @@ export const SpinButton = tw(motion.button)`
 `
 
 export const ModalContent = tw.div`
-    flex 
-    flex-col 
+    flex  
     items-center 
     w-full 
     h-full 
-    mt-10 
     gap-3
 `
 
@@ -92,9 +90,10 @@ export const ModalLabel = tw.p`
     text-xl 
     font-bold 
     uppercase
+    text-center
 `   
 
-export const ModalMain = tw.div`
+export const ModalCenter = tw.div`
     w-full 
     h-full 
     flex 
@@ -111,7 +110,7 @@ export const ModalActivity = tw.div`
         'bg-pink-700'
     )}
 
-    w-1/2 
+    w-3/4 
     p-3 
     rounded-lg 
     text-white 
@@ -123,7 +122,7 @@ export const ModalActivity = tw.div`
 `
 
 export const AccomplishButton = tw(motion.button)`
-    w-2/6 
+    w-4/6 
     p-2
     rounded-lg 
     text-white
@@ -150,8 +149,8 @@ export const ModalPlayers = tw.div`
 export const ModalPlayerContent = tw.div`
     
     ${(props) => (
-        (props.player === 'player1' && 'rounded-bl-xl rounded-tr-xl') ||
-        'rounded-br-xl rounded-tl-xl'
+        (props.player === 'player1' && 'rounded-br-xl mb-auto') ||
+        'rounded-tl-xl mt-auto'
     )}
 
     ${(props) => (
@@ -161,7 +160,8 @@ export const ModalPlayerContent = tw.div`
 
     flex 
     flex-col 
-    w-full
+    w-32
+    h-48
 `
 
 export const ModalPlayerHeader = tw.div`
@@ -174,4 +174,15 @@ export const ModalPlayerHeader = tw.div`
     font-bold 
     p-3 
     uppercase
+`
+
+export const ModalMain = tw.div`
+    flex 
+    h-full 
+    w-full 
+    items-center 
+    justify-center 
+    flex-col 
+    p-3 
+    mt-10
 `

@@ -113,7 +113,7 @@ export default function Roulette() {
     return (
         <>
             <C.PageContainer>
-                <C.AppTitle>Roleta do Casal</C.AppTitle>
+                <C.AppTitle>Couple Roulette</C.AppTitle>
                 <C.PageContent>
                     <C.Main>
                         <Wheel
@@ -133,7 +133,7 @@ export default function Roulette() {
                             fontSize={15}
                             textDistance={60}
                         />
-                        
+
                         <C.SpinButton
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -153,36 +153,36 @@ export default function Roulette() {
                 {modalOpen && hasActivities &&
                     <Modal>
                         <C.ModalContent>
-                            <C.ModalLabel>The drawn activity was:</C.ModalLabel>
+
+                            <C.ModalPlayerContent player='player1' theme={playerData.player1.theme}>
+                                <C.ModalPlayerHeader player='player1'>
+                                    {playerData.player1.name}
+                                </C.ModalPlayerHeader>
+                            </C.ModalPlayerContent>
 
                             <C.ModalMain>
-                                <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
-                                    {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
-                                </C.ModalActivity>
+                                <C.ModalLabel>The drawn activity was:</C.ModalLabel>
 
-                                <C.AccomplishButton
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    onClick={() => setModalOpen(false)}
-                                >
-                                    Accomplish
-                                </C.AccomplishButton>
+                                <C.ModalCenter>
+                                    <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
+                                        {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
+                                    </C.ModalActivity>
+
+                                    <C.AccomplishButton
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.9 }}
+                                        onClick={() => setModalOpen(false)}
+                                    >
+                                        Accomplish
+                                    </C.AccomplishButton>
+                                </C.ModalCenter>
                             </C.ModalMain>
 
-
-                            <C.ModalPlayers>
-                                <C.ModalPlayerContent player='player1' theme={playerData.player1.theme}>
-                                    <C.ModalPlayerHeader player='player1'>
-                                        {playerData.player1.name}
-                                    </C.ModalPlayerHeader>
-                                </C.ModalPlayerContent>
-
-                                <C.ModalPlayerContent player='player2' theme={playerData.player2.theme}>
-                                    <C.ModalPlayerHeader player='player2'>
-                                        {playerData.player2.name}
-                                    </C.ModalPlayerHeader>
-                                </C.ModalPlayerContent>
-                            </C.ModalPlayers>
+                            <C.ModalPlayerContent player='player2' theme={playerData.player2.theme}>
+                                <C.ModalPlayerHeader player='player2'>
+                                    {playerData.player2.name}
+                                </C.ModalPlayerHeader>
+                            </C.ModalPlayerContent>
 
                         </C.ModalContent>
 
