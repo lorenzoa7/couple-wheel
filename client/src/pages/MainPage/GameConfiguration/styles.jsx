@@ -27,15 +27,21 @@ export const AppTitle = tw.h1`
 `
 
 export const Main = tw.main`
+    ${(props) => (
+        (props.$spinning === true && 'pointer-events-none contrast-75') ||
+        'pointer-events-auto'
+    )}
+
     flex
     p-10 
     gap-10 
-    w-3/5 
-    h-full
+    w-[600px]
+    h-4/5
+    duration-300
 `
 
 export const Section = tw.section`
-    w-1/2
+    w-full
     h-full
     flex 
     flex-col
