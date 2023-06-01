@@ -46,6 +46,7 @@ export default function ActivitiesList({ player = 'player1' }) {
 
     return (
         <>
+            <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>+</C.AddActivity>
             {playerData[player].activities.length === 0 ? (
                 <C.Label theme={playerData[player].theme}>Click the button below to create a new activity</C.Label>
             ) : (
@@ -67,8 +68,6 @@ export default function ActivitiesList({ player = 'player1' }) {
                     </C.Activity>
                 ))
             }
-
-            <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>+</C.AddActivity>
         </>
     )
 }

@@ -31,6 +31,7 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                 <C.ActivitiesContainer theme={playerData[player].theme}>
                     <ActivitiesList player={player} />
                 </C.ActivitiesContainer>
+
             </C.Section>
         </C.Main>
     )
