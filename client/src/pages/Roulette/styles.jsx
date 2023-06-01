@@ -20,10 +20,10 @@ export const PageContent = tw.div`
 
 export const AppTitle = tw.h1`
     absolute
-    left-0
+    left-5
     right-0
     top-3
-    text-center
+    text-left
     font-['pacifico'] 
     text-4xl 
     text-rose-700

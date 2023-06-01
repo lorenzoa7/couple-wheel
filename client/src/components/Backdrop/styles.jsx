@@ -5,8 +5,8 @@ export const Backdrop = tw(motion.div)`
     absolute
     top-0
     left-0
-    h-full
-    w-full
+    h-screen
+    w-screen
     bg-black/50
     flex
     items-center

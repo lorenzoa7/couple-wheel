@@ -112,8 +112,6 @@ export default function Roulette() {
 
     return (
         <>
-
-
             <C.PageContainer>
                 <C.AppTitle>Roleta do Casal</C.AppTitle>
                 <C.PageContent>
