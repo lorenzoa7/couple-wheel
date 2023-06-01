@@ -55,9 +55,10 @@ export const PlayerContainer = tw.div`
     )}
 
     p-3 
+    px-5
     flex 
     items-center 
-    justify-center 
+    justify-between 
     text-lg 
     font-medium 
     text-white
@@ -126,7 +127,6 @@ export const PlayerInput = tw.input`
     text-lg 
     font-medium 
     text-white 
-    text-center
     cursor-pointer
     duration-300
 
@@ -184,4 +184,26 @@ export const Label = tw.p`
     rounded
     flex
     items-center
+`
+
+export const ThemeButton = tw.div`
+
+    ${(props) => (
+        (props.theme === 'cyan' && 'bg-cyan-300 hover:bg-cyan-400') ||
+        'bg-pink-300 hover:bg-pink-400'
+    )}
+
+    text-black
+    flex
+    items-center
+    justify-center
+    h-full 
+    text-sm
+    px-3
+    rounded
+    cursor-pointer
+    outline
+    outline-2
+    outline-white/75
+    duration-300
 `

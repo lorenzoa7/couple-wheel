@@ -26,6 +26,10 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         onKeyDown={handleKeyDown}
                         onClick={e => e.target.select()}
                     />
+
+                    <C.ThemeButton theme={playerData[player].theme}>
+                        Theme
+                    </C.ThemeButton>
                 </C.PlayerContainer>
 
                 <C.ActivitiesContainer theme={playerData[player].theme}>
