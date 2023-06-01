@@ -37,10 +37,10 @@ export const Main = tw.main`
     w-[600px]
     h-[600px]
 
-    [&>*:first-child]:max-h-[unset]
-    [&>*:first-child]:max-w-[unset]
-    [&>*:first-child]:w-full
-    [&>*:first-child]:h-full
+    [&>div:first-child]:max-h-[unset]
+    [&>div:first-child]:max-w-[unset]
+    [&>div:first-child]:w-full
+    [&>div:first-child]:h-full
 `
 
 export const SpinButton = tw(motion.button)`

@@ -133,6 +133,7 @@ export default function Roulette() {
                             fontSize={15}
                             textDistance={60}
                         />
+                        
                         <C.SpinButton
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
