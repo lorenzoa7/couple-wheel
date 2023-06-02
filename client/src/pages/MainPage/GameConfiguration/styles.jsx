@@ -186,6 +186,11 @@ export const Label = tw.p`
     items-center
 `
 
+export const ThemeContainer = tw.div`
+    h-full
+    relative
+`
+
 export const ThemeButton = tw.div`
 
     ${(props) => (
@@ -198,6 +203,7 @@ export const ThemeButton = tw.div`
     items-center
     justify-center
     h-full 
+    w-16
     text-sm
     px-3
     rounded
@@ -206,4 +212,24 @@ export const ThemeButton = tw.div`
     outline-2
     outline-white/75
     duration-300
+
+    after:content-['Theme']
+    after:absolute
+`
+
+export const ThemeContent = tw.div`
+
+    ${(props) => (
+        (props.$open === true && 'scale-100') ||
+        'scale-0'
+    )}
+
+    h-48 
+    w-48 
+    absolute 
+    bg-yellow-400 
+    z-30 
+    duration-150
+    -bottom-52 
+    -left-14
 `

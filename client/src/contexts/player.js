@@ -79,7 +79,6 @@ export const PlayerProvider = ({ children }) => {
 
     const findActivityById = (player, id) => {
         const playerActivities = playerData[player].activities
-        console.log(playerActivities)
         return playerActivities.find(activity => activity.id === id)
     }
 

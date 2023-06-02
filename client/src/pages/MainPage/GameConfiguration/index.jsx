@@ -1,10 +1,13 @@
 import * as C from './styles'
 import ActivitiesList from './ActivitiesList'
 import usePlayer from '../../../hooks/usePlayer'
+import { useEffect, useState } from 'react'
 
 export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
     const { playerData, setPlayerData } = usePlayer()
+
+    const [openTheme, setOpenTheme] = useState({ player1: false, player2: false })
 
     const handleChangeName = e =>
         setPlayerData({ ...playerData, [e.target.name]: { ...playerData[e.target.name], name: e.target.value } })
@@ -14,6 +17,10 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
             e.target.blur()
         }
     }
+
+    useEffect(() => {
+        console.log(openTheme)
+    }, [openTheme])
 
     return (
         <C.Main $spinning={mustSpin}>
@@ -27,9 +34,16 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         onClick={e => e.target.select()}
                     />
 
-                    <C.ThemeButton theme={playerData[player].theme}>
-                        Theme
-                    </C.ThemeButton>
+                    <C.ThemeContainer>
+                        <C.ThemeButton
+                            theme={playerData[player].theme}
+                            onClick={() => setOpenTheme({ ...openTheme, [player]: !openTheme[player] })}
+                        />
+
+                        <C.ThemeContent $open={openTheme[player]}>
+
+                        </C.ThemeContent>
+                    </C.ThemeContainer>
                 </C.PlayerContainer>
 
                 <C.ActivitiesContainer theme={playerData[player].theme}>

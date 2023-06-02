@@ -17,7 +17,6 @@ export default function Roulette({mustSpin, setMustSpin}) {
     const getRandomInt = (min, max) => {
         min = Math.ceil(min)
         max = Math.floor(max)
-        console.log(min, max)
         return Math.floor(Math.random() * (max - min) + min)
     }
 
