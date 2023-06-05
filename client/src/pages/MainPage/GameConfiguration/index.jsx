@@ -1,11 +1,11 @@
 import * as C from './styles'
 import ActivitiesList from './ActivitiesList'
 import usePlayer from '../../../hooks/usePlayer'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
-    const { playerData, setPlayerData } = usePlayer()
+    const { playerData, setPlayerData, themes } = usePlayer()
 
     const [openTheme, setOpenTheme] = useState({ player1: false, player2: false })
 
@@ -18,9 +18,11 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
         }
     }
 
-    useEffect(() => {
-        console.log(openTheme)
-    }, [openTheme])
+    const isThisThemeFromOtherPlayer = (player, theme) => {
+        const otherPlayer = player === 'player1' ? 'player2' : 'player1'
+        console.log(playerData[otherPlayer].theme === theme)
+        return playerData[otherPlayer].theme === theme
+    }
 
     return (
         <C.Main $spinning={mustSpin}>
@@ -41,7 +43,15 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         />
 
                         <C.ThemeContent $open={openTheme[player]}>
-
+                            {themes['name'].map((theme, index) =>
+                                <C.ThemeBox
+                                    $selected={playerData[player].theme === theme}
+                                    $is_disabled={isThisThemeFromOtherPlayer(player, theme)}
+                                    theme={theme}
+                                    key={index}
+                                    onClick={!isThisThemeFromOtherPlayer(player, theme) ? () => setPlayerData({ ...playerData, [player]: { ...playerData[player], theme: theme } }): null}
+                                />
+                            )}
                         </C.ThemeContent>
                     </C.ThemeContainer>
                 </C.PlayerContainer>

@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 
 export default function Roulette({mustSpin, setMustSpin}) {
 
-    const { playerData, findActivityById } = usePlayer()
+    const { playerData, findActivityById, themes } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -29,14 +29,8 @@ export default function Roulette({mustSpin, setMustSpin}) {
     }
 
     const convertThemeToColor = theme => {
-        switch (theme) {
-            case 'pink':
-                return '#f472b6'
-            case 'cyan':
-                return '#22d3ee'
-            default:
-                return '#fb7185'
-        }
+        const index = themes['name'].indexOf(theme)
+        return themes['hex'][index]
     }
 
     const convertDataForWheel = useCallback(() => {

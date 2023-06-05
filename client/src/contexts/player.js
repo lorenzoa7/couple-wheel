@@ -24,7 +24,7 @@ export const PlayerProvider = ({ children }) => {
             
             player2: {
                 name: "Player 2",
-                theme: "cyan",
+                theme: "blue",
                 coins: 0,
                 activities: [
                     {
@@ -52,7 +52,7 @@ export const PlayerProvider = ({ children }) => {
 
                 player2: {
                     name: "Player 2",
-                    theme: "cyan",
+                    theme: "blue",
                     coins: 0,
                     activities: []
                 },
@@ -88,13 +88,26 @@ export const PlayerProvider = ({ children }) => {
         localStorage.setItem('playerData', jsonPlayerData)
     }, [playerData])
 
+    const themes = {
+        name: [
+            'blue', 'green', 'lime',
+            'orange', 'pink', 'purple',
+            'red', 'teal', 'yellow'
+        ],
+        hex: [
+            '#60a5fa', '#4ade80', '#a3e635',
+            '#fb923c', '#f472b6', '#c084fc',
+            '#f87171', '#2dd4bf', '#facc15'
+        ]
+    }
+
     useEffect(() => savePlayerData(), [savePlayerData])
 
     return (
         <PlayerContext.Provider value={{
             playerData, setPlayerData,
             findHighestId, getActivityIndex,
-            savePlayerData, findActivityById
+            savePlayerData, findActivityById, themes
         }}>
             {children}
         </PlayerContext.Provider>
