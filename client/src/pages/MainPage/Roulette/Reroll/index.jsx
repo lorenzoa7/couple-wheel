@@ -1,13 +1,13 @@
 import * as C from './styles'
 import usePlayer from '../../../../hooks/usePlayer'
 
-export default function Reroll({ cost = 2, paidCoinsOrder = [], setPaidCoinsOrder = null }) {
+export default function Reroll({ cost = 2, paidCoinsOrder = [], setPaidCoinsOrder = null, retrieveCoin = null }) {
 
     const { playerData } = usePlayer()
 
     const range = (start, end) => {
         return Array.from({
-            length: end - start + 1
+            length: end - start
         }, (_, index) => index)
     }
 
@@ -15,6 +15,7 @@ export default function Reroll({ cost = 2, paidCoinsOrder = [], setPaidCoinsOrde
         setPaidCoinsOrder(paidCoinsOrder => {
             return paidCoinsOrder.filter((_, i) => i !== index)
         })
+        retrieveCoin(paidCoinsOrder[index])
     }
 
     return (

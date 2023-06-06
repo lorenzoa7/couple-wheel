@@ -16,6 +16,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const [coins, setCoins] = useState({ player1: 0, player2: 0 })
     const [paidCoins, setPaidCoins] = useState({ player1: 0, player2: 0 })
     const [paidCoinsOrder, setPaidCoinsOrder] = useState([])
+    const [isReroll, setIsReroll] = useState(false)
 
     const [chosenActivity, setChosenActivity] = useState(0)
 
@@ -98,9 +99,14 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }, [playerData, themes])
 
     const payCoin = player => {
-        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
         setCoins({ ...coins, [player]: coins[player] - 1 })
+        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
         setPaidCoinsOrder(paidCoinsOrder.concat(player))
+    }
+
+    const retrieveCoin = player => {
+        setCoins({ ...coins, [player]: coins[player] + 1 })
+        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - 1 })
     }
 
     useEffect(() => {
@@ -110,6 +116,17 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     useEffect(() => {
         setCoins({ player1: playerData.player1.coins, player2: playerData.player2.coins })
     }, [playerData])
+
+    useEffect(() => {
+        if (modalOpen) {
+            if (paidCoinsOrder.length < findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost) {
+                setIsReroll(false)
+            }
+            else {
+                setIsReroll(true)
+            }
+        }
+    }, [modalOpen, paidCoinsOrder, chosenActivity, findActivityById, wheelData])
 
     return (
         <>
@@ -167,7 +184,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     <C.RerollButton
                                         player='player1'
                                         theme={playerData.player1.theme}
-                                        onClick={() => payCoin('player1')}>
+                                        onClick={!isReroll ? () => payCoin('player1') : null}>
                                         <VscDebugRestart size={'75%'} />
                                     </C.RerollButton>
                                 </C.SkillsContainer>
@@ -183,17 +200,20 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     </C.ModalActivity>
 
                                     <Reroll
-                                        cost={findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost} 
+                                        cost={findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost}
                                         paidCoinsOrder={paidCoinsOrder}
                                         setPaidCoinsOrder={setPaidCoinsOrder}
-                                        />
+                                        retrieveCoin={retrieveCoin}
+                                    />
 
                                     <C.AccomplishButton
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
                                         onClick={() => setModalOpen(false)}
                                     >
-                                        Accomplish
+                                        {
+                                            isReroll ? 'Reroll' : 'Accomplish'
+                                        }
                                     </C.AccomplishButton>
 
                                 </C.ModalCenter>
@@ -214,7 +234,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     <C.RerollButton
                                         player='player2'
                                         theme={playerData.player2.theme}
-                                        onClick={() => payCoin('player2')}>
+                                        onClick={!isReroll ? () => payCoin('player2') : null}>
                                         <VscDebugRestart size={'75%'} />
                                     </C.RerollButton>
                                 </C.SkillsContainer>

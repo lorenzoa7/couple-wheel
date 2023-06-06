@@ -33,7 +33,7 @@ export default function ActivitiesList({ player = 'player1' }) {
     }
 
     const addActivity = () => {
-        const newActivity = { id: findHighestId(player) + 1, name: `Activity ${playerData[player].activities.length + 1}`, reroll_cost: 1, weight: 10 }
+        const newActivity = { id: findHighestId(player) + 1, name: `Activity ${playerData[player].activities.length + 1}`, reroll_cost: 2, weight: 10 }
         setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: playerData[player].activities.concat(newActivity) } })
     }
 
