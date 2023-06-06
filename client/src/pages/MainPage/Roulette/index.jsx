@@ -4,8 +4,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { Wheel } from 'react-custom-roulette'
 import Modal from '../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
+import Reroll from './Reroll'
 
-export default function Roulette({mustSpin, setMustSpin}) {
+export default function Roulette({ mustSpin, setMustSpin }) {
 
     const { playerData, findActivityById, themes } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
@@ -149,6 +150,8 @@ export default function Roulette({mustSpin, setMustSpin}) {
                                         {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
                                     </C.ModalActivity>
 
+                                    <Reroll />
+
                                     <C.AccomplishButton
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
@@ -156,6 +159,7 @@ export default function Roulette({mustSpin, setMustSpin}) {
                                     >
                                         Accomplish
                                     </C.AccomplishButton>
+
                                 </C.ModalCenter>
                             </C.ModalMain>
 
