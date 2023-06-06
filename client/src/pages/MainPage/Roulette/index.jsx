@@ -9,7 +9,7 @@ import { VscDebugRestart } from 'react-icons/vsc'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
-    const { playerData, findActivityById, themes } = usePlayer()
+    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -107,6 +107,32 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const retrieveCoin = player => {
         setCoins({ ...coins, [player]: coins[player] + 1 })
         setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - 1 })
+    }
+
+    const reroll = () => {
+        const updatedPlayerData = { ...playerData }
+        const player = wheelData[chosenActivity].player
+        const { activities } = updatedPlayerData[player]
+        const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
+
+        if (activities[index]) {
+            activities[index] = {
+                ...activities[index],
+                reroll_cost: activities[index].reroll_cost + 1
+            }
+        }
+
+        updatedPlayerData['player1'] = {...updatedPlayerData['player1'], coins: coins.player1}
+        updatedPlayerData['player2'] = {...updatedPlayerData['player2'], coins: coins.player2}
+
+
+        setPlayerData(updatedPlayerData)
+        setModalOpen(false)
+        handleSpinClick()
+    }
+
+    const accomplish = () => {
+        setModalOpen(false)
     }
 
     useEffect(() => {
@@ -209,7 +235,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     <C.AccomplishButton
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.9 }}
-                                        onClick={() => setModalOpen(false)}
+                                        onClick={isReroll ? () => reroll() : () => accomplish()}
                                     >
                                         {
                                             isReroll ? 'Reroll' : 'Accomplish'

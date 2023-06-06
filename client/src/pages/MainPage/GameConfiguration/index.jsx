@@ -49,6 +49,7 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         onKeyDown={handleKeyDown}
                         onClick={e => e.target.select()}
                     />
+                    <p>{playerData[player].coins}</p>
 
                     <C.ThemeContainer>
                         <C.ThemeButton
