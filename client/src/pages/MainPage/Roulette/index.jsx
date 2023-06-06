@@ -15,6 +15,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const [hasActivities, setHasActivities] = useState(false)
     const [coins, setCoins] = useState({ player1: 0, player2: 0 })
     const [paidCoins, setPaidCoins] = useState({ player1: 0, player2: 0 })
+    const [paidCoinsOrder, setPaidCoinsOrder] = useState([])
 
     const [chosenActivity, setChosenActivity] = useState(0)
 
@@ -96,6 +97,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
     }, [playerData, themes])
 
+    const payCoin = player => {
+        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
+        setCoins({ ...coins, [player]: coins[player] - 1 })
+        setPaidCoinsOrder(paidCoinsOrder.concat(player))
+    }
+
     useEffect(() => {
         convertDataForWheel()
     }, [convertDataForWheel])
@@ -115,6 +122,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                     onStopSpinning={() => {
                         setMustSpin(false)
                         setPaidCoins({ player1: 0, player2: 0 })
+                        setPaidCoinsOrder([])
                         setModalOpen(!modalOpen)
                     }}
                     spinDuration={0.3}
@@ -159,7 +167,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     <C.RerollButton
                                         player='player1'
                                         theme={playerData.player1.theme}
-                                        onClick={() => setPaidCoins({ ...paidCoins, player1: paidCoins['player1'] + 1 })}>
+                                        onClick={() => payCoin('player1')}>
                                         <VscDebugRestart size={'75%'} />
                                     </C.RerollButton>
                                 </C.SkillsContainer>
@@ -174,7 +182,11 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                         {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
                                     </C.ModalActivity>
 
-                                    <Reroll cost={findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost} />
+                                    <Reroll
+                                        cost={findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost} 
+                                        paidCoinsOrder={paidCoinsOrder}
+                                        setPaidCoinsOrder={setPaidCoinsOrder}
+                                        />
 
                                     <C.AccomplishButton
                                         whileHover={{ scale: 1.1 }}
@@ -202,7 +214,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     <C.RerollButton
                                         player='player2'
                                         theme={playerData.player2.theme}
-                                        onClick={() => setPaidCoins({ ...paidCoins, player2: paidCoins['player2'] + 1 })}>
+                                        onClick={() => payCoin('player2')}>
                                         <VscDebugRestart size={'75%'} />
                                     </C.RerollButton>
                                 </C.SkillsContainer>
