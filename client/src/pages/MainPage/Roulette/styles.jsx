@@ -1,6 +1,12 @@
 import tw from 'tailwind-styled-components'
 import { motion } from 'framer-motion'
 
+const getThemeConfiguration = ({ theme = 'pink', intensity = 300, hover = false, hoverSteps = 1, scrollbar = false }) => {
+    if (hover) return `bg-${theme}-${intensity} hover:bg-${theme}-${intensity + hoverSteps * 100}`
+    if (scrollbar) return `bg-${theme}-${intensity} scrollbar-thumb-${theme}-900 scrollbar-track-${theme}-400`
+
+    return `bg-${theme}-${intensity}`
+}
 
 export const PageContainer = tw.div`
     h-screen
@@ -105,10 +111,9 @@ export const ModalCenter = tw.div`
 
 export const ModalActivity = tw.div`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-400') ||
-        'bg-pink-400'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 400 })
+    }}
 
     w-3/4 
     p-3 
@@ -155,10 +160,9 @@ export const ModalPlayerContent = tw.div`
         'rounded-tl-xl rounded-br-xl mt-auto'
     )}
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-400') ||
-        'bg-pink-400'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 400 })
+    }}
 
     flex 
     flex-col 

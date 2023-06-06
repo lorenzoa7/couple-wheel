@@ -1,5 +1,15 @@
 import tw from 'tailwind-styled-components'
 
+const getThemeConfiguration = ({ theme = 'pink', intensity = 300, hover = false, hoverSteps = 1, scrollbar = false, type = 'bg' }) => {
+    if (type === 'bg') {
+        if (hover) return `bg-${theme}-${intensity} hover:bg-${theme}-${intensity + hoverSteps * 100}`
+        if (scrollbar) return `bg-${theme}-${intensity} scrollbar-thumb-${theme}-900 scrollbar-track-${theme}-400`
+        return `bg-${theme}-${intensity}`
+    }
+
+    return `text-${theme}-${intensity}`
+}
+
 export const PageContainer = tw.div`
     h-screen
     w-screen
@@ -49,15 +59,15 @@ export const Section = tw.section`
 
 export const PlayerContainer = tw.div`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-700') ||
-        'bg-pink-700'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 700 })
+    }}
 
     p-3 
+    px-5
     flex 
     items-center 
-    justify-center 
+    justify-between 
     text-lg 
     font-medium 
     text-white
@@ -66,10 +76,9 @@ export const PlayerContainer = tw.div`
 
 export const ActivitiesContainer = tw.div`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-400 scrollbar-thumb-cyan-900 scrollbar-track-cyan-400') ||
-        'bg-pink-400 scrollbar-thumb-pink-900 scrollbar-track-pink-400'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 400, scrollbar: true })
+    }}
 
     flex
     flex-col
@@ -86,10 +95,9 @@ export const ActivitiesContainer = tw.div`
 
 export const Activity = tw.div`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-500 text-black') ||
-        'bg-pink-500 text-white'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 600 })
+    }}
 
     h-12 
     w-11/12 
@@ -100,14 +108,15 @@ export const Activity = tw.div`
     items-center 
     px-5
     gap-5
+    text-white
+    font-medium
 `
 
 export const AddActivity = tw.button`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-500 hover:bg-cyan-600 text-black') ||
-        'bg-pink-500 hover:bg-pink-600 text-white'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 600, hover: true })
+    }}
 
     w-32
     h-12
@@ -116,6 +125,7 @@ export const AddActivity = tw.button`
     font-medium
     duration-300
     flex-none
+    text-white
 `
 
 export const PlayerInput = tw.input`
@@ -126,34 +136,31 @@ export const PlayerInput = tw.input`
     text-lg 
     font-medium 
     text-white 
-    text-center
     cursor-pointer
     duration-300
+    px-2
 
     hover:bg-rose-50/10
 `
 
 export const ActivityInput = tw.input`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'hover:bg-cyan-50/10') ||
-        'hover:bg-pink-50/10'
-    )}
-
     bg-transparent 
-    border-none 
+    border-none
     outline-none 
     cursor-pointer
     duration-300
     w-full
+    px-2
+
+    hover:bg-rose-50/10
 `
 
 export const DeleteActivity = tw.div`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-700 hover:bg-cyan-900') ||
-        'bg-pink-700 hover:bg-pink-900'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 700, hover: true, hoverSteps: 2 })
+    }}
 
     ${(props) => (
         (props.$hover === true && 'scale-100') ||
@@ -173,10 +180,9 @@ export const DeleteActivity = tw.div`
 
 export const Label = tw.p`
 
-    ${(props) => (
-        (props.theme === 'cyan' && 'bg-cyan-700/20 text-black') ||
-        'bg-pink-700/20 text-white'
-    )}
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: '700/20' })
+    }}
 
     text-lg
     p-3
@@ -184,4 +190,100 @@ export const Label = tw.p`
     rounded
     flex
     items-center
+    text-white
+`
+
+export const ThemeContainer = tw.div`
+    h-full
+    relative
+`
+
+export const ThemeButton = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 300, hover: true })
+    }}
+
+    text-black
+    flex
+    items-center
+    justify-center
+    h-full 
+    w-16
+    text-sm
+    px-3
+    rounded
+    cursor-pointer
+    outline
+    outline-2
+    outline-white/75
+    duration-300
+
+    after:content-['Theme']
+    after:absolute
+`
+
+export const ThemeContent = tw.div`
+
+    ${(props) => (
+        (props.$open === true && 'scale-100') ||
+        'scale-0'
+    )}
+
+    flex
+    flex-col
+    justify-center
+    items-center
+    h-48
+    w-48
+    p-2
+    absolute 
+    bg-white/90
+    rounded-lg
+    outline
+    outline-2
+    outline-black/90
+    z-30 
+    duration-150
+    origin-top
+    top-36
+    left-1/2
+    shadow-2xl
+    -translate-x-1/2
+    -translate-y-1/2
+`
+
+export const ThemeColors = tw.div`
+    flex
+    flex-wrap
+    gap-x-3
+    h-full
+    w-full
+    p-1
+`
+
+export const ThemeName = tw.p`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, type: 'text', intensity: 700})
+    }}
+
+    text-base
+`
+
+export const ThemeBox = tw.div`
+
+    cursor-pointer
+
+    ${(props) => (
+        (props.$selected === true && `${getThemeConfiguration({ theme: props.theme, intensity: 500 })} outline outline-2 outline-rose-900`) ||
+        (props.$is_disabled === true && `${getThemeConfiguration({ theme: props.theme, intensity: 500 })} outline-dashed outline-2 outline-rose-900 cursor-not-allowed`) ||
+        getThemeConfiguration({ theme: props.theme, intensity: 300, hover: true, hoverSteps: 2 })
+    )}
+
+    w-12
+    h-10
+    duration-300
+    transition-colors
+    rounded
 `

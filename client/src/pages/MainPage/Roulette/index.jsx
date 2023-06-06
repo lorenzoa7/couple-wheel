@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 
 export default function Roulette({mustSpin, setMustSpin}) {
 
-    const { playerData, findActivityById } = usePlayer()
+    const { playerData, findActivityById, themes } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -17,7 +17,6 @@ export default function Roulette({mustSpin, setMustSpin}) {
     const getRandomInt = (min, max) => {
         min = Math.ceil(min)
         max = Math.floor(max)
-        console.log(min, max)
         return Math.floor(Math.random() * (max - min) + min)
     }
 
@@ -29,17 +28,6 @@ export default function Roulette({mustSpin, setMustSpin}) {
         }
     }
 
-    const convertThemeToColor = theme => {
-        switch (theme) {
-            case 'pink':
-                return '#f472b6'
-            case 'cyan':
-                return '#22d3ee'
-            default:
-                return '#fb7185'
-        }
-    }
-
     const convertDataForWheel = useCallback(() => {
         const modifiedData = []
 
@@ -48,7 +36,7 @@ export default function Roulette({mustSpin, setMustSpin}) {
                 id: activity.id,
                 player: 'player1',
                 option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
-                style: { backgroundColor: convertThemeToColor(playerData.player1.theme), textColor: 'black' },
+                style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player1.theme)], textColor: 'black' },
                 optionSize: activity.weight
             }
         })
@@ -58,7 +46,7 @@ export default function Roulette({mustSpin, setMustSpin}) {
                 id: activity.id,
                 player: 'player2',
                 option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
-                style: { backgroundColor: convertThemeToColor(playerData.player2.theme), textColor: 'black' },
+                style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player2.theme)], textColor: 'black' },
                 optionSize: activity.weight
             }
         })
@@ -81,14 +69,14 @@ export default function Roulette({mustSpin, setMustSpin}) {
                     id: 1,
                     player: 'player1',
                     option: 'Create new activities',
-                    style: { backgroundColor: convertThemeToColor(playerData.player1.theme), textColor: 'black' },
+                    style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player1.theme)], textColor: 'black' },
                     optionSize: 10
                 },
                 {
                     id: 2,
                     player: 'player2',
                     option: 'Create new activities',
-                    style: { backgroundColor: convertThemeToColor(playerData.player2.theme), textColor: 'black' },
+                    style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player2.theme)], textColor: 'black' },
                     optionSize: 10
                 }
             ]
@@ -102,7 +90,7 @@ export default function Roulette({mustSpin, setMustSpin}) {
             setWheelData(modifiedData)
         }
 
-    }, [playerData])
+    }, [playerData, themes])
 
     useEffect(() => {
         convertDataForWheel()
