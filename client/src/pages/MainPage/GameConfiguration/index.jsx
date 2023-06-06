@@ -7,9 +7,9 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
     const { playerData, setPlayerData, themes } = usePlayer()
 
-    const [openTheme, setOpenTheme] = useState({ player1: false, player2: false })
+    const [openTheme, setOpenTheme] = useState(false)
 
-    const themeContentRef = useRef()
+    const themeContainerRef = useRef()
 
     const handleChangeName = e =>
         setPlayerData({ ...playerData, [e.target.name]: { ...playerData[e.target.name], name: e.target.value } })
@@ -27,8 +27,8 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
     useEffect(() => {
         let handler = e => {
-            if (!themeContentRef.current.contains(e.target))
-                setOpenTheme({ ...openTheme, [player]: false })
+            if (!themeContainerRef.current.contains(e.target))
+                setOpenTheme(false)
         }
 
         document.addEventListener('mousedown', handler)
@@ -49,15 +49,19 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         onKeyDown={handleKeyDown}
                         onClick={e => e.target.select()}
                     />
-                    <p>{playerData[player].coins}</p>
 
-                    <C.ThemeContainer>
+                    <C.Coin>
+                        {playerData[player].coins}
+                    </C.Coin>
+
+                    <C.ThemeContainer ref={themeContainerRef}>
+
                         <C.ThemeButton
                             theme={playerData[player].theme}
-                            onClick={() => setOpenTheme({ ...openTheme, [player]: !openTheme[player] })}
+                            onClick={() => setOpenTheme(!openTheme)}
                         />
 
-                        <C.ThemeContent name='themeContent' $open={openTheme[player]} ref={themeContentRef}>
+                        <C.ThemeContent name='themeContent' $open={openTheme}>
                             <C.ThemeName theme={playerData[player].theme}>{playerData[player].theme.toUpperCase()}</C.ThemeName>
                             <C.ThemeColors>
                                 {themes['name'].map((theme, index) =>

@@ -122,8 +122,8 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             }
         }
 
-        updatedPlayerData['player1'] = {...updatedPlayerData['player1'], coins: coins.player1}
-        updatedPlayerData['player2'] = {...updatedPlayerData['player2'], coins: coins.player2}
+        updatedPlayerData['player1'] = { ...updatedPlayerData['player1'], coins: coins.player1 }
+        updatedPlayerData['player2'] = { ...updatedPlayerData['player2'], coins: coins.player2 }
 
 
         setPlayerData(updatedPlayerData)
@@ -132,6 +132,18 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }
 
     const accomplish = () => {
+        const updatedPlayerData = { ...playerData }
+        const player = wheelData[chosenActivity].player
+        const { activities } = updatedPlayerData[player]
+        const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
+
+        if (activities[index]) {
+            activities[index] = {
+                ...activities[index],
+                reroll_cost: 2
+            }
+        }
+
         setModalOpen(false)
     }
 
