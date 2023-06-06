@@ -237,3 +237,52 @@ export const Coin = tw.span`
     before:outline-black
     before:absolute
 `
+
+export const SkillsContainer = tw.div`
+    flex 
+    justify-center
+    items-center 
+    w-full 
+    h-full
+`
+
+export const RerollButton = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 500, hover: true })
+    }}
+
+    ${(props) => (
+        (props.player === 'player2' && 'after:-left-1') ||
+        'after:-right-1'
+    )}
+
+    relative
+    w-14 
+    h-14 
+    rounded-full 
+    flex 
+    items-center 
+    justify-center
+    cursor-pointer
+    duration-300
+
+    after:content-['1']
+    after:flex 
+    after:items-center 
+    after:font-bold 
+    after:justify-center 
+    after:h-5
+    after:w-5 
+    after:rounded-full 
+    after:bg-gradient-to-r 
+    after:from-yellow-200 
+    after:to-yellow-500 
+    after:outline 
+    after:outline-2 
+    after:outline-black
+    after:absolute
+    after:-bottom-1
+    after:duration-300
+    hover:after:scale-110
+`

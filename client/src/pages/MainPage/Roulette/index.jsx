@@ -5,6 +5,7 @@ import { Wheel } from 'react-custom-roulette'
 import Modal from '../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
 import Reroll from './Reroll'
+import { VscDebugRestart } from 'react-icons/vsc'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
@@ -147,6 +148,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                     </C.Coin>
                                 </C.CoinContainer>
 
+                                <C.SkillsContainer>
+                                    <C.RerollButton player='player1' theme={playerData.player1.theme}>
+                                        <VscDebugRestart size={'75%'} />
+                                    </C.RerollButton>
+                                </C.SkillsContainer>
+
                             </C.ModalPlayerContent>
 
                             <C.ModalMain>
@@ -180,6 +187,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                         10 (0)
                                     </C.Coin>
                                 </C.CoinContainer>
+
+                                <C.SkillsContainer>
+                                    <C.RerollButton player='player2' theme={playerData.player2.theme}>
+                                        <VscDebugRestart size={'75%'} />
+                                    </C.RerollButton>
+                                </C.SkillsContainer>
                             </C.ModalPlayerContent>
 
                         </C.ModalContent>
