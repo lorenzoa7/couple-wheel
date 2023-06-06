@@ -1,13 +1,15 @@
 import * as C from './styles'
 import ActivitiesList from './ActivitiesList'
 import usePlayer from '../../../hooks/usePlayer'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
     const { playerData, setPlayerData, themes } = usePlayer()
 
     const [openTheme, setOpenTheme] = useState({ player1: false, player2: false })
+
+    const themeContentRef = useRef()
 
     const handleChangeName = e =>
         setPlayerData({ ...playerData, [e.target.name]: { ...playerData[e.target.name], name: e.target.value } })
@@ -20,9 +22,21 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
     const isThisThemeFromOtherPlayer = (player, theme) => {
         const otherPlayer = player === 'player1' ? 'player2' : 'player1'
-        console.log(playerData[otherPlayer].theme === theme)
         return playerData[otherPlayer].theme === theme
     }
+
+    useEffect(() => {
+        let handler = e => {
+            if (!themeContentRef.current.contains(e.target))
+                setOpenTheme({ ...openTheme, [player]: false })
+        }
+
+        document.addEventListener('mousedown', handler)
+
+        return() => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
 
     return (
         <C.Main $spinning={mustSpin}>
@@ -42,7 +56,7 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                             onClick={() => setOpenTheme({ ...openTheme, [player]: !openTheme[player] })}
                         />
 
-                        <C.ThemeContent $open={openTheme[player]}>
+                        <C.ThemeContent name='themeContent' $open={openTheme[player]} ref={themeContentRef}>
                             {themes['name'].map((theme, index) =>
                                 <C.ThemeBox
                                     $selected={playerData[player].theme === theme}
