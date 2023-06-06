@@ -97,7 +97,7 @@ export const ModalLabel = tw.p`
     font-bold 
     uppercase
     text-center
-`   
+`
 
 export const ModalCenter = tw.div`
     w-full 
@@ -168,6 +168,8 @@ export const ModalPlayerContent = tw.div`
     flex-col 
     w-2/3
     h-48
+    p-3 
+    gap-3
 
     outline-double
     outline-2
@@ -182,7 +184,6 @@ export const ModalPlayerHeader = tw.div`
     )}
 
     font-bold 
-    p-3 
     uppercase
 `
 
@@ -195,4 +196,44 @@ export const ModalMain = tw.div`
     flex-col 
     p-3 
     mt-10
+`
+
+export const CoinContainer = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 500 })
+    }}
+
+    rounded-lg 
+    p-2
+    flex 
+    items-center 
+    justify-center
+`
+
+export const Coin = tw.span`
+
+    ${(props) => (
+        (props.player === 'player2' && 'pr-8 before:right-0') ||
+        'pl-8 before:left-0'
+    )}
+
+    relative
+    font-bold
+
+    before:content-['$']
+    before:flex 
+    before:items-center 
+    before:font-bold 
+    before:justify-center 
+    before:h-6 
+    before:w-6 
+    before:rounded-full 
+    before:bg-gradient-to-r 
+    before:from-yellow-200 
+    before:to-yellow-500 
+    before:outline 
+    before:outline-2 
+    before:outline-black
+    before:absolute
 `

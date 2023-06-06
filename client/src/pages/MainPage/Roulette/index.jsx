@@ -140,6 +140,13 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                 <C.ModalPlayerHeader player='player1'>
                                     {playerData.player1.name}
                                 </C.ModalPlayerHeader>
+
+                                <C.CoinContainer theme={playerData.player1.theme}>
+                                    <C.Coin player='player1'>
+                                        10 (0)
+                                    </C.Coin>
+                                </C.CoinContainer>
+
                             </C.ModalPlayerContent>
 
                             <C.ModalMain>
@@ -167,6 +174,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                 <C.ModalPlayerHeader player='player2'>
                                     {playerData.player2.name}
                                 </C.ModalPlayerHeader>
+
+                                <C.CoinContainer theme={playerData.player2.theme}>
+                                    <C.Coin player='player2'>
+                                        10 (0)
+                                    </C.Coin>
+                                </C.CoinContainer>
                             </C.ModalPlayerContent>
 
                         </C.ModalContent>
