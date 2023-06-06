@@ -33,7 +33,7 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
         document.addEventListener('mousedown', handler)
 
-        return() => {
+        return () => {
             document.removeEventListener('mousedown', handler)
         }
     })
@@ -57,15 +57,18 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         />
 
                         <C.ThemeContent name='themeContent' $open={openTheme[player]} ref={themeContentRef}>
-                            {themes['name'].map((theme, index) =>
-                                <C.ThemeBox
-                                    $selected={playerData[player].theme === theme}
-                                    $is_disabled={isThisThemeFromOtherPlayer(player, theme)}
-                                    theme={theme}
-                                    key={index}
-                                    onClick={!isThisThemeFromOtherPlayer(player, theme) ? () => setPlayerData({ ...playerData, [player]: { ...playerData[player], theme: theme } }): null}
-                                />
-                            )}
+                            <C.ThemeName theme={playerData[player].theme}>{playerData[player].theme.toUpperCase()}</C.ThemeName>
+                            <C.ThemeColors>
+                                {themes['name'].map((theme, index) =>
+                                    <C.ThemeBox
+                                        $selected={playerData[player].theme === theme}
+                                        $is_disabled={isThisThemeFromOtherPlayer(player, theme)}
+                                        theme={theme}
+                                        key={index}
+                                        onClick={!isThisThemeFromOtherPlayer(player, theme) ? () => setPlayerData({ ...playerData, [player]: { ...playerData[player], theme: theme } }) : null}
+                                    />
+                                )}
+                            </C.ThemeColors>
                         </C.ThemeContent>
                     </C.ThemeContainer>
                 </C.PlayerContainer>

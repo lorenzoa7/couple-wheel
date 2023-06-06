@@ -9,6 +9,9 @@ module.exports = {
     {
       pattern: /(scrollbar)-(thumb|track)-./,
     },
+    {
+      pattern: /(text)-./,
+    },
   ],
   theme: {
     extend: {},

@@ -1,10 +1,13 @@
 import tw from 'tailwind-styled-components'
 
-const getThemeConfiguration = ({ theme = 'pink', intensity = 300, hover = false, hoverSteps = 1, scrollbar = false }) => {
-    if (hover) return `bg-${theme}-${intensity} hover:bg-${theme}-${intensity + hoverSteps * 100}`
-    if (scrollbar) return `bg-${theme}-${intensity} scrollbar-thumb-${theme}-900 scrollbar-track-${theme}-400`
+const getThemeConfiguration = ({ theme = 'pink', intensity = 300, hover = false, hoverSteps = 1, scrollbar = false, type = 'bg' }) => {
+    if (type === 'bg') {
+        if (hover) return `bg-${theme}-${intensity} hover:bg-${theme}-${intensity + hoverSteps * 100}`
+        if (scrollbar) return `bg-${theme}-${intensity} scrollbar-thumb-${theme}-900 scrollbar-track-${theme}-400`
+        return `bg-${theme}-${intensity}`
+    }
 
-    return `bg-${theme}-${intensity}`
+    return `text-${theme}-${intensity}`
 }
 
 export const PageContainer = tw.div`
@@ -228,11 +231,12 @@ export const ThemeContent = tw.div`
     )}
 
     flex
-    flex-wrap
-    gap-x-3
+    flex-col
+    justify-center
+    items-center
     h-48
     w-48
-    p-3
+    p-2
     absolute 
     bg-white/90
     rounded-lg
@@ -247,6 +251,24 @@ export const ThemeContent = tw.div`
     shadow-2xl
     -translate-x-1/2
     -translate-y-1/2
+`
+
+export const ThemeColors = tw.div`
+    flex
+    flex-wrap
+    gap-x-3
+    h-full
+    w-full
+    p-1
+`
+
+export const ThemeName = tw.p`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, type: 'text', intensity: 700})
+    }}
+
+    text-base
 `
 
 export const ThemeBox = tw.div`
