@@ -28,3 +28,43 @@ export const MenuIcon = tw.div`
     w-6 
     h-6
 `
+
+export const MenuNav = tw.nav`
+    ${(props) => (
+        (props.$open === false && 'scale-0') ||
+        'scale-100'
+    )}
+
+    flex
+    flex-col
+    items-center
+    bg-white 
+    h-fit
+    w-44 
+    absolute 
+    top-7
+    -left-36 
+    z-20 
+    shadow-2xl
+    duration-150
+    origin-top-right
+`
+
+export const MenuNavOption = tw.div`
+    w-full 
+    flex 
+    justify-center 
+    items-center 
+    h-10
+    duration-300
+    cursor-pointer
+    hover:bg-zinc-300
+`
+
+export const MenuContainer = tw.div`
+    relative
+`
+
+export const MenuOptionLabel = tw.p`
+    w-full
+`
