@@ -19,3 +19,12 @@ export const Header = tw.header`
     w-full 
     h-16
 `
+
+export const MenuIcon = tw.div`
+    [&>*:first-child]:hover:scale-100
+
+    relative
+    cursor-pointer 
+    w-6 
+    h-6
+`
