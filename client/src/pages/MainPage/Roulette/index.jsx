@@ -149,7 +149,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: 2
+                reroll_cost: activities[index].reroll_cost > 3 ? activities[index].reroll_cost - 2 : 2
             }
         }
 
@@ -236,7 +236,6 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                         theme={playerData.player1.theme}
                                         onClick={!isReroll ? () => payCoin('player1') : null}
                                         ref={rerollButtonP1Ref}
-
                                     >
 
                                         <VscDebugRestart size={'75%'} />
@@ -269,7 +268,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                         onClick={isReroll ? () => reroll() : () => accomplish()}
                                     >
                                         {
-                                            isReroll ? 'Reroll' : 'Accomplish'
+                                            isReroll ? <p className='flex items-center justify-center gap-x-1'>Reroll <VscDebugRestart size={'20%'} /></p> : 'Accomplish'
                                         }
                                     </C.AccomplishButton>
 

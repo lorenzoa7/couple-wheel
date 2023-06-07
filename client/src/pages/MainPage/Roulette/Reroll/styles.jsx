@@ -27,6 +27,7 @@ export const LabelTitle = tw.p`
     text-white 
     font-medium 
     text-center
+    select-none
 `
 
 export const CostContent = tw.div`

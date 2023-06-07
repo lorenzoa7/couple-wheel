@@ -97,6 +97,7 @@ export const ModalLabel = tw.p`
     font-bold 
     uppercase
     text-center
+    select-none
 `
 
 export const ModalCenter = tw.div`
@@ -126,6 +127,7 @@ export const ModalActivity = tw.div`
     outline-dashed
     outline-2
     outline-black/50
+    select-none
 `
 
 export const AccomplishButton = tw(motion.button)`
@@ -246,7 +248,7 @@ export const SkillsContainer = tw.div`
     h-full
 `
 
-export const RerollButton = tw.div`
+export const RerollButton = tw(motion.div)`
 
     ${(props) => {
         return getThemeConfiguration({ theme: props.theme, intensity: 500, hover: true })
