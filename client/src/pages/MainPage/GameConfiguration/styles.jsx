@@ -194,8 +194,10 @@ export const Label = tw.p`
 `
 
 export const ThemeContainer = tw.div`
+    flex
     h-full
     relative
+    gap-5
 `
 
 export const ThemeButton = tw.div`
@@ -286,4 +288,34 @@ export const ThemeBox = tw.div`
     duration-300
     transition-colors
     rounded
+`
+
+export const Coin = tw.span`
+
+    relative
+    font-bold
+    flex 
+    items-center
+    justify-center
+    pl-8 
+    ml-auto
+    mr-5
+
+    before:content-['$']
+    before:flex 
+    before:items-center 
+    before:font-bold 
+    before:justify-center 
+    before:h-6 
+    before:w-6 
+    before:rounded-full 
+    before:bg-gradient-to-r 
+    before:from-yellow-200 
+    before:to-yellow-500 
+    before:outline 
+    before:outline-2 
+    before:outline-black
+    before:absolute
+    before:left-0
+    before:text-black
 `

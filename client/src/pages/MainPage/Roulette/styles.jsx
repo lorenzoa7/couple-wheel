@@ -97,7 +97,8 @@ export const ModalLabel = tw.p`
     font-bold 
     uppercase
     text-center
-`   
+    select-none
+`
 
 export const ModalCenter = tw.div`
     w-full 
@@ -126,6 +127,7 @@ export const ModalActivity = tw.div`
     outline-dashed
     outline-2
     outline-black/50
+    select-none
 `
 
 export const AccomplishButton = tw(motion.button)`
@@ -168,6 +170,8 @@ export const ModalPlayerContent = tw.div`
     flex-col 
     w-2/3
     h-48
+    p-3 
+    gap-3
 
     outline-double
     outline-2
@@ -182,7 +186,6 @@ export const ModalPlayerHeader = tw.div`
     )}
 
     font-bold 
-    p-3 
     uppercase
 `
 
@@ -195,4 +198,93 @@ export const ModalMain = tw.div`
     flex-col 
     p-3 
     mt-10
+`
+
+export const CoinContainer = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 500 })
+    }}
+
+    rounded-lg 
+    p-2
+    flex 
+    items-center 
+    justify-center
+`
+
+export const Coin = tw.span`
+
+    ${(props) => (
+        (props.player === 'player2' && 'pr-8 before:right-0') ||
+        'pl-8 before:left-0'
+    )}
+
+    relative
+    font-bold
+
+    before:content-['$']
+    before:flex 
+    before:items-center 
+    before:font-bold 
+    before:justify-center 
+    before:h-6 
+    before:w-6 
+    before:rounded-full 
+    before:bg-gradient-to-r 
+    before:from-yellow-200 
+    before:to-yellow-500 
+    before:outline 
+    before:outline-2 
+    before:outline-black
+    before:absolute
+`
+
+export const SkillsContainer = tw.div`
+    flex 
+    justify-center
+    items-center 
+    w-full 
+    h-full
+`
+
+export const RerollButton = tw(motion.div)`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 500, hover: true })
+    }}
+
+    ${(props) => (
+        (props.player === 'player2' && 'after:-left-1') ||
+        'after:-right-1'
+    )}
+
+    relative
+    w-14 
+    h-14 
+    rounded-full 
+    flex 
+    items-center 
+    justify-center
+    cursor-pointer
+    duration-300
+
+    after:content-['1']
+    after:flex 
+    after:items-center 
+    after:font-bold 
+    after:justify-center 
+    after:h-5
+    after:w-5 
+    after:rounded-full 
+    after:bg-gradient-to-r 
+    after:from-yellow-200 
+    after:to-yellow-500 
+    after:outline 
+    after:outline-2 
+    after:outline-black
+    after:absolute
+    after:-bottom-1
+    after:duration-300
+    hover:after:scale-110
 `
