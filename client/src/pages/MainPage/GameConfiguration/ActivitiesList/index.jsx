@@ -4,6 +4,7 @@ import { AiFillDelete } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import Modal from '../../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
+import { RxReset } from 'react-icons/rx'
 
 export default function ActivitiesList({ player = 'player1' }) {
 
@@ -96,6 +97,9 @@ export default function ActivitiesList({ player = 'player1' }) {
                             theme={playerData[player].theme}
                             onClick={activity.weight !== 10 ? () => openWeightDialog(activity) : null}>
                             {activity.weight}
+                            <C.WeightIcon $show={activity.weight !== 10}>
+                                <RxReset size={'100%'} />
+                            </C.WeightIcon>
                         </C.WeightBox>
 
                         <C.Activity theme={playerData[player].theme} key={index}

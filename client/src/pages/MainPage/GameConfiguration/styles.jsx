@@ -117,7 +117,10 @@ export const WeightBox = tw.div`
 
     ${(props) => {
         if (props.$is_max) return `${getThemeConfiguration({ theme: props.theme, intensity: 600, hover: false })} cursor-auto`
-        return `${getThemeConfiguration({ theme: props.theme, intensity: 600, hover: true })} cursor-pointer`
+        return `${getThemeConfiguration({ theme: props.theme, intensity: 600, hover: true })} 
+        cursor-pointer
+        [&>*:first-child]:hover:scale-110
+        [&>*:first-child]:hover:opacity-100`
     }}
 
     w-full 
@@ -130,6 +133,31 @@ export const WeightBox = tw.div`
     font-medium
     duration-300
     select-none
+    relative
+`
+
+export const WeightIcon = tw.div`
+    
+    ${(props) => (
+        (props.$show === false && 'invisible') ||
+        'visible'
+    )}
+
+    w-5
+    h-5
+    absolute
+    bottom-0
+    -left-3
+    p-[0.12rem]
+    rounded-full
+    bg-white
+    text-black
+    opacity-80
+    duration-300
+    z-10
+    flex
+    items-center
+    justify-center
 `
 
 export const ActivitySection = tw.div`
