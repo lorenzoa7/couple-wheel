@@ -91,6 +91,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             ]
 
             setHasActivities(false)
+            console.log('nao tem atividades')
             setWheelData(tempData)
         }
 
@@ -170,7 +171,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }, [playerData])
 
     useEffect(() => {
-        if (modalOpen) {
+        if (modalOpen && hasActivities) {
             if (paidCoinsOrder.length < findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).reroll_cost) {
                 setIsReroll(false)
             }
@@ -178,7 +179,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                 setIsReroll(true)
             }
         }
-    }, [modalOpen, paidCoinsOrder, chosenActivity, findActivityById, wheelData])
+    }, [modalOpen, paidCoinsOrder, chosenActivity, findActivityById, wheelData, hasActivities])
 
     return (
         <>
