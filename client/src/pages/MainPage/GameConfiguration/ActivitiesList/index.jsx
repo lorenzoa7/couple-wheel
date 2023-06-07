@@ -50,23 +50,28 @@ export default function ActivitiesList({ player = 'player1' }) {
             {playerData[player].activities.length === 0 ? (
                 <C.Label theme={playerData[player].theme}>Click the button below to create a new activity</C.Label>
             ) : (
-                playerData[player].activities?.map((activity, index) =>
-                    <C.Activity theme={playerData[player].theme} key={index}
-                        onMouseEnter={() => setHover(activity.id)}
-                        onMouseLeave={() => setHover(0)}>
+                playerData[player].activities?.map((activity, index) => (
+                    <C.ActivitySection>
+                        <C.WeightBox theme={playerData[player].theme}>
+                            {activity.weight}
+                        </C.WeightBox>
+                        <C.Activity theme={playerData[player].theme} key={index}
+                            onMouseEnter={() => setHover(activity.id)}
+                            onMouseLeave={() => setHover(0)}>
 
-                        <C.ActivityInput
-                            id={activity.id}
-                            value={activity.name}
-                            onChange={handleChange}
-                            onKeyDown={handleKeyDown}
-                            onClick={e => e.target.select()}
-                        />
-                        <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
-                            <AiFillDelete size={'75%'} />
-                        </C.DeleteActivity>
-                    </C.Activity>
-                ))
+                            <C.ActivityInput
+                                id={activity.id}
+                                value={activity.name}
+                                onChange={handleChange}
+                                onKeyDown={handleKeyDown}
+                                onClick={e => e.target.select()}
+                            />
+                            <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
+                                <AiFillDelete size={'75%'} />
+                            </C.DeleteActivity>
+                        </C.Activity>
+                    </C.ActivitySection>
+                )))
             }
         </>
     )

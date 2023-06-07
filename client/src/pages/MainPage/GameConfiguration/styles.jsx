@@ -99,8 +99,8 @@ export const Activity = tw.div`
         return getThemeConfiguration({ theme: props.theme, intensity: 600 })
     }}
 
-    h-12 
-    w-11/12 
+    w-11/12
+    h-full
     rounded 
     flex
     justify-center
@@ -110,6 +110,32 @@ export const Activity = tw.div`
     gap-5
     text-white
     font-medium
+`
+
+export const WeightBox = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 600 })
+    }}
+
+    w-full 
+    h-full 
+    flex
+    items-center
+    justify-center
+    rounded
+    text-white
+    font-medium
+`
+
+export const ActivitySection = tw.div`
+    h-12 
+    w-11/12
+    flex
+    justify-center
+    flex-none
+    items-center
+    gap-1
 `
 
 export const AddActivity = tw.button`
@@ -267,7 +293,7 @@ export const ThemeColors = tw.div`
 export const ThemeName = tw.p`
 
     ${(props) => {
-        return getThemeConfiguration({ theme: props.theme, type: 'text', intensity: 700})
+        return getThemeConfiguration({ theme: props.theme, type: 'text', intensity: 700 })
     }}
 
     text-base
