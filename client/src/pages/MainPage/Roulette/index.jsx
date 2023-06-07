@@ -152,7 +152,8 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: activities[index].reroll_cost > 3 ? activities[index].reroll_cost - 2 : 2
+                reroll_cost: activities[index].reroll_cost > 3 ? activities[index].reroll_cost - 2 : 2,
+                weight: activities[index].weight > 1 ? activities[index].weight - 1 : 1
             }
         }
 

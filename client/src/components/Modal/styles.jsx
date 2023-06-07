@@ -2,8 +2,13 @@ import tw from 'tailwind-styled-components'
 import { motion } from 'framer-motion'
 
 export const Modal = tw(motion.div)`
+
+    ${(props) => (
+        (props.size === 'small' && 'h-2/5') ||
+        'h-3/5'
+    )}
+
     w-1/4
-    h-3/5
     m-auto
     rounded-xl
     flex
