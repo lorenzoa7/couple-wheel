@@ -1,4 +1,5 @@
 import tw from 'tailwind-styled-components'
+import { motion } from 'framer-motion'
 
 const getThemeConfiguration = ({ theme = 'pink', intensity = 300, hover = false, hoverSteps = 1, scrollbar = false, type = 'bg' }) => {
     if (type === 'bg') {
@@ -115,7 +116,8 @@ export const Activity = tw.div`
 export const WeightBox = tw.div`
 
     ${(props) => {
-        return getThemeConfiguration({ theme: props.theme, intensity: 600 })
+        if (props.$is_max) return `${getThemeConfiguration({ theme: props.theme, intensity: 600, hover: false })} cursor-auto`
+        return `${getThemeConfiguration({ theme: props.theme, intensity: 600, hover: true })} cursor-pointer`
     }}
 
     w-full 
@@ -126,6 +128,8 @@ export const WeightBox = tw.div`
     rounded
     text-white
     font-medium
+    duration-300
+    select-none
 `
 
 export const ActivitySection = tw.div`
@@ -344,4 +348,194 @@ export const Coin = tw.span`
     before:absolute
     before:left-0
     before:text-black
+`
+
+export const ModalContent = tw.div`
+    flex  
+    items-center 
+    w-full 
+    h-full 
+    gap-3
+`
+
+export const ModalLabel = tw.p`
+    text-xl 
+    font-bold 
+    uppercase
+    text-center
+    select-none
+`
+
+export const ModalLabelActivity = tw.span`
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 600, type: 'text' })
+    }}
+`
+
+export const ModalCenter = tw.div`
+    w-full 
+    h-full 
+    flex 
+    gap-8
+    items-center 
+    justify-center
+`
+
+export const ModalActivity = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 400 })
+    }}
+
+    w-3/4 
+    p-3 
+    rounded-lg 
+    font-bold 
+    flex 
+    justify-center 
+    items-center
+    text-center
+    outline-dashed
+    outline-2
+    outline-black/50
+    select-none
+`
+
+export const WeightButton = tw(motion.button)`
+
+    ${(props) => (
+        (props.action === 'close' && 'bg-zinc-600 hover:bg-zinc-700') ||
+        'bg-rose-600 hover:bg-rose-700'
+    )}
+
+    ${(props) => (
+        (props.$is_disabled === true && 'pointer-events-none opacity-50') ||
+        'pointer-events-auto opacity-100'
+    )}
+
+    w-4/12 
+    p-2
+    rounded-lg 
+    text-white
+    font-medium
+    flex 
+    justify-center 
+    items-center
+    uppercase
+    duration-300
+`
+
+export const ModalPlayers = tw.div`
+    w-full 
+    h-32 
+    mt-auto 
+    flex 
+    rounded-b-xl 
+    gap-10
+`
+
+export const ModalPlayerContent = tw.div`
+    
+    ${(props) => (
+        (props.player === 'player1' && 'rounded-br-xl rounded-tl-xl mb-auto') ||
+        'rounded-tl-xl rounded-br-xl mt-auto'
+    )}
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 400 })
+    }}
+
+    flex 
+    flex-col 
+    w-2/3
+    h-32
+    p-3 
+    gap-3
+
+    outline-double
+    outline-2
+    outline-black/50
+`
+
+export const ModalPlayerHeader = tw.div`
+
+    ${(props) => (
+        (props.player === 'player2' && 'text-right') ||
+        'text-left'
+    )}
+
+    font-bold 
+    uppercase
+`
+
+export const ModalMain = tw.div`
+    flex 
+    h-48 
+    w-full 
+    items-center 
+    justify-center 
+    flex-col 
+    p-3 
+    mt-10
+    gap-5
+`
+
+export const CoinContainer = tw.div`
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 500 })
+    }}
+
+    rounded-lg 
+    p-2
+    flex 
+    items-center 
+    justify-center
+`
+
+export const ModalCoin = tw.span`
+
+    relative
+    font-bold
+    pl-8 
+    w-12
+    text-center
+
+    before:content-['$']
+    before:flex 
+    before:items-center 
+    before:font-bold 
+    before:justify-center 
+    before:h-6 
+    before:w-6 
+    before:rounded-full 
+    before:bg-gradient-to-r 
+    before:from-yellow-200 
+    before:to-yellow-500 
+    before:outline 
+    before:outline-2 
+    before:outline-black
+    before:absolute
+    before:left-0
+`
+
+export const SkillsContainer = tw.div`
+    flex 
+    justify-center
+    items-center 
+    w-full 
+    h-full
+`
+
+export const PriceContainer = tw.div`
+    flex 
+    justify-center 
+    items-center 
+    gap-3 
+    font-medium
+`
+
+export const PriceLabel = tw.p`
+    w-24 
+    text-center
 `

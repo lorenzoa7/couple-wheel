@@ -22,15 +22,16 @@ const dropIn = {
     }
 }
 
-export default function Modal({ children }) {
+export default function Modal({ children, size='medium', handleClose=null }) {
     return (
-        <Backdrop>
+        <Backdrop onClick={handleClose}>
             <C.Modal
                 onClick={e => e.stopPropagation()}
                 variants={dropIn}
                 initial='hidden'
                 animate='visible'
                 exit='exit'
+                size={size}
             >   
                 {children}
             </C.Modal>
