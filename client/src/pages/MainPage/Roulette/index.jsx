@@ -102,9 +102,11 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }, [playerData, themes])
 
     const payCoin = player => {
-        setCoins({ ...coins, [player]: coins[player] - 1 })
-        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
-        setPaidCoinsOrder(paidCoinsOrder.concat(player))
+        if (coins[player] > 0) {
+            setCoins({ ...coins, [player]: coins[player] - 1 })
+            setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
+            setPaidCoinsOrder(paidCoinsOrder.concat(player))
+        }
     }
 
     const retrieveCoin = player => {
