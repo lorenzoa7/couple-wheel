@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 export const Modal = tw(motion.div)`
 
     ${(props) => (
+        (props.size === 'tiny' && 'h-1/5') ||
         (props.size === 'small' && 'h-2/5') ||
         'h-3/5'
     )}
