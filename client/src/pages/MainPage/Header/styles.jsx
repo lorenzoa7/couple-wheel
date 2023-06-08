@@ -76,8 +76,7 @@ export const ModalContent = tw.div`
     items-center 
     justify-center
     w-full 
-    h-full 
-    gap-3
+    h-full
 `
 
 export const RestoreDataButton = tw(motion.button)`
@@ -113,4 +112,23 @@ export const ConfirmationButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+`
+
+export const ModalMain = tw.div`
+    flex 
+    items-center 
+    justify-center 
+    w-full 
+    h-full
+`
+
+export const ModalTitle = tw.div`
+    flex 
+    justify-start 
+    items-center 
+    text-lg 
+    font-medium 
+    uppercase 
+    p-3 
+    w-full
 `
