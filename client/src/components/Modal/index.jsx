@@ -22,12 +22,32 @@ const dropIn = {
     }
 }
 
-export default function Modal({ children, size='medium', handleClose=null }) {
+const fadeIn = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: 0.1,
+            type: 'spring',
+            damping: 25,
+            stiffness: 500
+        }
+    },
+    exit: {
+        opacity: 0
+    }
+}
+
+export default function Modal({ children, size='medium', handleClose=null, animation='dropIn' }) {
+    const animationType = animation === 'dropIn' ? dropIn : fadeIn
+
     return (
         <Backdrop onClick={handleClose}>
             <C.Modal
                 onClick={e => e.stopPropagation()}
-                variants={dropIn}
+                variants={animationType}
                 initial='hidden'
                 animate='visible'
                 exit='exit'

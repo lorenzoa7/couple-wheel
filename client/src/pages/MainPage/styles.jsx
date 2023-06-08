@@ -15,17 +15,6 @@ export const PageContent = tw.div`
     pt-8
 `
 
-export const AppTitle = tw.h1`
-    absolute
-    left-5
-    right-0
-    top-3
-    text-left
-    font-['pacifico'] 
-    text-4xl 
-    text-rose-700
-`
-
 export const Main = tw.main`
     flex
     p-10 

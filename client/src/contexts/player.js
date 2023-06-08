@@ -39,24 +39,26 @@ export const PlayerProvider = ({ children }) => {
     
     */
 
-    const [playerData, setPlayerData] = useState(
-        localStorage.getItem('playerData') ?
-            JSON.parse(localStorage.getItem('playerData')) :
-            {
-                player1: {
-                    name: "Player 1",
-                    theme: "pink",
-                    coins: 0,
-                    activities: []
-                },
+    const defaultData = {
+        player1: {
+            name: "Player 1",
+            theme: "pink",
+            coins: 3,
+            activities: []
+        },
 
-                player2: {
-                    name: "Player 2",
-                    theme: "blue",
-                    coins: 0,
-                    activities: []
-                },
-            })
+        player2: {
+            name: "Player 2",
+            theme: "blue",
+            coins: 3,
+            activities: []
+        },
+    }
+
+    const [playerData, setPlayerData] = useState(
+        localStorage.getItem('playerData') 
+        ? JSON.parse(localStorage.getItem('playerData')) 
+        : defaultData)
 
     const findHighestId = (player) => {
         const playerActivities = playerData[player].activities
@@ -107,7 +109,7 @@ export const PlayerProvider = ({ children }) => {
         <PlayerContext.Provider value={{
             playerData, setPlayerData,
             findHighestId, getActivityIndex,
-            savePlayerData, findActivityById, themes
+            savePlayerData, findActivityById, themes, defaultData
         }}>
             {children}
         </PlayerContext.Provider>
