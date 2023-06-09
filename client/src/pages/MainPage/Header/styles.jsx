@@ -227,7 +227,7 @@ export const LanguageNav = tw.nav`
     absolute 
     top-7
     -left-44
-    z-20 
+    z-50
     shadow-2xl
     duration-150
     origin-top-right

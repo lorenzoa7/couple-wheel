@@ -36,17 +36,25 @@ export const AppTitle = tw.h1`
 `
 
 export const Main = tw.main`
+    order-first
+
     relative
     flex
     items-center
     justify-center
-    w-[600px]
-    h-[600px]
+    w-[400px]
+    h-[400px]
 
     [&>div:first-child]:max-h-[unset]
     [&>div:first-child]:max-w-[unset]
-    [&>div:first-child]:w-full
-    [&>div:first-child]:h-full
+    [&>div:first-child]:w-[400px]
+    [&>div:first-child]:h-[400px]
+
+    2xl:order-none
+    2xl:w-[600px]
+    2xl:h-[600px]
+    2xl:[&>div:first-child]:w-[600px]
+    2xl:[&>div:first-child]:h-[600px]
 `
 
 export const SpinButton = tw(motion.button)`

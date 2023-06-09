@@ -46,9 +46,12 @@ export const Main = tw.main`
     flex
     p-10 
     gap-10 
-    w-[600px]
-    h-4/5
+    w-[400px]
+    h-[800px]
     duration-300
+
+    2xl:w-[600px]
+    2xl:h-[800px]
 `
 
 export const Section = tw.section`
@@ -73,7 +76,6 @@ export const PlayerContainer = tw.div`
     font-medium 
     text-white
     rounded-t
-    -z-10
 `
 
 export const ActivitiesContainer = tw.div`
