@@ -5,14 +5,41 @@ export const AppTitle = tw.h1`
     text-left
     font-['pacifico'] 
     text-3xl 
-    text-rose-700
+    w-full
+    pr-2
+    py-2
+    duration-300
+    bg-clip-text
+    bg-gradient-to-r
+    from-rose-700
+    via-rose-400
+    to-rose-700
+    text-transparent
+    bg-[length:200%]
+`
+
+export const TitleContainer = tw.div`
+    flex 
+    gap-3 
+    items-center 
+    justify-center 
+    h-full 
+    px-5
+    cursor-pointer
+    [&>*:first-child]:hover:brightness-90
+    [&>*:last-child]:hover:bg-right
+    select-none
+`
+
+export const TitleLogo = tw.img`
+    h-5/6
+    duration-300
 `
 
 export const Header = tw.header`
     flex 
     items-center 
     justify-between
-    px-5
     fixed 
     top-0 
     left-0 
@@ -49,6 +76,7 @@ export const MenuNav = tw.nav`
     shadow-2xl
     duration-150
     origin-top-right
+    select-none
 `
 
 export const MenuNavOption = tw.div`
@@ -64,6 +92,7 @@ export const MenuNavOption = tw.div`
 
 export const MenuContainer = tw.div`
     relative
+    px-5
 `
 
 export const MenuOptionLabel = tw.p`

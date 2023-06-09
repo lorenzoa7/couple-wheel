@@ -1,13 +1,36 @@
 import * as C from './styles'
 import Backdrop from '../Backdrop'
 
-const dropIn = {
+// const dropIn = {
+//     hidden: {
+//         y: '-100vh',
+//         opacity: 0
+//     },
+//     visible: {
+//         y: '0',
+//         opacity: 1,
+//         transition: {
+//             duration: 0.1,
+//             type: 'spring',
+//             damping: 25,
+//             stiffness: 500
+//         }
+//     },
+//     exit: {
+//         y: '100vh',
+//         opacity: 0
+//     }
+// }
+
+const scaleIn = {
     hidden: {
-        y: '-100vh',
+        scaleX: 0,
+        scaleY: 0,
         opacity: 0
     },
     visible: {
-        y: '0',
+        scaleX: 1,
+        scaleY: 1,
         opacity: 1,
         transition: {
             duration: 0.1,
@@ -17,7 +40,8 @@ const dropIn = {
         }
     },
     exit: {
-        y: '100vh',
+        scaleX: 0,
+        scaleY: 0,
         opacity: 0
     }
 }
@@ -40,8 +64,8 @@ const fadeIn = {
     }
 }
 
-export default function Modal({ children, size='medium', handleClose=null, animation='dropIn' }) {
-    const animationType = animation === 'dropIn' ? dropIn : fadeIn
+export default function Modal({ children, size='medium', handleClose=null, animation='scaleIn' }) {
+    const animationType = animation === 'scaleIn' ? scaleIn : fadeIn
 
     return (
         <Backdrop onClick={handleClose}>
