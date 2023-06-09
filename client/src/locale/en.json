@@ -24,8 +24,7 @@
             "theme_yellow": "Yellow"
         },
         "weight_modal": {
-            "question_initial": "do you want to reset",
-            "question_final": "weight",
+            "question": "do you want to reset the weight of",
             "you_have_label": "You have",
             "it_costs_label": "It costs",
             "close_button": "Close",

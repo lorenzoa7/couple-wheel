@@ -131,7 +131,17 @@ export default function ActivitiesList({ player = 'player1' }) {
                     <Modal size='small' handleClose={() => setModalOpen(false)}>
                         <C.ModalContent>
                             <C.ModalMain>
-                                <C.ModalLabel><C.ModalLabelActivity theme={playerData[player].theme}>{playerData[player].name}</C.ModalLabelActivity>, {t('player_data.weight_modal.question_initial')} <br /> <C.ModalLabelActivity theme={playerData[player].theme}>{selectedWeightActivity.name}</C.ModalLabelActivity> {t('player_data.weight_modal.question_final')}?</C.ModalLabel>
+                                <C.ModalLabel>
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {playerData[player].name}, 
+                                    </C.ModalLabelActivity>
+
+                                    {` ${t('player_data.weight_modal.question')} `}
+
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {selectedWeightActivity.name}?
+                                    </C.ModalLabelActivity>
+                                </C.ModalLabel>
 
                                 <C.PriceContainer>
                                     <C.PriceLabel>{t('player_data.weight_modal.you_have_label')}: </C.PriceLabel>
