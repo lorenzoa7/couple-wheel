@@ -4,12 +4,15 @@ import Tooltip from '../../../components/Tooltip'
 import { useState, useRef, useEffect } from 'react'
 import { GoGear } from 'react-icons/go'
 import ConfigModal from './ConfigModal'
+import Logo from '../../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
     const [openConfigModal, setOpenConfigModal] = useState(false)
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
 
+    const navigate = useNavigate()
     const menuRef = useRef()
 
     useEffect(() => {
@@ -33,7 +36,10 @@ export default function Header() {
     return (
         <>
             <C.Header>
-                <C.AppTitle>Couple Roulette</C.AppTitle>
+                <C.TitleContainer onClick={() => navigate('/')}>
+                    <C.TitleLogo src={Logo} />
+                    <C.AppTitle>Couple Wheel</C.AppTitle>
+                </C.TitleContainer>
                 <C.MenuContainer ref={menuRef}>
                     <C.MenuIcon onClick={() => setOpenMenu(!openMenu)}>
                         <Tooltip>Menu</Tooltip>

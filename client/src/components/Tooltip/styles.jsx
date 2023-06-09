@@ -19,4 +19,5 @@ export const Tooltip = tw(motion.div)`
     opacity-75
     scale-0
     duration-150
+    select-none
 `
