@@ -11,15 +11,18 @@ const resources = {
     pt: {
         translation: portuguese
     },
-    en: {
+    es: {
         translation: spanish
     }
 }
 
-i18n.use(initReactI18next).init({
-    resources,
-    fallbackLng: "en",
-    interpolation: {
-        escapeValue: false
-    }
-})
+i18n.use(initReactI18next)
+    .init({
+        resources,
+        lng: localStorage.getItem('language') || 'en',
+        interpolation: {
+            escapeValue: false
+        }
+    })
+
+export default i18n

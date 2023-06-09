@@ -6,7 +6,7 @@
             "nav_config": "Config"
         }
     },
-    "playerData": {
+    "player_data": {
         "player1_name": "Player 1",
         "player2_name": "Player 2",
         "activity_name": "Activity",
@@ -25,8 +25,8 @@
         },
         "weight_modal": {
             "question_initial": "do you want to reset",
-            "question_final": "weight?",
-            "you_have_label": "You have:",
+            "question_final": "weight",
+            "you_have_label": "You have",
             "it_costs_label": "It costs",
             "close_button": "Close",
             "reset_button": "Reset"
@@ -34,14 +34,16 @@
     },
     "wheel": {
         "spin_label": "Spin",
+        "no_activities": "Create new activities",
         "wheel_modal": {
-            "drawn_activity_label": "The drawn activity was:",
+            "drawn_activity_label": "The drawn activity was",
             "reroll_cost_label": "Reroll cost",
             "accomplish_label": "Accomplish",
             "reroll_label": "Reroll"
         }
     },
     "config": {
+        "title": "Game Configuration",
         "restore_game_data_button": "Restore game data",
         "restore_game_data_modal": {
             "question": "Are you sure you want to restore the game to its default data settings?",
@@ -49,5 +51,4 @@
             "confirm_button": "Confirm"
         }
     }
-    
 }

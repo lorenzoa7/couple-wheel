@@ -1,4 +1,5 @@
 import { createContext, useCallback, useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
 
 export const PlayerContext = createContext({})
 
@@ -39,26 +40,28 @@ export const PlayerProvider = ({ children }) => {
     
     */
 
+    const { t } = useTranslation()
+
     const defaultData = {
         player1: {
-            name: "Player 1",
-            theme: "pink",
+            name: t('player_data.player1_name'),
+            theme: "blue",
             coins: 3,
             activities: []
         },
 
         player2: {
-            name: "Player 2",
-            theme: "blue",
+            name: t('player_data.player2_name'),
+            theme: "pink",
             coins: 3,
             activities: []
         },
     }
 
     const [playerData, setPlayerData] = useState(
-        localStorage.getItem('playerData') 
-        ? JSON.parse(localStorage.getItem('playerData')) 
-        : defaultData)
+        localStorage.getItem('playerData')
+            ? JSON.parse(localStorage.getItem('playerData'))
+            : defaultData)
 
     const findHighestId = (player) => {
         const playerActivities = playerData[player].activities
@@ -103,12 +106,37 @@ export const PlayerProvider = ({ children }) => {
         ]
     }
 
+    const translateTheme = theme => {
+        switch (theme) {
+            case 'blue':
+                return t('player_data.themes.theme_blue')
+            case 'green':
+                return t('player_data.themes.theme_green')
+            case 'lime':
+                return t('player_data.themes.theme_lime')
+            case 'orange':
+                return t('player_data.themes.theme_orange')
+            case 'pink':
+                return t('player_data.themes.theme_pink')
+            case 'purple':
+                return t('player_data.themes.theme_purple')
+            case 'red':
+                return t('player_data.themes.theme_red')
+            case 'teal':
+                return t('player_data.themes.theme_teal')
+            case 'yellow':
+                return t('player_data.themes.theme_yellow')
+            default:
+                return t('player_data.themes.theme_pink')
+        }
+    }
+
     useEffect(() => savePlayerData(), [savePlayerData])
 
     return (
         <PlayerContext.Provider value={{
             playerData, setPlayerData,
-            findHighestId, getActivityIndex,
+            findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData
         }}>
             {children}

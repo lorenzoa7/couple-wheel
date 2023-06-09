@@ -161,3 +161,17 @@ export const ModalTitle = tw.div`
     p-3 
     w-full
 `
+
+export const ModalButtons = tw.div`
+    flex 
+    items-center 
+    justify-center 
+    gap-8 
+    w-full 
+    p-5
+`
+
+export const ModalLabel = tw.p`
+    font-medium 
+    text-center
+`

@@ -278,9 +278,7 @@ export const ThemeButton = tw.div`
     outline-2
     outline-white/75
     duration-300
-
-    after:content-['Theme']
-    after:absolute
+    select-none
 `
 
 export const ThemeContent = tw.div`

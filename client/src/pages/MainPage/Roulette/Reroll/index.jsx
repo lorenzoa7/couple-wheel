@@ -2,12 +2,14 @@ import * as C from './styles'
 import usePlayer from '../../../../hooks/usePlayer'
 import { useRef } from 'react'
 import AnimatedCircle from './AnimatedCircle'
+import { useTranslation } from 'react-i18next'
 
 export default function Reroll({ cost = 2, paidCoinsOrder = [], setPaidCoinsOrder = null,
     retrieveCoin = null, refPlayer1 = null, refPlayer2 = null }) {
 
     const { playerData } = usePlayer()
     const costCircleRefs = useRef([])
+    const { t } = useTranslation()
 
     const range = (start, end) => {
         return Array.from({
@@ -33,7 +35,7 @@ export default function Reroll({ cost = 2, paidCoinsOrder = [], setPaidCoinsOrde
 
     return (
         <C.Container>
-            <C.LabelTitle>Reroll Cost</C.LabelTitle>
+            <C.LabelTitle>{t('wheel.wheel_modal.reroll_cost_label')}</C.LabelTitle>
             <C.CostContent>
                 {range(0, cost).map(index =>
                     <C.CostCircle

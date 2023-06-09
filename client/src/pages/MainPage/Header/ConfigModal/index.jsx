@@ -2,9 +2,11 @@ import * as C from '../styles'
 import usePlayer from '../../../../hooks/usePlayer'
 import { AnimatePresence } from 'framer-motion'
 import Modal from '../../../../components/Modal'
+import { useTranslation } from 'react-i18next'
 
 export default function ConfigModal({ openConfigModal, setOpenConfigModal, openConfirmationModal, setOpenConfirmationModal }) {
     const { setPlayerData, defaultData } = usePlayer()
+    const { t } = useTranslation()
 
     const restoreGameData = () => {
         setPlayerData(defaultData)
@@ -26,7 +28,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
 
                         <C.ModalContent>
                             <C.ModalTitle>
-                                Game Configuration
+                                {t('config.title')}
                             </C.ModalTitle>
                             <C.ModalMain>
                                 <C.RestoreDataButton
@@ -34,7 +36,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => setOpenConfirmationModal(true)}
                                 >
-                                    Restore Game Data
+                                    {t('config.restore_game_data_button')}
                                 </C.RestoreDataButton>
                             </C.ModalMain>
 
@@ -55,15 +57,15 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                         animation='fadeIn'>
 
                         <C.ModalContent>
-                            <p className='font-medium text-center'>Are you sure you want to restore the game to its default data settings?</p>
-                            <div className='flex items-center justify-center gap-8 w-full p-5'>
+                            <C.ModalLabel>{t('config.restore_game_data_modal.question')}</C.ModalLabel>
+                            <C.ModalButtons>
                                 <C.ConfirmationButton
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     onClick={() => setOpenConfirmationModal(false)}
                                     action='close'
                                 >
-                                    Close
+                                    {t('config.restore_game_data_modal.close_button')}
                                 </C.ConfirmationButton>
 
                                 <C.ConfirmationButton
@@ -71,9 +73,9 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                     whileTap={{ scale: 0.9 }}
                                     onClick={restoreGameData}
                                 >
-                                    Confirm
+                                    {t('config.restore_game_data_modal.confirm_button')}
                                 </C.ConfirmationButton>
-                            </div>
+                            </C.ModalButtons>
                         </C.ModalContent>
                     </Modal>
                 }
