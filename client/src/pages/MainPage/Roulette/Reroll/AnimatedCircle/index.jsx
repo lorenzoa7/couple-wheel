@@ -12,7 +12,7 @@ export default function AnimatedCircle({ showAnimatedCircle, initialTop = 0, ini
                 <C.AnimatedCostCircle
                     theme={theme}
                     initial={{ top: initialTop, left: initialLeft, opacity: 0, scale: 1.05 }}
-                    animate={{ top: destinationTop - 1, left: destinationLeft, opacity: 1 }}
+                    animate={{ top: destinationTop, left: destinationLeft, opacity: 1 }}
                     whileHover={{ opacity: 0.5 }}
                     exit={{ top: initialTop, left: initialLeft, opacity: 0 }}
                 />
