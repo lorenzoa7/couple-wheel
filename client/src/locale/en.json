@@ -1,0 +1,53 @@
+{
+    "header": {
+        "app_title": "Couple Wheel",
+        "tooltip_menu": "Menu",
+        "nav_menu": {
+            "nav_config": "Config"
+        }
+    },
+    "playerData": {
+        "player1_name": "Player 1",
+        "player2_name": "Player 2",
+        "activity_name": "Activity",
+        "no_activity_label": "Click the button to create a new activity",
+        "themes": {
+            "theme_label": "Theme",
+            "theme_blue": "Blue",
+            "theme_green": "Green",
+            "theme_lime": "Lime",
+            "theme_orange": "Orange",
+            "theme_pink": "Pink",
+            "theme_purple": "Purple",
+            "theme_red": "Red",
+            "theme_teal": "Teal",
+            "theme_yellow": "Yellow"
+        },
+        "weight_modal": {
+            "question_initial": "do you want to reset",
+            "question_final": "weight?",
+            "you_have_label": "You have:",
+            "it_costs_label": "It costs",
+            "close_button": "Close",
+            "reset_button": "Reset"
+        }
+    },
+    "wheel": {
+        "spin_label": "Spin",
+        "wheel_modal": {
+            "drawn_activity_label": "The drawn activity was:",
+            "reroll_cost_label": "Reroll cost",
+            "accomplish_label": "Accomplish",
+            "reroll_label": "Reroll"
+        }
+    },
+    "config": {
+        "restore_game_data_button": "Restore game data",
+        "restore_game_data_modal": {
+            "question": "Are you sure you want to restore the game to its default data settings?",
+            "close_button": "Close",
+            "confirm_button": "Confirm"
+        }
+    }
+    
+}
