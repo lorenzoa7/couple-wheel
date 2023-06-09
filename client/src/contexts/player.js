@@ -1,5 +1,8 @@
 import { createContext, useCallback, useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
+import flag_us from '../assets/flag_us.svg'
+import flag_br from '../assets/flag_br.svg'
+import flag_es from '../assets/flag_es.svg'
 
 export const PlayerContext = createContext({})
 
@@ -41,6 +44,24 @@ export const PlayerProvider = ({ children }) => {
     */
 
     const { t } = useTranslation()
+
+    const languageOptions = [
+        {
+            name: "English",
+            value: "en",
+            flag: flag_us
+        },
+        {
+            name: "Português",
+            value: "pt",
+            flag: flag_br
+        },
+        {
+            name: "Español",
+            value: "es",
+            flag: flag_es
+        }
+    ]
 
     const defaultData = {
         player1: {
@@ -135,7 +156,7 @@ export const PlayerProvider = ({ children }) => {
 
     return (
         <PlayerContext.Provider value={{
-            playerData, setPlayerData,
+            playerData, setPlayerData, languageOptions,
             findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData
         }}>

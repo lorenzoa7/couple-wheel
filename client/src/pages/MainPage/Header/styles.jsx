@@ -6,7 +6,7 @@ export const AppTitle = tw.h1`
     font-['pacifico'] 
     text-3xl 
     w-full
-    pr-2
+    pr-1
     py-2
     duration-300
     bg-clip-text
@@ -71,7 +71,7 @@ export const MenuNav = tw.nav`
     w-44 
     absolute 
     top-7
-    -left-36 
+    -left-44
     z-20 
     shadow-2xl
     duration-150
@@ -91,8 +91,12 @@ export const MenuNavOption = tw.div`
 `
 
 export const MenuContainer = tw.div`
+    flex
+    gap-6
+    justify-center
+    items-center
     relative
-    px-5
+    pr-5
 `
 
 export const MenuOptionLabel = tw.p`
@@ -174,4 +178,81 @@ export const ModalButtons = tw.div`
 export const ModalLabel = tw.p`
     font-medium 
     text-center
+`
+
+export const LanguageIconContainer = tw.div`
+    relative 
+    -left-10 
+    flex 
+    items-center 
+    justify-center
+    [&>*:first-child]:hover:scale-100
+    cursor-pointer
+`
+
+export const LanguageIcon = tw.img`
+    h-6 
+    outline 
+    outline-1 
+    outline-black
+`
+
+export const RightContainer = tw.div`
+    flex 
+    items-center 
+    justify-center
+`
+
+export const LanguageContainer = tw.div`
+    flex
+    gap-6
+    justify-center
+    items-center
+    relative
+    pr-5
+`
+
+export const LanguageNav = tw.nav`
+    ${(props) => (
+        (props.$open === false && 'scale-0') ||
+        'scale-100'
+    )}
+
+    flex
+    flex-col
+    items-center
+    bg-white 
+    h-fit
+    w-44 
+    absolute 
+    top-7
+    -left-44
+    z-20 
+    shadow-2xl
+    duration-150
+    origin-top-right
+    select-none
+`
+
+export const LanguageNavOption = tw.div`
+
+    ${(props) => (
+        (props.$selected === true && 'bg-zinc-300') ||
+        'bg-white'
+    )}
+
+    w-full 
+    flex 
+    justify-center 
+    items-center 
+    gap-5
+    h-10
+    px-5
+    duration-300
+    cursor-pointer
+    hover:bg-zinc-300
+`
+
+export const LanguageOptionLabel = tw.p`
+    w-full
 `

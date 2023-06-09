@@ -2,6 +2,7 @@
     "header": {
         "app_title": "Couple Wheel",
         "tooltip_menu": "Menu",
+        "tooltip_language": "Language",
         "nav_menu": {
             "nav_config": "Config"
         }

@@ -2,6 +2,7 @@
     "header": {
         "app_title": "Roleta do Casal",
         "tooltip_menu": "Menu",
+        "tooltip_language": "Idioma",
         "nav_menu": {
             "nav_config": "Config"
         }

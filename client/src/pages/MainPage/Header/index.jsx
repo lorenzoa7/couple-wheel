@@ -7,15 +7,31 @@ import ConfigModal from './ConfigModal'
 import Logo from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import usePlayer from '../../../hooks/usePlayer'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
     const [openConfigModal, setOpenConfigModal] = useState(false)
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
 
+
+    const { languageOptions } = usePlayer()
+    const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
+    const [chosenLanguage, setChosenLanguage] = useState('en')
+
     const navigate = useNavigate()
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
     const menuRef = useRef()
+    const languageMenuRef = useRef()
+
+    const getChosenLanguage = () => {
+        return languageOptions.find(language => language.value === chosenLanguage)
+    }
+
+    const changeLanguage = language => {
+        i18n.changeLanguage(language)
+        setChosenLanguage(language)
+    }
 
     useEffect(() => {
         let handler = e => {
@@ -31,9 +47,26 @@ export default function Header() {
     })
 
     useEffect(() => {
+        let handler = e => {
+            if (!languageMenuRef.current.contains(e.target))
+                setOpenLanguageMenu(false)
+        }
+
+        document.addEventListener('mousedown', handler)
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
+
+    useEffect(() => {
         if (openConfigModal)
             setOpenMenu(false)
     }, [openConfigModal])
+
+    useEffect(() => {
+        setChosenLanguage(i18n.language)
+    }, [i18n])
 
     return (
         <>
@@ -42,21 +75,50 @@ export default function Header() {
                     <C.TitleLogo src={Logo} />
                     <C.AppTitle>{t('header.app_title')}</C.AppTitle>
                 </C.TitleContainer>
-                <C.MenuContainer ref={menuRef}>
-                    <C.MenuIcon onClick={() => setOpenMenu(!openMenu)}>
-                        <Tooltip>{t('header.tooltip_menu')}</Tooltip>
-                        <AiOutlineMenu size={'100%'} />
-                    </C.MenuIcon>
 
-                    <C.MenuNav $open={openMenu}>
+                <C.RightContainer>
 
-                        <C.MenuNavOption onClick={() => setOpenConfigModal(true)}>
-                            <GoGear size={'75%'} />
-                            <C.MenuOptionLabel>{t('header.nav_menu.nav_config')}</C.MenuOptionLabel>
-                        </C.MenuNavOption>
+                    <C.LanguageContainer ref={languageMenuRef}>
 
-                    </C.MenuNav>
-                </C.MenuContainer>
+                        <C.LanguageIconContainer onClick={() => setOpenLanguageMenu(!openLanguageMenu)}>
+                            <Tooltip>{t('header.tooltip_language')}</Tooltip>
+                            <C.LanguageIcon src={getChosenLanguage().flag} alt={getChosenLanguage().name} />
+                        </C.LanguageIconContainer>
+
+                        <C.LanguageNav $open={openLanguageMenu}>
+
+                            {languageOptions.map(language => (
+                                <C.LanguageNavOption
+                                    $selected={language.value === chosenLanguage}
+                                    onClick={() => changeLanguage(language.value)}
+                                    key={languageOptions.value}
+                                >
+                                    <C.LanguageIcon src={language.flag} alt={language.name} />
+                                    <C.LanguageOptionLabel>{language.name}</C.LanguageOptionLabel>
+                                </C.LanguageNavOption>
+                            ))}
+
+                        </C.LanguageNav>
+
+                    </C.LanguageContainer>
+
+                    <C.MenuContainer ref={menuRef}>
+                        <C.MenuIcon onClick={() => setOpenMenu(!openMenu)}>
+                            <Tooltip>{t('header.tooltip_menu')}</Tooltip>
+                            <AiOutlineMenu size={'100%'} />
+                        </C.MenuIcon>
+
+                        <C.MenuNav $open={openMenu}>
+
+                            <C.MenuNavOption onClick={() => setOpenConfigModal(true)}>
+                                <GoGear size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_config')}</C.MenuOptionLabel>
+                            </C.MenuNavOption>
+
+                        </C.MenuNav>
+                    </C.MenuContainer>
+                </C.RightContainer>
+
             </C.Header>
 
             {/* Menu Nav Modals */}

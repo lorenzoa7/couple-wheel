@@ -2,6 +2,7 @@
     "header": {
         "app_title": "Ruleta de Pareja",
         "tooltip_menu": "Menu",
+        "tooltip_language": "Idioma",
         "nav_menu": {
             "nav_config": "Config"
         }

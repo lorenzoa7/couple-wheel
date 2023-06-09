@@ -73,6 +73,7 @@ export const PlayerContainer = tw.div`
     font-medium 
     text-white
     rounded-t
+    -z-10
 `
 
 export const ActivitiesContainer = tw.div`
