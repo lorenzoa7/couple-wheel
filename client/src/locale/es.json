@@ -1,0 +1,54 @@
+{
+    "header": {
+        "app_title": "Ruleta de Pareja",
+        "tooltip_menu": "Menu",
+        "tooltip_language": "Idioma",
+        "nav_menu": {
+            "nav_config": "Config"
+        }
+    },
+    "player_data": {
+        "player1_name": "Jugador 1",
+        "player2_name": "Jugador 2",
+        "activity_name": "Actividade",
+        "no_activity_label": "Haga clic en el botón para crear una nueva actividad",
+        "themes": {
+            "theme_label": "Tema",
+            "theme_blue": "Azul",
+            "theme_green": "Verde",
+            "theme_lime": "Cal",
+            "theme_orange": "Naranja",
+            "theme_pink": "Rosa",
+            "theme_purple": "Púrpura",
+            "theme_red": "Rojo",
+            "theme_teal": "Verde azulado",
+            "theme_yellow": "Amarillo"
+        },
+        "weight_modal": {
+            "question": "¿Quieres restablecer el peso de",
+            "you_have_label": "Tienes",
+            "it_costs_label": "Cuesta",
+            "close_button": "Cerrar",
+            "reset_button": "Restablecer"
+        }
+    },
+    "wheel": {
+        "spin_label": "Girar",
+        "no_activities": "Crea nuevas actividades",
+        "wheel_modal": {
+            "drawn_activity_label": "La actividad dibujada fue",
+            "reroll_cost_label": "Costo de repetición",
+            "accomplish_label": "Realizar",
+            "reroll_label": "Repetir"
+        }
+    },
+    "config": {
+        "title": "Configuración del juego",
+        "restore_game_data_button": "Restaurar datos del juego",
+        "restore_game_data_modal": {
+            "question": "¿Seguro que quieres restaurar el juego a su configuración de datos predeterminada?",
+            "close_button": "Cerrar",
+            "confirm_button": "Confirmar"
+        }
+    }
+}

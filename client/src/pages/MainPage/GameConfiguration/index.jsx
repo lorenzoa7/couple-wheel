@@ -2,11 +2,12 @@ import * as C from './styles'
 import ActivitiesList from './ActivitiesList'
 import usePlayer from '../../../hooks/usePlayer'
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function GameConfiguration({ player = 'player1', mustSpin }) {
 
-    const { playerData, setPlayerData, themes } = usePlayer()
-
+    const { playerData, setPlayerData, themes, translateTheme } = usePlayer()
+    const { t } = useTranslation()
     const [openTheme, setOpenTheme] = useState(false)
 
     const themeContainerRef = useRef()
@@ -59,10 +60,10 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
                         <C.ThemeButton
                             theme={playerData[player].theme}
                             onClick={() => setOpenTheme(!openTheme)}
-                        />
+                        >{t('player_data.themes.theme_label')}</C.ThemeButton>
 
                         <C.ThemeContent name='themeContent' $open={openTheme}>
-                            <C.ThemeName theme={playerData[player].theme}>{playerData[player].theme.toUpperCase()}</C.ThemeName>
+                            <C.ThemeName theme={playerData[player].theme}>{translateTheme(playerData[player].theme).toUpperCase()}</C.ThemeName>
                             <C.ThemeColors>
                                 {themes['name'].map((theme, index) =>
                                     <C.ThemeBox

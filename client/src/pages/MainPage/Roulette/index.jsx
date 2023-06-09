@@ -6,6 +6,7 @@ import Modal from '../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
 import Reroll from './Reroll'
 import { VscDebugRestart } from 'react-icons/vsc'
+import { useTranslation } from 'react-i18next'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
@@ -17,6 +18,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const [paidCoins, setPaidCoins] = useState({ player1: 0, player2: 0 })
     const [paidCoinsOrder, setPaidCoinsOrder] = useState([])
     const [isReroll, setIsReroll] = useState(false)
+    const { t } = useTranslation()
 
     const rerollButtonP1Ref = useRef()
     const rerollButtonP2Ref = useRef()
@@ -77,21 +79,20 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                 {
                     id: 1,
                     player: 'player1',
-                    option: 'Create new activities',
+                    option: t('wheel.no_activities'),
                     style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player1.theme)], textColor: 'black' },
                     optionSize: 10
                 },
                 {
                     id: 2,
                     player: 'player2',
-                    option: 'Create new activities',
+                    option: t('wheel.no_activities'),
                     style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player2.theme)], textColor: 'black' },
                     optionSize: 10
                 }
             ]
 
             setHasActivities(false)
-            console.log('nao tem atividades')
             setWheelData(tempData)
         }
 
@@ -100,7 +101,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             setWheelData(modifiedData)
         }
 
-    }, [playerData, themes])
+    }, [playerData, themes, t])
 
     const payCoin = player => {
         if (coins[player] > 0) {
@@ -210,7 +211,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                     whileTap={{ scale: 0.9 }}
                     onClick={handleSpinClick}
                 >
-                    Spin
+                    {t('wheel.spin_label')}
                 </C.SpinButton>
             </C.Main>
 
@@ -250,7 +251,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                             </C.ModalPlayerContent>
 
                             <C.ModalMain>
-                                <C.ModalLabel>The drawn activity was:</C.ModalLabel>
+                                <C.ModalLabel>{t('wheel.wheel_modal.drawn_activity_label')}:</C.ModalLabel>
 
                                 <C.ModalCenter>
                                     <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
@@ -272,7 +273,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                         onClick={isReroll ? () => reroll() : () => accomplish()}
                                     >
                                         {
-                                            isReroll ? <p className='flex items-center justify-center gap-x-1'>Reroll <VscDebugRestart size={'20%'} /></p> : 'Accomplish'
+                                            isReroll ? <p className='flex items-center justify-center gap-x-1'>{t('wheel.wheel_modal.reroll_label')} <VscDebugRestart size={'20%'} /></p> : t('wheel.wheel_modal.accomplish_label')
                                         }
                                     </C.AccomplishButton>
 

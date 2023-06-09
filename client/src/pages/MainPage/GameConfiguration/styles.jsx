@@ -73,6 +73,7 @@ export const PlayerContainer = tw.div`
     font-medium 
     text-white
     rounded-t
+    -z-10
 `
 
 export const ActivitiesContainer = tw.div`
@@ -278,9 +279,7 @@ export const ThemeButton = tw.div`
     outline-2
     outline-white/75
     duration-300
-
-    after:content-['Theme']
-    after:absolute
+    select-none
 `
 
 export const ThemeContent = tw.div`

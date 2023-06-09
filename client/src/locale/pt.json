@@ -1,0 +1,54 @@
+{
+    "header": {
+        "app_title": "Roleta do Casal",
+        "tooltip_menu": "Menu",
+        "tooltip_language": "Idioma",
+        "nav_menu": {
+            "nav_config": "Config"
+        }
+    },
+    "player_data": {
+        "player1_name": "Jogador 1",
+        "player2_name": "Jogador 2",
+        "activity_name": "Atividade",
+        "no_activity_label": "Clique no botão para criar uma nova atividade",
+        "themes": {
+            "theme_label": "Tema",
+            "theme_blue": "Azul",
+            "theme_green": "Verde",
+            "theme_lime": "Lima",
+            "theme_orange": "Laranja",
+            "theme_pink": "Rosa",
+            "theme_purple": "Roxo",
+            "theme_red": "Vermelho",
+            "theme_teal": "Verde água",
+            "theme_yellow": "Amarelo"
+        },
+        "weight_modal": {
+            "question": "você gostaria de resetar o peso de",
+            "you_have_label": "Você tem",
+            "it_costs_label": "Custa",
+            "close_button": "Fechar",
+            "reset_button": "Resetar"
+        }
+    },
+    "wheel": {
+        "spin_label": "Rodar",
+        "no_activities": "Crie novas atividades",
+        "wheel_modal": {
+            "drawn_activity_label": "A atividade sorteada foi",
+            "reroll_cost_label": "Custo de rerolagem",
+            "accomplish_label": "Realizar",
+            "reroll_label": "Rerolar"
+        }
+    },
+    "config": {
+        "title": "Configuração de Jogo",
+        "restore_game_data_button": "Restaurar dados do jogo",
+        "restore_game_data_modal": {
+            "question": "Tem certeza que deseja restaurar o jogo para suas configurações padrões?",
+            "close_button": "Fechar",
+            "confirm_button": "Confirmar"
+        }
+    }
+}

@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react'
 import Modal from '../../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
 import { RxReset } from 'react-icons/rx'
+import { useTranslation } from 'react-i18next'
 
 export default function ActivitiesList({ player = 'player1' }) {
 
     const { findHighestId, getActivityIndex, playerData, setPlayerData } = usePlayer()
+    const { t } = useTranslation()
 
     const [hover, setHover] = useState(0)
     const [modalOpen, setModalOpen] = useState(false)
@@ -39,7 +41,7 @@ export default function ActivitiesList({ player = 'player1' }) {
     }
 
     const addActivity = () => {
-        const newActivity = { id: findHighestId(player) + 1, name: `Activity ${playerData[player].activities.length + 1}`, reroll_cost: 2, weight: 10 }
+        const newActivity = { id: findHighestId(player) + 1, name: `${t('player_data.activity_name')} ${playerData[player].activities.length + 1}`, reroll_cost: 2, weight: 10 }
         setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: playerData[player].activities.concat(newActivity) } })
     }
 
@@ -87,7 +89,7 @@ export default function ActivitiesList({ player = 'player1' }) {
         <>
             <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>+</C.AddActivity>
             {playerData[player].activities.length === 0 ? (
-                <C.Label theme={playerData[player].theme}>Click the button below to create a new activity</C.Label>
+                <C.Label theme={playerData[player].theme}>{t('player_data.no_activity_label')}</C.Label>
             ) : (
                 playerData[player].activities?.map((activity, index) => (
                     <C.ActivitySection key={index}>
@@ -129,17 +131,27 @@ export default function ActivitiesList({ player = 'player1' }) {
                     <Modal size='small' handleClose={() => setModalOpen(false)}>
                         <C.ModalContent>
                             <C.ModalMain>
-                                <C.ModalLabel><C.ModalLabelActivity theme={playerData[player].theme}>{playerData[player].name}</C.ModalLabelActivity>, do you want reset <br /> <C.ModalLabelActivity theme={playerData[player].theme}>{selectedWeightActivity.name}</C.ModalLabelActivity> weight?</C.ModalLabel>
+                                <C.ModalLabel>
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {playerData[player].name}, 
+                                    </C.ModalLabelActivity>
+
+                                    {` ${t('player_data.weight_modal.question')} `}
+
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {selectedWeightActivity.name}?
+                                    </C.ModalLabelActivity>
+                                </C.ModalLabel>
 
                                 <C.PriceContainer>
-                                    <C.PriceLabel>You have: </C.PriceLabel>
+                                    <C.PriceLabel>{t('player_data.weight_modal.you_have_label')}: </C.PriceLabel>
                                     <C.ModalCoin>
                                         {coins}
                                     </C.ModalCoin>
                                 </C.PriceContainer>
 
                                 <C.PriceContainer>
-                                    <C.PriceLabel>It costs: </C.PriceLabel>
+                                    <C.PriceLabel>{t('player_data.weight_modal.it_costs_label')}: </C.PriceLabel>
                                     <C.ModalCoin>
                                         {resetWeightCost(selectedWeightActivity.weight)}
                                     </C.ModalCoin>
@@ -153,7 +165,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                                         onClick={() => setModalOpen(false)}
                                         action='close'
                                     >
-                                        Close
+                                        {t('player_data.weight_modal.close_button')}
                                     </C.WeightButton>
 
                                     <C.WeightButton
@@ -163,7 +175,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                                         action='reset'
                                         $is_disabled={playerData[player].coins < resetWeightCost(selectedWeightActivity.weight) ? true : false}
                                     >
-                                        Reset
+                                        {t('player_data.weight_modal.reset_button')}
                                     </C.WeightButton>
 
 
