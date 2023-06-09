@@ -88,11 +88,11 @@ export default function Header() {
 
                         <C.LanguageNav $open={openLanguageMenu}>
 
-                            {languageOptions.map(language => (
+                            {languageOptions.map((language, index) => (
                                 <C.LanguageNavOption
                                     $selected={language.value === chosenLanguage}
                                     onClick={() => changeLanguage(language.value)}
-                                    key={languageOptions.value}
+                                    key={index}
                                 >
                                     <C.LanguageIcon src={language.flag} alt={language.name} />
                                     <C.LanguageOptionLabel>{language.name}</C.LanguageOptionLabel>
