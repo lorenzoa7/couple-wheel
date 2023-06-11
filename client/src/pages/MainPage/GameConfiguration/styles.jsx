@@ -304,7 +304,7 @@ export const ThemeContent = tw.div`
     outline
     outline-2
     outline-black/90
-    z-30 
+    z-20 
     duration-150
     origin-top
     top-36

@@ -46,6 +46,7 @@ export const Header = tw.header`
     bg-white 
     w-full 
     h-16
+    z-30
 `
 
 export const MenuIcon = tw.div`
@@ -227,7 +228,7 @@ export const LanguageNav = tw.nav`
     absolute 
     top-7
     -left-44
-    z-50
+    z-30
     shadow-2xl
     duration-150
     origin-top-right
