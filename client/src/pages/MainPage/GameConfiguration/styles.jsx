@@ -449,7 +449,7 @@ export const WeightButton = tw(motion.button)`
         'pointer-events-auto opacity-100'
     )}
 
-    w-4/12 
+    w-6/12 
     p-2
     rounded-lg 
     text-white
@@ -459,6 +459,8 @@ export const WeightButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+
+    2xl:w-4/12
 `
 
 export const ModalPlayers = tw.div`

@@ -236,7 +236,7 @@ export const ModalMain = tw.div`
     items-center 
     justify-center 
     flex-col 
-    p-3 
+    p-4
     mt-10
 `
 
