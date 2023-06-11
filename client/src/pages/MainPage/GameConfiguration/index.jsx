@@ -4,7 +4,7 @@ import usePlayer from '../../../hooks/usePlayer'
 import { useState, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function GameConfiguration({ player = 'player1', mustSpin }) {
+export default function GameConfiguration({ player = 'player1', mustSpin, visible=true }) {
 
     const { playerData, setPlayerData, themes, translateTheme } = usePlayer()
     const { t } = useTranslation()
@@ -40,7 +40,7 @@ export default function GameConfiguration({ player = 'player1', mustSpin }) {
     })
 
     return (
-        <C.Main $spinning={mustSpin}>
+        <C.Main $visible={visible} $spinning={mustSpin}>
             <C.Section>
                 <C.PlayerContainer theme={playerData[player].theme}>
                     <C.PlayerInput

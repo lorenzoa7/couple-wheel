@@ -43,7 +43,11 @@ export const Main = tw.main`
         'pointer-events-auto'
     )}
 
-    flex
+    ${(props) => (
+        (props.$visible === false && 'hidden') ||
+        'flex'
+    )}
+
     p-10 
     gap-10 
     w-full

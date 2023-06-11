@@ -29,3 +29,13 @@ export const Main = tw.main`
     w-3/5 
     h-full
 `
+
+export const MdContainer = tw.div`
+    ${(props) => (
+        (props.$visible === false && 'hidden') ||
+        'flex'
+    )}
+
+    items-center 
+    justify-center
+`
