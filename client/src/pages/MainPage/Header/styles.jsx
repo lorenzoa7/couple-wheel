@@ -113,6 +113,7 @@ export const ModalContent = tw.div`
     justify-center
     w-full 
     h-full
+    px-3
 `
 
 export const RestoreDataButton = tw(motion.button)`
@@ -138,7 +139,7 @@ export const ConfirmationButton = tw(motion.button)`
         'bg-red-600 hover:bg-red-700'
     )}
 
-    w-4/12 
+    w-6/12 
     p-2
     rounded-lg 
     text-white
@@ -148,6 +149,8 @@ export const ConfirmationButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+
+    2xl:w-4/12
 `
 
 export const ModalMain = tw.div`
