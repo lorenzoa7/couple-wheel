@@ -16,12 +16,13 @@ export default function Header() {
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
 
 
-    const { languageOptions, playerData } = usePlayer()
+    const { languageOptions, playerData, setPlayerData } = usePlayer()
     const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
     const [chosenLanguage, setChosenLanguage] = useState('en')
 
     const navigate = useNavigate()
     const { t, i18n } = useTranslation()
+    const hiddenFileInput = useRef()
     const menuRef = useRef()
     const languageMenuRef = useRef()
 
@@ -49,6 +50,30 @@ export default function Header() {
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
+        }
+
+    }
+
+    const importData = e => {
+        const file = e.target.files[0];
+
+        if (file && file.type === 'application/json') {
+            const reader = new FileReader();
+
+            reader.onload = e => {
+                try {
+                    const contents = e.target.result;
+                    const jsonData = JSON.parse(contents);
+
+                    setPlayerData(jsonData)
+                } catch (error) {
+                    console.error('Error while exporting json file:', error);
+                }
+            }
+
+            reader.readAsText(file)
+        } else {
+            console.error('Invalid file format. Select a JSON file.')
         }
 
     }
@@ -135,9 +160,14 @@ export default function Header() {
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_config')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
 
-                            <C.MenuNavOption onClick={() => null}>
+                            <C.MenuNavOption onClick={() => hiddenFileInput.current.click()}>
                                 <AiOutlineImport size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_import')}</C.MenuOptionLabel>
+                                <input type="file"
+                                    ref={hiddenFileInput}
+                                    onChange={importData}
+                                    className='hidden'
+                                />
                             </C.MenuNavOption>
 
                             <C.MenuNavOption onClick={() => exportData()}>
