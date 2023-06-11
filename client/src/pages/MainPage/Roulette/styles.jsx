@@ -202,8 +202,8 @@ export const ModalPlayerContent = tw.div`
     outline-black/50
 
     lg:w-1/3
+    lg:h-56
     xl:w-2/3
-    lg:h-48
 `
 
 export const ModalPlayerStuff = tw.div`
