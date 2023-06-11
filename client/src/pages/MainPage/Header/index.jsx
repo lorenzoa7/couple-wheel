@@ -14,9 +14,9 @@ export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
     const [openConfigModal, setOpenConfigModal] = useState(false)
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
+    const [importKey, setImportKey] = useState(Date.now())
 
-
-    const { languageOptions, playerData, setPlayerData } = usePlayer()
+    const { languageOptions, playerData, setPlayerData, setMessage } = usePlayer()
     const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
     const [chosenLanguage, setChosenLanguage] = useState('en')
 
@@ -55,10 +55,11 @@ export default function Header() {
     }
 
     const importData = e => {
-        const file = e.target.files[0];
+        const file = e.target.files[0]
 
         if (file && file.type === 'application/json') {
-            const reader = new FileReader();
+            const reader = new FileReader()
+            reader.readAsText(file)
 
             reader.onload = e => {
                 try {
@@ -66,16 +67,18 @@ export default function Header() {
                     const jsonData = JSON.parse(contents);
 
                     setPlayerData(jsonData)
-                } catch (error) {
-                    console.error('Error while exporting json file:', error);
+                    setMessage({ text: 'Successfully updated the game data.', type: 'success' })
+                } catch {
+                    setMessage({ text: 'Error while exporting JSON file.', type: 'error' })
                 }
             }
 
-            reader.readAsText(file)
+
         } else {
-            console.error('Invalid file format. Select a JSON file.')
+            setMessage({ text: 'Invalid file format. Select a JSON file.', type: 'error' })
         }
 
+        setImportKey(Date.now())
     }
 
     useEffect(() => {
@@ -163,7 +166,10 @@ export default function Header() {
                             <C.MenuNavOption onClick={() => hiddenFileInput.current.click()}>
                                 <AiOutlineImport size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_import')}</C.MenuOptionLabel>
-                                <input type="file"
+                                <input
+                                    key={importKey}
+                                    type="file"
+                                    accept='.json'
                                     ref={hiddenFileInput}
                                     onChange={importData}
                                     className='hidden'
