@@ -313,10 +313,13 @@ export const ThemeContent = tw.div`
     duration-150
     origin-top
     top-36
-    left-1/2
+    left-1/4
     shadow-2xl
-    -translate-x-1/2
+    -translate-x-2/3
     -translate-y-1/2
+
+    2xl:left-1/2
+    2xl:-translate-x-1/2
 `
 
 export const ThemeColors = tw.div`
