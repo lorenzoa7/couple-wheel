@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const AppTitle = tw.h1`
     text-left
     font-['pacifico'] 
-    text-3xl 
+    text-xl 
     w-full
     pr-1
     py-2
@@ -16,6 +16,9 @@ export const AppTitle = tw.h1`
     to-rose-700
     text-transparent
     bg-[length:200%]
+
+    sm:text-2xl
+    2xl:text-3xl
 `
 
 export const TitleContainer = tw.div`
@@ -32,17 +35,16 @@ export const TitleContainer = tw.div`
 `
 
 export const TitleLogo = tw.img`
-    h-5/6
+    h-4/6
     duration-300
+
+    2xl:h-5/6
 `
 
 export const Header = tw.header`
     flex 
     items-center 
-    justify-between
-    fixed 
-    top-0 
-    left-0 
+    justify-between 
     bg-white 
     w-full 
     h-16
@@ -210,7 +212,6 @@ export const LanguageContainer = tw.div`
     justify-center
     items-center
     relative
-    pr-5
 `
 
 export const LanguageNav = tw.nav`

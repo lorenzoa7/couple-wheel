@@ -5,18 +5,18 @@ export const PageContainer = tw.div`
     w-screen
     flex
     flex-col
+    gap-20
+
+    2xl:gap-0
 `
 
 export const PageContent = tw.div`
     flex 
     flex-col
-    h-[calc(100%-4rem)]
+    h-full
     items-center
     justify-center
     gap-3
-    pb-5
-    pt-8
-    mt-auto
 
     2xl:flex-row
 `
