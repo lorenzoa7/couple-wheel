@@ -258,7 +258,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
                                 <C.ModalCenter>
                                     <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
-                                        <p className='break-all'>{clampText(findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name, 30)}</p>
+                                        <p className='break-before-all'>{clampText(findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name, 30)}</p>
                                     </C.ModalActivity>
 
                                     <Reroll

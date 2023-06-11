@@ -132,17 +132,15 @@ export default function ActivitiesList({ player = 'player1' }) {
                         <C.ModalContent>
                             <C.ModalMain>
                                 <C.ModalLabel>
-                                    <p className='break-before-all'>
-                                        <C.ModalLabelActivity theme={playerData[player].theme}>
-                                            {clampText(playerData[player].name, 29)},
-                                        </C.ModalLabelActivity>
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {clampText(playerData[player].name, 29)},
+                                    </C.ModalLabelActivity>
 
-                                        {` ${t('player_data.weight_modal.question')} `}
+                                    {` ${t('player_data.weight_modal.question')} `}
 
-                                        <C.ModalLabelActivity theme={playerData[player].theme}>
-                                            {clampText(selectedWeightActivity.name, 29)}?
-                                        </C.ModalLabelActivity>
-                                    </p>
+                                    <C.ModalLabelActivity theme={playerData[player].theme}>
+                                        {clampText(selectedWeightActivity.name, 29)}?
+                                    </C.ModalLabelActivity>
 
                                 </C.ModalLabel>
 

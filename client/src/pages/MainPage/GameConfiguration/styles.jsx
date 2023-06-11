@@ -406,6 +406,7 @@ export const ModalLabel = tw.p`
     uppercase
     text-center
     select-none
+    break-before-all
 `
 
 export const ModalLabelActivity = tw.span`
