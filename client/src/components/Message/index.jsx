@@ -10,8 +10,8 @@ export default function Message() {
 
         if (message?.text?.length > 0) {
             timerId = setTimeout(() => {
-                setMessage({message: '', type: ''})
-            }, 5000)
+                setMessage({ message: '', type: '' })
+            }, 1000000)
         }
 
         return () => {
@@ -21,13 +21,13 @@ export default function Message() {
 
 
     return (
-        <>
+        <C.Container>
             {
                 message?.text?.length > 0 &&
                 <C.Message type={message.type} onClick={() => setMessage({ text: '', type: '' })}>
                     {message.text}
                 </C.Message>
             }
-        </>
+        </C.Container>
     )
 }

@@ -1,5 +1,12 @@
 import tw from 'tailwind-styled-components'
 
+export const Container = tw.div`
+    absolute 
+    z-40 
+    top-24 
+    left-8 
+`
+
 export const Message = tw.span`
 
     ${(props) => (
@@ -8,11 +15,7 @@ export const Message = tw.span`
         'bg-cyan-400/50 hover:bg-cyan-400/75'
     )}
 
-    absolute 
-    z-40 
-    top-24 
-    left-1/2 
-    -translate-x-1/2 
+    relative
     p-3 
     rounded-xl 
     flex 
@@ -21,4 +24,13 @@ export const Message = tw.span`
     font-medium
     duration-150
     cursor-pointer
+    text-center
+
+    after:content-['✖']
+    after:absolute
+    after:-top-2
+    after:right-0
+    after:scale-125
+    after:duration-150
+    after:hover:scale-150
 `
