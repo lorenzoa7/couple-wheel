@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function ActivitiesList({ player = 'player1' }) {
 
-    const { findHighestId, getActivityIndex, playerData, setPlayerData } = usePlayer()
+    const { findHighestId, getActivityIndex, playerData, setPlayerData, clampText } = usePlayer()
     const { t } = useTranslation()
 
     const [hover, setHover] = useState(0)
@@ -133,14 +133,15 @@ export default function ActivitiesList({ player = 'player1' }) {
                             <C.ModalMain>
                                 <C.ModalLabel>
                                     <C.ModalLabelActivity theme={playerData[player].theme}>
-                                        {playerData[player].name}, 
+                                        {clampText(playerData[player].name, 29)},
                                     </C.ModalLabelActivity>
 
                                     {` ${t('player_data.weight_modal.question')} `}
 
                                     <C.ModalLabelActivity theme={playerData[player].theme}>
-                                        {selectedWeightActivity.name}?
+                                        {clampText(selectedWeightActivity.name, 29)}?
                                     </C.ModalLabelActivity>
+
                                 </C.ModalLabel>
 
                                 <C.PriceContainer>

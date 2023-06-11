@@ -43,12 +43,19 @@ export const Main = tw.main`
         'pointer-events-auto'
     )}
 
-    flex
+    ${(props) => (
+        (props.$visible === false && 'hidden') ||
+        'flex'
+    )}
+
     p-10 
     gap-10 
-    w-[600px]
-    h-4/5
+    w-full
+    h-[600px]
     duration-300
+
+    xl:w-[600px]
+    xl:h-5/6
 `
 
 export const Section = tw.section`
@@ -64,16 +71,16 @@ export const PlayerContainer = tw.div`
         return getThemeConfiguration({ theme: props.theme, intensity: 700 })
     }}
 
-    p-3 
+    py-3 
     px-5
     flex 
+    gap-3
     items-center 
     justify-between 
     text-lg 
     font-medium 
     text-white
     rounded-t
-    -z-10
 `
 
 export const ActivitiesContainer = tw.div`
@@ -101,7 +108,7 @@ export const Activity = tw.div`
         return getThemeConfiguration({ theme: props.theme, intensity: 600 })
     }}
 
-    w-11/12
+    w-[88%]
     h-full
     rounded 
     flex
@@ -112,6 +119,8 @@ export const Activity = tw.div`
     gap-5
     text-white
     font-medium
+
+    lg:w-11/12
 `
 
 export const WeightBox = tw.div`
@@ -198,6 +207,7 @@ export const PlayerInput = tw.input`
     cursor-pointer
     duration-300
     px-2
+    w-full
 
     hover:bg-rose-50/10
 `
@@ -244,6 +254,7 @@ export const Label = tw.p`
     }}
 
     text-lg
+    text-center
     p-3
     h-12
     rounded
@@ -302,14 +313,19 @@ export const ThemeContent = tw.div`
     outline
     outline-2
     outline-black/90
-    z-30 
+    z-20 
     duration-150
     origin-top
     top-36
-    left-1/2
+    left-1/4
     shadow-2xl
-    -translate-x-1/2
+    -translate-x-2/3
     -translate-y-1/2
+
+    lg:left-1/3
+    lg:-translate-x-1/2
+
+    2xl:left-1/2
 `
 
 export const ThemeColors = tw.div`
@@ -356,7 +372,6 @@ export const Coin = tw.span`
     justify-center
     pl-8 
     ml-auto
-    mr-5
 
     before:content-['$']
     before:flex 
@@ -391,6 +406,7 @@ export const ModalLabel = tw.p`
     uppercase
     text-center
     select-none
+    break-before-all
 `
 
 export const ModalLabelActivity = tw.span`
@@ -440,7 +456,7 @@ export const WeightButton = tw(motion.button)`
         'pointer-events-auto opacity-100'
     )}
 
-    w-4/12 
+    w-6/12 
     p-2
     rounded-lg 
     text-white
@@ -450,6 +466,8 @@ export const WeightButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+
+    lg:w-4/12
 `
 
 export const ModalPlayers = tw.div`

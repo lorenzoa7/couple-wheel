@@ -2,11 +2,10 @@ import tw from 'tailwind-styled-components'
 import { motion } from 'framer-motion'
 
 export const Backdrop = tw(motion.div)`
-    absolute
-    top-0
-    left-0
-    h-screen
-    w-screen
+    fixed
+    inset-0
+    h-full
+    w-full
     bg-black/50
     flex
     items-center

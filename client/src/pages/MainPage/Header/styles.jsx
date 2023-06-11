@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export const AppTitle = tw.h1`
     text-left
     font-['pacifico'] 
-    text-3xl 
+    text-xl 
     w-full
     pr-1
     py-2
@@ -16,6 +16,9 @@ export const AppTitle = tw.h1`
     to-rose-700
     text-transparent
     bg-[length:200%]
+
+
+    sm:text-3xl
 `
 
 export const TitleContainer = tw.div`
@@ -32,20 +35,20 @@ export const TitleContainer = tw.div`
 `
 
 export const TitleLogo = tw.img`
-    h-5/6
+    h-4/6
     duration-300
+
+    sm:h-5/6
 `
 
 export const Header = tw.header`
     flex 
     items-center 
-    justify-between
-    fixed 
-    top-0 
-    left-0 
+    justify-between 
     bg-white 
     w-full 
     h-16
+    z-30
 `
 
 export const MenuIcon = tw.div`
@@ -110,6 +113,7 @@ export const ModalContent = tw.div`
     justify-center
     w-full 
     h-full
+    px-3
 `
 
 export const RestoreDataButton = tw(motion.button)`
@@ -135,7 +139,7 @@ export const ConfirmationButton = tw(motion.button)`
         'bg-red-600 hover:bg-red-700'
     )}
 
-    w-4/12 
+    w-6/12 
     p-2
     rounded-lg 
     text-white
@@ -145,6 +149,8 @@ export const ConfirmationButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+
+    lg:w-4/12
 `
 
 export const ModalMain = tw.div`
@@ -209,7 +215,6 @@ export const LanguageContainer = tw.div`
     justify-center
     items-center
     relative
-    pr-5
 `
 
 export const LanguageNav = tw.nav`
@@ -227,7 +232,7 @@ export const LanguageNav = tw.nav`
     absolute 
     top-7
     -left-44
-    z-20 
+    z-30
     shadow-2xl
     duration-150
     origin-top-right
