@@ -21,7 +21,7 @@ export const Container = tw.div`
     gap-2 
     rounded-xl
 
-    2xl:w-4/5
+    lg:w-4/5
 `
 
 export const LabelTitle = tw.p`

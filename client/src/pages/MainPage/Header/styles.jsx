@@ -17,8 +17,8 @@ export const AppTitle = tw.h1`
     text-transparent
     bg-[length:200%]
 
-    sm:text-2xl
-    2xl:text-3xl
+
+    sm:text-3xl
 `
 
 export const TitleContainer = tw.div`
@@ -38,7 +38,7 @@ export const TitleLogo = tw.img`
     h-4/6
     duration-300
 
-    2xl:h-5/6
+    sm:h-5/6
 `
 
 export const Header = tw.header`
@@ -150,7 +150,7 @@ export const ConfirmationButton = tw(motion.button)`
     uppercase
     duration-300
 
-    2xl:w-4/12
+    lg:w-4/12
 `
 
 export const ModalMain = tw.div`

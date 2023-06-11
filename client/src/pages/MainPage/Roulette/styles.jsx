@@ -55,7 +55,12 @@ export const Main = tw.main`
     sm:[&>div:first-child]:w-[400px]
     sm:[&>div:first-child]:h-[400px]
 
-    2xl:order-none
+    xl:order-none
+    xl:w-[500px]
+    xl:h-[500px]
+    xl:[&>div:first-child]:w-[500px]
+    xl:[&>div:first-child]:h-[500px]
+
     2xl:w-[600px]
     2xl:h-[600px]
     2xl:[&>div:first-child]:w-[600px]
@@ -105,7 +110,7 @@ export const ModalContent = tw.div`
     h-full 
     gap-3
 
-    2xl:flex-row
+    lg:flex-row
 `
 
 export const ModalLabel = tw.p`
@@ -162,7 +167,7 @@ export const AccomplishButton = tw(motion.button)`
 
     hover:bg-rose-700
 
-    2xl:w-9/12
+    lg:w-9/12
 `
 
 export const ModalPlayers = tw.div`
@@ -177,8 +182,8 @@ export const ModalPlayers = tw.div`
 export const ModalPlayerContent = tw.div`
     
     ${(props) => (
-        (props.player === 'player1' && 'mb-auto rounded-t-xl 2xl:rounded-br-xl 2xl:rounded-tl-xl ') ||
-        'mt-auto rounded-b-xl 2xl:rounded-tl-xl 2xl:rounded-br-xl '
+        (props.player === 'player1' && 'mb-auto rounded-t-xl lg:rounded-br-xl lg:rounded-tl-xl ') ||
+        'mt-auto rounded-b-xl lg:rounded-tl-xl lg:rounded-br-xl '
     )}
 
     ${(props) => {
@@ -196,8 +201,9 @@ export const ModalPlayerContent = tw.div`
     outline-2
     outline-black/50
 
-    2xl:w-2/3
-    2xl:h-48
+    lg:w-1/3
+    xl:w-2/3
+    lg:h-48
 `
 
 export const ModalPlayerStuff = tw.div`
@@ -214,7 +220,7 @@ export const ModalPlayerStuff = tw.div`
     w-full 
     h-full
 
-    2xl:flex-col
+    lg:flex-col
 `
 
 export const ModalPlayerHeader = tw.div`
@@ -329,6 +335,6 @@ export const RerollButton = tw(motion.div)`
     after:duration-300
     hover:after:scale-110
 
-    2xl:w-14 
-    2xl:h-14 
+    lg:w-14 
+    lg:h-14 
 `

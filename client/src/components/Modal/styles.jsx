@@ -5,8 +5,8 @@ export const Modal = tw(motion.div)`
 
     ${(props) => (
         (props.size === 'tiny' && 'h-1/5') ||
-        (props.size === 'small' && 'h-3/5 2xl:h-2/5') ||
-        'h-4/5 2xl:h-3/5'
+        (props.size === 'small' && 'h-3/5 md:h-2/5') ||
+        'h-4/5 lg:h-3/5'
     )}
 
     w-11/12
@@ -23,5 +23,7 @@ export const Modal = tw(motion.div)`
     outline-4
     outline-black/90
 
+    md:w-3/4
+    xl:w-2/4
     2xl:w-1/4
 `

@@ -54,8 +54,8 @@ export const Main = tw.main`
     h-[600px]
     duration-300
 
-    2xl:w-[600px]
-    2xl:h-full
+    xl:w-[600px]
+    xl:h-5/6
 `
 
 export const Section = tw.section`
@@ -120,7 +120,7 @@ export const Activity = tw.div`
     text-white
     font-medium
 
-    2xl:w-11/12
+    lg:w-11/12
 `
 
 export const WeightBox = tw.div`
@@ -322,8 +322,10 @@ export const ThemeContent = tw.div`
     -translate-x-2/3
     -translate-y-1/2
 
+    lg:left-1/3
+    lg:-translate-x-1/2
+
     2xl:left-1/2
-    2xl:-translate-x-1/2
 `
 
 export const ThemeColors = tw.div`
@@ -464,7 +466,7 @@ export const WeightButton = tw(motion.button)`
     uppercase
     duration-300
 
-    2xl:w-4/12
+    lg:w-4/12
 `
 
 export const ModalPlayers = tw.div`

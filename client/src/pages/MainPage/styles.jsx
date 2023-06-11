@@ -6,9 +6,9 @@ export const PageContainer = tw.div`
     w-screen
     flex
     flex-col
-    gap-20
-    2xl:gap-0
-    2xl:h-screen
+    gap-10
+    xl:gap-0
+    xl:h-screen
 `
 
 export const PageContent = tw.div`
@@ -19,7 +19,7 @@ export const PageContent = tw.div`
     justify-center
     gap-3
 
-    2xl:flex-row
+    xl:flex-row
 `
 
 export const Main = tw.main`

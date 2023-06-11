@@ -79,14 +79,14 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                 {
                     id: 1,
                     player: 'player1',
-                    option: t('wheel.no_activities'),
+                    option: clampText(t('wheel.no_activities'), 24),
                     style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player1.theme)], textColor: 'black' },
                     optionSize: 10
                 },
                 {
                     id: 2,
                     player: 'player2',
-                    option: t('wheel.no_activities'),
+                    option: clampText(t('wheel.no_activities'), 24),
                     style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player2.theme)], textColor: 'black' },
                     optionSize: 10
                 }
