@@ -4,7 +4,9 @@
         "tooltip_menu": "Menu",
         "tooltip_language": "Language",
         "nav_menu": {
-            "nav_config": "Config"
+            "nav_config": "Config",
+            "nav_import": "Import",
+            "nav_export": "Export"
         }
     },
     "player_data": {

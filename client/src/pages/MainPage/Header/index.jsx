@@ -8,6 +8,7 @@ import Logo from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
+import { AiOutlineImport, AiOutlineDownload } from 'react-icons/ai'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
@@ -15,7 +16,7 @@ export default function Header() {
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
 
 
-    const { languageOptions } = usePlayer()
+    const { languageOptions, playerData } = usePlayer()
     const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
     const [chosenLanguage, setChosenLanguage] = useState('en')
 
@@ -32,6 +33,24 @@ export default function Header() {
         localStorage.setItem('language', language)
         i18n.changeLanguage(language)
         setChosenLanguage(language)
+    }
+
+    const exportData = () => {
+        let filename = "couplewheel_data.json";
+        let contentType = "application/json;charset=utf-8;";
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            let blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(playerData, null, '\t')))], { type: contentType });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            let a = document.createElement('a');
+            a.download = filename;
+            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(playerData, null, '\t'));
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
     }
 
     useEffect(() => {
@@ -114,6 +133,16 @@ export default function Header() {
                             <C.MenuNavOption onClick={() => setOpenConfigModal(true)}>
                                 <GoGear size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_config')}</C.MenuOptionLabel>
+                            </C.MenuNavOption>
+
+                            <C.MenuNavOption onClick={() => null}>
+                                <AiOutlineImport size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_import')}</C.MenuOptionLabel>
+                            </C.MenuNavOption>
+
+                            <C.MenuNavOption onClick={() => exportData()}>
+                                <AiOutlineDownload size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_export')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
 
                         </C.MenuNav>
