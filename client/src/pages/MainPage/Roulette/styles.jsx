@@ -99,10 +99,13 @@ export const SpinButton = tw(motion.button)`
 
 export const ModalContent = tw.div`
     flex  
+    flex-col
     items-center 
     w-full 
     h-full 
     gap-3
+
+    2xl:flex-row
 `
 
 export const ModalLabel = tw.p`
@@ -144,7 +147,8 @@ export const ModalActivity = tw.div`
 `
 
 export const AccomplishButton = tw(motion.button)`
-    w-9/12 
+    w-6/12 
+    h-12
     p-2
     rounded-lg 
     text-white
@@ -157,6 +161,8 @@ export const AccomplishButton = tw(motion.button)`
     duration-300
 
     hover:bg-rose-700
+
+    2xl:w-9/12
 `
 
 export const ModalPlayers = tw.div`
@@ -171,8 +177,8 @@ export const ModalPlayers = tw.div`
 export const ModalPlayerContent = tw.div`
     
     ${(props) => (
-        (props.player === 'player1' && 'rounded-br-xl rounded-tl-xl mb-auto') ||
-        'rounded-tl-xl rounded-br-xl mt-auto'
+        (props.player === 'player1' && 'mb-auto rounded-t-xl 2xl:rounded-br-xl 2xl:rounded-tl-xl ') ||
+        'mt-auto rounded-b-xl 2xl:rounded-tl-xl 2xl:rounded-br-xl '
     )}
 
     ${(props) => {
@@ -181,14 +187,34 @@ export const ModalPlayerContent = tw.div`
 
     flex 
     flex-col 
-    w-2/3
-    h-48
+    w-full
+    h-28
     p-3 
     gap-3
 
     outline-double
     outline-2
     outline-black/50
+
+    2xl:w-2/3
+    2xl:h-48
+`
+
+export const ModalPlayerStuff = tw.div`
+
+    ${(props) => (
+        (props.player === 'player1' && 'flex-row') ||
+        'flex-row-reverse'
+    )}
+
+    flex 
+    items-center 
+    justify-center 
+    gap-3 
+    w-full 
+    h-full
+
+    2xl:flex-col
 `
 
 export const ModalPlayerHeader = tw.div`
@@ -200,12 +226,13 @@ export const ModalPlayerHeader = tw.div`
 
     font-bold 
     uppercase
+    w-full
 `
 
 export const ModalMain = tw.div`
     flex 
     h-full 
-    w-full 
+    w-[28rem]
     items-center 
     justify-center 
     flex-col 
@@ -224,6 +251,7 @@ export const CoinContainer = tw.div`
     flex 
     items-center 
     justify-center
+    w-full
 `
 
 export const Coin = tw.span`
@@ -273,8 +301,8 @@ export const RerollButton = tw(motion.div)`
     )}
 
     relative
-    w-14 
-    h-14 
+    w-12
+    h-12 
     rounded-full 
     flex 
     items-center 
@@ -300,4 +328,7 @@ export const RerollButton = tw(motion.div)`
     after:-bottom-1
     after:duration-300
     hover:after:scale-110
+
+    2xl:w-14 
+    2xl:h-14 
 `

@@ -14,12 +14,14 @@ export const Container = tw.div`
     flex-col 
     items-center 
     justify-center 
-    w-4/5 
+    w-3/5 
     max-h-52 
     bg-zinc-900 
     p-3 
     gap-2 
     rounded-xl
+
+    2xl:w-4/5
 `
 
 export const LabelTitle = tw.p`

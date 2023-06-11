@@ -108,6 +108,12 @@ export const PlayerProvider = ({ children }) => {
         return playerActivities.find(activity => activity.id === id)
     }
 
+    const clampText = (text, maxLength) => {
+        if (`${text}...`.length <= maxLength) return text
+
+        return text.substring(0, maxLength - 3) + '...'
+    }
+
     const savePlayerData = useCallback(() => {
         const jsonPlayerData = JSON.stringify(playerData)
 
@@ -156,7 +162,7 @@ export const PlayerProvider = ({ children }) => {
 
     return (
         <PlayerContext.Provider value={{
-            playerData, setPlayerData, languageOptions,
+            playerData, setPlayerData, languageOptions, clampText,
             findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData
         }}>

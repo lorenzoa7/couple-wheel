@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
-    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex } = usePlayer()
+    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex, clampText } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -46,7 +46,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             return {
                 id: activity.id,
                 player: 'player1',
-                option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
+                option: clampText(activity.name, 18),
                 style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player1.theme)], textColor: 'black' },
                 optionSize: activity.weight
             }
@@ -56,7 +56,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             return {
                 id: activity.id,
                 player: 'player2',
-                option: activity.name.length <= 15 ? activity.name : activity.name.substring(0, 15) + '...',
+                option: clampText(activity.name, 18),
                 style: { backgroundColor: themes['hex'][themes['name'].indexOf(playerData.player2.theme)], textColor: 'black' },
                 optionSize: activity.weight
             }
@@ -101,7 +101,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             setWheelData(modifiedData)
         }
 
-    }, [playerData, themes, t])
+    }, [playerData, themes, t, clampText])
 
     const payCoin = player => {
         if (coins[player] > 0) {
@@ -226,27 +226,30 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
                             <C.ModalPlayerContent player='player1' theme={playerData.player1.theme}>
                                 <C.ModalPlayerHeader player='player1'>
-                                    {playerData.player1.name}
+                                    {clampText(playerData.player1.name, 17)}
                                 </C.ModalPlayerHeader>
 
-                                <C.CoinContainer theme={playerData.player1.theme}>
-                                    <C.Coin player='player1'>
-                                        {coins.player1} ({paidCoins.player1})
-                                    </C.Coin>
-                                </C.CoinContainer>
+                                <C.ModalPlayerStuff player='player1'>
+                                    <C.CoinContainer theme={playerData.player1.theme}>
+                                        <C.Coin player='player1'>
+                                            {coins.player1} ({paidCoins.player1})
+                                        </C.Coin>
+                                    </C.CoinContainer>
 
-                                <C.SkillsContainer>
-                                    <C.RerollButton
-                                        player='player1'
-                                        theme={playerData.player1.theme}
-                                        onClick={!isReroll ? () => payCoin('player1') : null}
-                                        ref={rerollButtonP1Ref}
-                                    >
+                                    <C.SkillsContainer>
+                                        <C.RerollButton
+                                            player='player1'
+                                            theme={playerData.player1.theme}
+                                            onClick={!isReroll ? () => payCoin('player1') : null}
+                                            ref={rerollButtonP1Ref}
+                                        >
 
-                                        <VscDebugRestart size={'75%'} />
+                                            <VscDebugRestart size={'75%'} />
 
-                                    </C.RerollButton>
-                                </C.SkillsContainer>
+                                        </C.RerollButton>
+                                    </C.SkillsContainer>
+                                </C.ModalPlayerStuff>
+
 
                             </C.ModalPlayerContent>
 
@@ -255,7 +258,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
                                 <C.ModalCenter>
                                     <C.ModalActivity theme={playerData[wheelData[chosenActivity].player].theme}>
-                                        {findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name}
+                                        <p className='break-all'>{clampText(findActivityById(wheelData[chosenActivity].player, wheelData[chosenActivity].id).name, 30)}</p>
                                     </C.ModalActivity>
 
                                     <Reroll
@@ -282,25 +285,27 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
                             <C.ModalPlayerContent player='player2' theme={playerData.player2.theme}>
                                 <C.ModalPlayerHeader player='player2'>
-                                    {playerData.player2.name}
+                                    {clampText(playerData.player1.name, 17)}
                                 </C.ModalPlayerHeader>
 
-                                <C.CoinContainer theme={playerData.player2.theme}>
-                                    <C.Coin player='player2'>
-                                        {coins.player2} ({paidCoins.player2})
-                                    </C.Coin>
-                                </C.CoinContainer>
+                                <C.ModalPlayerStuff player='player2'>
+                                    <C.CoinContainer theme={playerData.player2.theme}>
+                                        <C.Coin player='player2'>
+                                            {coins.player2} ({paidCoins.player2})
+                                        </C.Coin>
+                                    </C.CoinContainer>
 
-                                <C.SkillsContainer>
-                                    <C.RerollButton
-                                        player='player2'
-                                        theme={playerData.player2.theme}
-                                        onClick={!isReroll ? () => payCoin('player2') : null}
-                                        ref={rerollButtonP2Ref}
-                                    >
-                                        <VscDebugRestart size={'75%'} />
-                                    </C.RerollButton>
-                                </C.SkillsContainer>
+                                    <C.SkillsContainer>
+                                        <C.RerollButton
+                                            player='player2'
+                                            theme={playerData.player2.theme}
+                                            onClick={!isReroll ? () => payCoin('player2') : null}
+                                            ref={rerollButtonP2Ref}
+                                        >
+                                            <VscDebugRestart size={'75%'} />
+                                        </C.RerollButton>
+                                    </C.SkillsContainer>
+                                </C.ModalPlayerStuff>
                             </C.ModalPlayerContent>
 
                         </C.ModalContent>
