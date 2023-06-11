@@ -9,8 +9,9 @@ export const Modal = tw(motion.div)`
         'h-3/5'
     )}
 
-    w-1/4
-    m-auto
+    w-full
+    mx-5
+    my-auto
     rounded-xl
     flex
     flex-col
@@ -21,4 +22,6 @@ export const Modal = tw(motion.div)`
     outline
     outline-4
     outline-black/90
+
+    2xl:w-1/4
 `
