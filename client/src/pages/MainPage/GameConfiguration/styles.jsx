@@ -46,12 +46,12 @@ export const Main = tw.main`
     flex
     p-10 
     gap-10 
-    w-[400px]
-    h-[800px]
+    w-full
+    h-[600px]
     duration-300
 
     2xl:w-[600px]
-    2xl:h-[800px]
+    2xl:h-full
 `
 
 export const Section = tw.section`
@@ -67,9 +67,10 @@ export const PlayerContainer = tw.div`
         return getThemeConfiguration({ theme: props.theme, intensity: 700 })
     }}
 
-    p-3 
+    py-3 
     px-5
     flex 
+    gap-3
     items-center 
     justify-between 
     text-lg 
@@ -103,7 +104,7 @@ export const Activity = tw.div`
         return getThemeConfiguration({ theme: props.theme, intensity: 600 })
     }}
 
-    w-11/12
+    w-[88%]
     h-full
     rounded 
     flex
@@ -114,6 +115,8 @@ export const Activity = tw.div`
     gap-5
     text-white
     font-medium
+
+    2xl:w-11/12
 `
 
 export const WeightBox = tw.div`
@@ -200,6 +203,7 @@ export const PlayerInput = tw.input`
     cursor-pointer
     duration-300
     px-2
+    w-full
 
     hover:bg-rose-50/10
 `
@@ -246,6 +250,7 @@ export const Label = tw.p`
     }}
 
     text-lg
+    text-center
     p-3
     h-12
     rounded
@@ -358,7 +363,6 @@ export const Coin = tw.span`
     justify-center
     pl-8 
     ml-auto
-    mr-5
 
     before:content-['$']
     before:flex 

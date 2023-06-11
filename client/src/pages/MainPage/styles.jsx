@@ -1,13 +1,14 @@
 import tw from 'tailwind-styled-components'
 
 export const PageContainer = tw.div`
-    h-screen
+    h-auto
     w-screen
     flex
     flex-col
     gap-20
 
     2xl:gap-0
+    2xl:h-screen
 `
 
 export const PageContent = tw.div`
