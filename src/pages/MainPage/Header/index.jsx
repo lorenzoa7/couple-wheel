@@ -10,11 +10,13 @@ import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
 import { AiOutlineImport, AiOutlineDownload, AiOutlineQuestionCircle } from 'react-icons/ai'
 import isValidJson from '../../../validations/importing'
+import HelpModal from './HelpModal'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
     const [openConfigModal, setOpenConfigModal] = useState(false)
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
+    const [openHelpModal, setOpenHelpModal] = useState(false)
     const [importKey, setImportKey] = useState(Date.now())
 
     const { languageOptions, playerData, setPlayerData, setMessage } = usePlayer()
@@ -113,9 +115,9 @@ export default function Header() {
     })
 
     useEffect(() => {
-        if (openConfigModal)
+        if (openConfigModal || openHelpModal)
             setOpenMenu(false)
-    }, [openConfigModal])
+    }, [openConfigModal, openHelpModal])
 
     useEffect(() => {
         setChosenLanguage(i18n.language)
@@ -186,7 +188,7 @@ export default function Header() {
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_export')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
 
-                            <C.MenuNavOption onClick={() => null}>
+                            <C.MenuNavOption onClick={() => setOpenHelpModal(true)}>
                                 <AiOutlineQuestionCircle size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_help')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
@@ -204,6 +206,11 @@ export default function Header() {
                 setOpenConfigModal={setOpenConfigModal}
                 openConfirmationModal={openConfirmationModal}
                 setOpenConfirmationModal={setOpenConfirmationModal}
+            />
+
+            <HelpModal 
+                openHelpModal={openHelpModal}
+                setOpenHelpModal={setOpenHelpModal}
             />
 
         </>
