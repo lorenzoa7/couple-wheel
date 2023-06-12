@@ -9,7 +9,7 @@
   
 </div>
 
-![Wheel Demo](https://cdn.discordapp.com/attachments/630201208270749696/1117859586926456974/demo_couplewheel2.gif)
+![Wheel Demo](https://github.com/lorenzoa7/couple-wheel/blob/master/src/assets/demo_couplewheel2.gif)
 
 
 ## 📑 About
