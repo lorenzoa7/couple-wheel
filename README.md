@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# 💞 <a href="https://portfolio2-0-lime.vercel.app/">Couple Wheel</a></h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<div style="display: inline_block">
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
+  <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  
+</div>
 
-### `npm start`
+![Wheel Demo](https://cdn.discordapp.com/attachments/630201208270749696/1117859586926456974/demo_couplewheel2.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📑 About
+<p>Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!</p>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://www.matheusvieira.dev/">Live Preview</a>
 
-### `npm run build`
+## 🌟 Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add activities to a list and sort them
+- Coin system to reroll the drawn activity
+- Each time an activity is drawn, the harder it is to be drawn again (weight system)
+- Spinning animation
+- Translation support (English, Portuguese and Spanish)
+- Theme selection for each player
+- Export and open a game (local storage)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎮 How to start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone this repository:
+<pre>
+  <code>
+    git clone https://github.com/lorenzoa7/couple-wheel.git
+  </code>
+</pre>
 
-### `npm run eject`
+<h3>2. Install the dependencies:</h3>
+<pre>
+  <code>
+    npm install
+  </code>
+</pre>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h3>3. Start the server</h3>
+<pre>
+  <code>
+    npm start
+  </code>
+</pre>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔧 Credits
+<a href="https://github.com/lorenzoa7" style='display: flex; flex-direction: column; align-items: center;'>
+    <img style='border-radius: 50%; object-fit: cover;' src="https://media.discordapp.net/attachments/630201208270749696/1117852424040873994/curriculo_foto.jpg" width="100px;" height="100px;" alt="Foto do Matheus Vieira"/><br>
+    <sub>
+        <b>Lorenzo Aceti</b>
+    </sub>
+</a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📌 License
+<b>This project is under MIT license.</b>

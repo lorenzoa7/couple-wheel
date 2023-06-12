@@ -285,7 +285,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
                             <C.ModalPlayerContent player='player2' theme={playerData.player2.theme}>
                                 <C.ModalPlayerHeader player='player2'>
-                                    {clampText(playerData.player1.name, 17)}
+                                    {clampText(playerData.player2.name, 17)}
                                 </C.ModalPlayerHeader>
 
                                 <C.ModalPlayerStuff player='player2'>
