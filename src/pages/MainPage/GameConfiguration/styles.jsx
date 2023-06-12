@@ -119,6 +119,7 @@ export const Activity = tw.div`
     gap-5
     text-white
     font-medium
+    [&>*:last-child]:hover:scale-110
 
     lg:w-11/12
 `

@@ -11,8 +11,7 @@ export default function ActivitiesList({ player = 'player1' }) {
 
     const { findHighestId, getActivityIndex, playerData, setPlayerData, clampText } = usePlayer()
     const { t } = useTranslation()
-
-    const [hover, setHover] = useState(0)
+    
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedWeightActivity, setSelectedWeightActivity] = useState(null)
     const [coins, setCoins] = useState(0)
@@ -103,9 +102,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                             </C.WeightIcon>
                         </C.WeightBox>
 
-                        <C.Activity theme={playerData[player].theme} key={index}
-                            onMouseEnter={() => setHover(activity.id)}
-                            onMouseLeave={() => setHover(0)}>
+                        <C.Activity theme={playerData[player].theme} key={index}>
 
                             <C.ActivityInput
                                 id={activity.id}
@@ -114,7 +111,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                                 onKeyDown={handleKeyDown}
                                 onClick={e => e.target.select()}
                             />
-                            <C.DeleteActivity theme={playerData[player].theme} $hover={hover === activity.id} onClick={() => deleteActivity(player, activity.id)}>
+                            <C.DeleteActivity theme={playerData[player].theme} onClick={() => deleteActivity(player, activity.id)}>
                                 <AiFillDelete size={'75%'} />
                             </C.DeleteActivity>
                         </C.Activity>
