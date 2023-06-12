@@ -4,7 +4,9 @@
         "tooltip_menu": "Menu",
         "tooltip_language": "Language",
         "nav_menu": {
-            "nav_config": "Config"
+            "nav_config": "Config",
+            "nav_import": "Import",
+            "nav_export": "Export"
         }
     },
     "player_data": {
@@ -49,6 +51,21 @@
             "question": "Are you sure you want to restore the game to its default data settings?",
             "close_button": "Close",
             "confirm_button": "Confirm"
+        }
+    },
+    "message": {
+        "import": {
+            "success": "Successfully updated game data",
+            "error_master": "Error while importing JSON file",
+            "invalid_format": "Invalid file format. Select a JSON file",
+            "missing_key": "Missing key",
+            "missing_key_player": "Missing key in player",
+            "invalid_coins_value": "Invalid coins value in player",
+            "invalid_theme_value": "Invalid theme value in player",
+            "missing_key_activity": "Missing key in activity",
+            "invalid_id_activity": "Invalid id value in activity",
+            "invalid_reroll_cost_activity": "Invalid reroll_cost value in activity",
+            "invalid_weight_activity": "Invalid weight value in activity"
         }
     }
 }

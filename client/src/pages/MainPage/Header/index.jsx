@@ -8,19 +8,22 @@ import Logo from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
+import { AiOutlineImport, AiOutlineDownload } from 'react-icons/ai'
+import isValidJson from '../../../validations/importing'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
     const [openConfigModal, setOpenConfigModal] = useState(false)
     const [openConfirmationModal, setOpenConfirmationModal] = useState(false)
+    const [importKey, setImportKey] = useState(Date.now())
 
-
-    const { languageOptions } = usePlayer()
+    const { languageOptions, playerData, setPlayerData, setMessage } = usePlayer()
     const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
     const [chosenLanguage, setChosenLanguage] = useState('en')
 
     const navigate = useNavigate()
     const { t, i18n } = useTranslation()
+    const hiddenFileInput = useRef()
     const menuRef = useRef()
     const languageMenuRef = useRef()
 
@@ -33,6 +36,55 @@ export default function Header() {
         i18n.changeLanguage(language)
         setChosenLanguage(language)
     }
+
+    const exportData = () => {
+        let filename = "couplewheel_data.json";
+        let contentType = "application/json;charset=utf-8;";
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            let blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(playerData, null, '\t')))], { type: contentType });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            let a = document.createElement('a');
+            a.download = filename;
+            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(playerData, null, '\t'));
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        setOpenMenu(false)
+    }
+
+    const importData = e => {
+        const file = e.target.files[0]
+
+        if (file && file.type === 'application/json') {
+            const reader = new FileReader()
+            reader.readAsText(file)
+
+            reader.onload = e => {
+                try {
+                    const contents = e.target.result
+                    const jsonData = JSON.parse(contents)
+
+                    if (!isValidJson(jsonData, setMessage, t)) return
+
+                    setPlayerData(jsonData)
+                    setMessage({ text: t('message.import.success'), type: 'success' })
+                } catch {
+                    setMessage({ text: t('message.import.error_master'), type: 'error' })
+                }
+            }
+
+
+        } else {
+            setMessage({ text: t('message.import.invalid_format'), type: 'error' })
+        }
+
+        setImportKey(Date.now())
+        setOpenMenu(false)
+    }
+
 
     useEffect(() => {
         let handler = e => {
@@ -114,6 +166,24 @@ export default function Header() {
                             <C.MenuNavOption onClick={() => setOpenConfigModal(true)}>
                                 <GoGear size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_config')}</C.MenuOptionLabel>
+                            </C.MenuNavOption>
+
+                            <C.MenuNavOption onClick={() => hiddenFileInput.current.click()}>
+                                <AiOutlineImport size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_import')}</C.MenuOptionLabel>
+                                <input
+                                    key={importKey}
+                                    type="file"
+                                    accept='.json'
+                                    ref={hiddenFileInput}
+                                    onChange={importData}
+                                    className='hidden'
+                                />
+                            </C.MenuNavOption>
+
+                            <C.MenuNavOption onClick={() => exportData()}>
+                                <AiOutlineDownload size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_export')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
 
                         </C.MenuNav>

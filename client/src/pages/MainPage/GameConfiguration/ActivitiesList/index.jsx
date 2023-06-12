@@ -74,7 +74,6 @@ export default function ActivitiesList({ player = 'player1' }) {
             }
         }
 
-        console.log(coins)
         updatedPlayerData[player] = { ...updatedPlayerData[player], coins: coins - resetWeightCost(activityWeight) }
 
         setPlayerData(updatedPlayerData)

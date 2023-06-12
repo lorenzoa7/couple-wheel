@@ -44,6 +44,7 @@ export const PlayerProvider = ({ children }) => {
     */
 
     const { t } = useTranslation()
+    const [message, setMessage] = useState({text: '', type: ''})
 
     const languageOptions = [
         {
@@ -164,7 +165,8 @@ export const PlayerProvider = ({ children }) => {
         <PlayerContext.Provider value={{
             playerData, setPlayerData, languageOptions, clampText,
             findHighestId, getActivityIndex, translateTheme,
-            savePlayerData, findActivityById, themes, defaultData
+            savePlayerData, findActivityById, themes, defaultData,
+            message, setMessage
         }}>
             {children}
         </PlayerContext.Provider>
