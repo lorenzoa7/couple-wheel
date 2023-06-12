@@ -295,7 +295,7 @@ export const HelpQuestion = tw.div`
 export const HelpAnswer = tw.div`
 
     ${(props) => (
-        (props.$selected === true && 'max-h-72 h-auto') ||
+        (props.$selected === true && 'max-h-44 lg:max-h-72 h-auto') ||
         'max-h-0'
     )}
 

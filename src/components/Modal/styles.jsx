@@ -6,7 +6,7 @@ export const Modal = tw(motion.div)`
     ${(props) => (
         (props.size === 'tiny' && 'h-1/5') ||
         (props.size === 'small' && 'h-3/5 md:h-2/5') ||
-        (props.size === 'big' && 'h-full md:h-4/5') ||
+        (props.size === 'big' && 'h-[95%] md:h-4/5') ||
         'h-4/5 lg:h-3/5'
     )}
 
