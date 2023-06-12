@@ -5,8 +5,9 @@
         "tooltip_language": "Language",
         "nav_menu": {
             "nav_config": "Config",
-            "nav_import": "Import",
-            "nav_export": "Export"
+            "nav_import": "Open...",
+            "nav_export": "Save",
+            "nav_help": "Help"
         }
     },
     "player_data": {
@@ -51,6 +52,32 @@
             "question": "Are you sure you want to restore the game to its default data settings?",
             "close_button": "Close",
             "confirm_button": "Confirm"
+        }
+    },
+    "help": {
+        "item1": {
+            "question": "What is Couple Wheel?",
+            "answer": "Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!"
+        },
+        "item2": {
+            "question": "What if I don't want to do an activity?",
+            "answer": "If the drawn activity is not to your liking, you can pay to reroll and try to get another activity. Each reroll costs 1 coin, and both players can contribute to the reroll. But be careful: every time an activity is rerolled, its cost increases by 1. To decrease the cost, simply accomplish the activity, and its reroll cost will be reduced by 2."
+        },
+        "item3": {
+            "question": "What is the number next to the activity?",
+            "answer": "Every activity has a weight on the wheel, indicated by the number next to its name. The weight can range from 10 to 1 (with 10 being more likely to be drawn and 1 being less likely). Each time an activity is accomplished, its weight decreases by 1, making it harder to be drawn again. However, you can reset the weight by paying a certain amount of coins ((10 - current weight) / 2), and the weight will be restored to 10!"
+        },
+        "item4": {
+            "question": "How can I earn more coins?",
+            "answer": "To earn more coins, it's very simple: just accomplish activities! Each accomplished activity rewards the player with coins, depending on who created that activity. When accomplished, the activity grants 0 coins to the person who created it and 1 coin to the other person."
+        },
+        "item5": {
+            "question": "Can I save my game?",
+            "answer": "Yes! The game data is automatically saved in your browser and will remain the same when you re-enter. However, if you access it from another browser, your game will not be in the same state as when you left. That's why you have the option to save your game into a small file that you can use to open it into another browser to continue your game. This way, you can also save different games and open them whenever you want!"
+        },
+        "item6": {
+            "question": "I encountered a bug! What should I do?",
+            "answer": "If any harmful bug occurs, I suggest saving the game and restoring the game data. Then, simply open it to load again. For any kind of problem, the best solution is always to restore the data and report it on GitHub."
         }
     },
     "message": {

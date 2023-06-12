@@ -261,3 +261,50 @@ export const LanguageNavOption = tw.div`
 export const LanguageOptionLabel = tw.p`
     w-full
 `
+
+export const HelpWrapper = tw.div`
+    flex
+    flex-col
+    h-full
+    w-full
+    justify-center
+    items-center
+`
+
+export const HelpAccordion = tw.div`
+    w-full
+`
+
+export const HelpItem = tw.div`
+    bg-rose-100
+    mb-1
+    px-3
+    py-5
+    rounded-lg
+`
+
+export const HelpQuestion = tw.div`
+    text-rose-700
+    font-bold
+    flex
+    justify-between
+    items-center
+    cursor-pointer
+`
+
+export const HelpAnswer = tw.div`
+
+    ${(props) => (
+        (props.$selected === true && 'max-h-44 lg:max-h-72 h-auto') ||
+        'max-h-0'
+    )}
+
+    text-rose-500
+    overflow-y-scroll
+    pr-2
+    transition-all
+    duration-300
+    scrollbar-thumb-rose-900
+    scrollbar-track-rose-400
+    scrollbar-thin
+`
