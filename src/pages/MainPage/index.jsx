@@ -1,6 +1,6 @@
 import * as C from './styles'
 import GameConfiguration from './GameConfiguration'
-import Roulette from './Roulette'
+import Wheel from './Wheel'
 import { useState } from 'react'
 import Header from './Header'
 import Footer from './Footer'
@@ -20,7 +20,7 @@ export default function MainPage() {
 
             <C.PageContent>
                 <GameConfiguration visible={!(maxXl && minMd)} mustSpin={mustSpin} player='player1' />
-                <Roulette mustSpin={mustSpin} setMustSpin={setMustSpin} />
+                <Wheel mustSpin={mustSpin} setMustSpin={setMustSpin} />
                 <GameConfiguration visible={!(maxXl && minMd)} mustSpin={mustSpin} player='player2' />
 
                 <C.MdContainer $visible={(maxXl && minMd)}>
