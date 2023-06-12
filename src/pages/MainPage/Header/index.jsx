@@ -172,7 +172,7 @@ export default function Header() {
 
                             <C.MenuNavOption onClick={() => hiddenFileInput.current.click()}>
                                 <AiOutlineImport size={'75%'} />
-                                <C.MenuOptionLabel>{t('header.nav_menu.nav_import')}</C.MenuOptionLabel>
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_open')}</C.MenuOptionLabel>
                                 <input
                                     key={importKey}
                                     type="file"

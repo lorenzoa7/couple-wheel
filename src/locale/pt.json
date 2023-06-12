@@ -5,8 +5,8 @@
         "tooltip_language": "Idioma",
         "nav_menu": {
             "nav_config": "Config",
-            "nav_import": "Abrir...",
-            "nav_export": "Salvar",
+            "nav_open": "Abrir...",
+            "nav_export": "Exportar",
             "nav_help": "Ajuda"
         }
     },
@@ -73,11 +73,11 @@
         },
         "item5": {
             "question": "Eu posso salvar o meu jogo?",
-            "answer": "Sim! Os dados do jogo são salvos automaticamente no seu navegador e permanecerão da mesma forma quando reentrar. Porém, se você acessar por outro navegador, seu jogo não estará da mesma forma de quando saiu. Por isso, você tem a opção de salvar o seu jogo em um pequeno arquivo que você pode usar para abri-lo em outro navegador para continuar seu jogo. Dessa forma, também é possível salvar diferentes jogos e abri-los quando quiser!"
+            "answer": "Sim! Os dados do jogo são salvos automaticamente no seu navegador e permanecerão da mesma forma quando reentrar. Porém, se você acessar por outro navegador, seu jogo não estará da mesma forma de quando saiu. Por isso, você tem a opção de exportar o seu jogo em um pequeno arquivo que você pode usar para abri-lo em outro navegador para continuar seu jogo. Dessa forma, também é possível exportar diferentes jogos e abri-los quando quiser!"
         },
         "item6": {
             "question": "Deu um bug! O que fazer?",
-            "answer": "Caso algum bug prejudicial aconteça, sugiro que salve o jogo e restaure os dados do jogo. Depois, basta abri-los para carregar novamente. Para qualquer tipo de problema, a melhor solução é sempre a de restaurar os dados e reportá-la no GitHub."
+            "answer": "Caso algum bug prejudicial aconteça, sugiro que exporte o jogo e restaure os dados do jogo. Depois, basta abri-los para carregar novamente. Para qualquer tipo de problema, a melhor solução é sempre a de restaurar os dados e reportá-la no GitHub."
         }
     },
     "message": {
