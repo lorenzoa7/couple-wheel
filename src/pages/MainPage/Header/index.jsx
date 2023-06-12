@@ -8,7 +8,7 @@ import Logo from '../../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
-import { AiOutlineImport, AiOutlineDownload } from 'react-icons/ai'
+import { AiOutlineImport, AiOutlineDownload, AiOutlineQuestionCircle } from 'react-icons/ai'
 import isValidJson from '../../../validations/importing'
 
 export default function Header() {
@@ -184,6 +184,11 @@ export default function Header() {
                             <C.MenuNavOption onClick={() => exportData()}>
                                 <AiOutlineDownload size={'75%'} />
                                 <C.MenuOptionLabel>{t('header.nav_menu.nav_export')}</C.MenuOptionLabel>
+                            </C.MenuNavOption>
+
+                            <C.MenuNavOption onClick={() => null}>
+                                <AiOutlineQuestionCircle size={'75%'} />
+                                <C.MenuOptionLabel>{t('header.nav_menu.nav_help')}</C.MenuOptionLabel>
                             </C.MenuNavOption>
 
                         </C.MenuNav>

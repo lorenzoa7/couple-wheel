@@ -6,7 +6,8 @@
         "nav_menu": {
             "nav_config": "Config",
             "nav_import": "Import",
-            "nav_export": "Export"
+            "nav_export": "Export",
+            "nav_help": "Help"
         }
     },
     "player_data": {
