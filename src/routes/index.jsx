@@ -5,7 +5,7 @@ export default function RoutesApp() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index element={<MainPage />}/>
+                <Route path="*" element={<MainPage />}/>
             </Routes>
         </BrowserRouter>
     )
