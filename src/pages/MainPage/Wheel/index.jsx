@@ -195,7 +195,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                         setMustSpin(false)
                         setPaidCoins({ player1: 0, player2: 0 })
                         setPaidCoinsOrder([])
-                        setModalOpen(!modalOpen)
+                        setModalOpen(hasActivities ? true : false)
                     }}
                     spinDuration={0.3}
                     outerBorderWidth={3}
