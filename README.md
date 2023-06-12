@@ -1,4 +1,4 @@
-# 💞 <a href="https://lorenzoa7.github.io/couple-wheel/">Couple Wheel</a></h1>
+# 💞 <a href="https://couple-wheel.netlify.app/">Couple Wheel</a></h1>
 
 
 
@@ -16,7 +16,7 @@
 <p>Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!</p>
 
 
-<a href="https://lorenzoa7.github.io/couple-wheel/">Live Preview</a>
+<a href="https://couple-wheel.netlify.app/">Live Preview</a>
 
 ## 🌟 Features
 
