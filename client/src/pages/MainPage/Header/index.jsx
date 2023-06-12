@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
 import { AiOutlineImport, AiOutlineDownload } from 'react-icons/ai'
+import isValidJson from '../../../validations/importing'
 
 export default function Header() {
     const [openMenu, setOpenMenu] = useState(false)
@@ -63,13 +64,15 @@ export default function Header() {
 
             reader.onload = e => {
                 try {
-                    const contents = e.target.result;
-                    const jsonData = JSON.parse(contents);
+                    const contents = e.target.result
+                    const jsonData = JSON.parse(contents)
+
+                    if (!isValidJson(jsonData, setMessage)) return
 
                     setPlayerData(jsonData)
                     setMessage({ text: 'Successfully updated the game data.', type: 'success' })
                 } catch {
-                    setMessage({ text: 'Error while exporting JSON file.', type: 'error' })
+                    setMessage({ text: 'Error while importing JSON file.', type: 'error' })
                 }
             }
 
@@ -80,6 +83,7 @@ export default function Header() {
 
         setImportKey(Date.now())
     }
+
 
     useEffect(() => {
         let handler = e => {
