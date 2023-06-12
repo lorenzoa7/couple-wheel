@@ -17,7 +17,7 @@ export default function Message() {
         return () => {
             clearTimeout(timerId)
         }
-    }, [message])
+    }, [message, setMessage])
 
 
     return (
