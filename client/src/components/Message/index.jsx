@@ -11,7 +11,7 @@ export default function Message() {
         if (message?.text?.length > 0) {
             timerId = setTimeout(() => {
                 setMessage({ message: '', type: '' })
-            }, 1000000)
+            }, 5000)
         }
 
         return () => {
