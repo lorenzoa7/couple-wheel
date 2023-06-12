@@ -55,7 +55,7 @@ export const Main = tw.main`
     duration-300
 
     xl:w-[600px]
-    xl:h-5/6
+    xl:h-[700px]
 `
 
 export const Section = tw.section`
