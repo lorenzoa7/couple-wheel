@@ -5,8 +5,8 @@
         "tooltip_language": "Language",
         "nav_menu": {
             "nav_config": "Config",
-            "nav_import": "Open...",
-            "nav_export": "Save",
+            "nav_open": "Open...",
+            "nav_export": "Export",
             "nav_help": "Help"
         }
     },
@@ -73,11 +73,11 @@
         },
         "item5": {
             "question": "Can I save my game?",
-            "answer": "Yes! The game data is automatically saved in your browser and will remain the same when you re-enter. However, if you access it from another browser, your game will not be in the same state as when you left. That's why you have the option to save your game into a small file that you can use to open it into another browser to continue your game. This way, you can also save different games and open them whenever you want!"
+            "answer": "Yes! The game data is automatically saved in your browser and will remain the same when you re-enter. However, if you access it from another browser, your game will not be in the same state as when you left. That's why you have the option to export your game into a small file that you can use to open it into another browser to continue your game. This way, you can also export different games and open them whenever you want!"
         },
         "item6": {
             "question": "I encountered a bug! What should I do?",
-            "answer": "If any harmful bug occurs, I suggest saving the game and restoring the game data. Then, simply open it to load again. For any kind of problem, the best solution is always to restore the data and report it on GitHub."
+            "answer": "If any harmful bug occurs, I suggest exporting the game and restoring the game data. Then, simply open it to load again. For any kind of problem, the best solution is always to restore the data and report it on GitHub."
         }
     },
     "message": {

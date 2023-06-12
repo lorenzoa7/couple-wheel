@@ -5,8 +5,8 @@
         "tooltip_language": "Idioma",
         "nav_menu": {
             "nav_config": "Config",
-            "nav_import": "Abrir...",
-            "nav_export": "Guardar",
+            "nav_open": "Abrir...",
+            "nav_export": "Exportar",
             "nav_help": "Ayuda"
         }
     },
@@ -73,11 +73,11 @@
         },
         "item5": {
             "question": "¿Puedo guardar mi juego?",
-            "answer": "¡Sí! Los datos del juego se guardan automáticamente en tu navegador y se mantendrán iguales cuando vuelvas a entrar. Sin embargo, si accedes desde otro navegador, tu juego no estará en el mismo estado en el que lo dejaste. Por eso, tienes la opción de guardar tu juego en un archivo pequeño que puedes usar para abrirlo en otro navegador y continuar tu juego. ¡De esta manera, también puedes guardar diferentes juegos y abrirlos cuando quieras!"
+            "answer": "¡Sí! Los datos del juego se guardan automáticamente en tu navegador y se mantendrán iguales cuando vuelvas a entrar. Sin embargo, si accedes desde otro navegador, tu juego no estará en el mismo estado en el que lo dejaste. Por eso, tienes la opción de exportar tu juego en un archivo pequeño que puedes usar para abrirlo en otro navegador y continuar tu juego. ¡De esta manera, también puedes exportar diferentes juegos y abrirlos cuando quieras!"
         },
         "item6": {
             "question": "¡Encontré un error! ¿Qué debo hacer?",
-            "answer": "Si ocurre algún error perjudicial, te sugiero guardar el juego y restaurar los datos del juego. Luego, simplemente abrirlo para cargarlo nuevamente. Para cualquier tipo de problema, la mejor solución siempre es restaurar los datos y reportarlo en GitHub."
+            "answer": "Si ocurre algún error perjudicial, te sugiero exportar el juego y restaurar los datos del juego. Luego, simplemente abrirlo para cargarlo nuevamente. Para cualquier tipo de problema, la mejor solución siempre es restaurar los datos y reportarlo en GitHub."
         }
     },
     "message": {
