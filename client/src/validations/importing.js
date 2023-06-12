@@ -1,9 +1,9 @@
-const isValidJson = (jsonData, setMessage) => {
+const isValidJson = (jsonData, setMessage, t) => {
     const requiredKeys = ['player1', 'player2']
 
     for (const key of requiredKeys) {
         if (!(key in jsonData)) {
-            setMessage({ text: `Missing key: ${key}`, type: 'error' })
+            setMessage({ text: `${t('message.import.missing_key')}: ${key}`, type: 'error' })
             return false
         }
     }
@@ -11,12 +11,12 @@ const isValidJson = (jsonData, setMessage) => {
     for (const playerKey in jsonData) {
         const player = jsonData[playerKey]
 
-        if (!isValidPlayer(player, setMessage)) {
+        if (!isValidPlayer(player, setMessage, t)) {
             return false
         }
 
         for (const activity of player.activities) {
-            if (!isValidActivity(activity, setMessage)) {
+            if (!isValidActivity(activity, setMessage, t)) {
                 return false
             }
         }
@@ -25,51 +25,51 @@ const isValidJson = (jsonData, setMessage) => {
     return true
 }
 
-const isValidPlayer = (player, setMessage) => {
+const isValidPlayer = (player, setMessage, t) => {
     const requiredKeys = ['name', 'theme', 'coins', 'activities']
 
     for (const key of requiredKeys) {
         if (!(key in player)) {
-            setMessage({ text: `Missing key in player: ${key}`, type: 'error' })
+            setMessage({ text: `${t('message.import.missing_key_player')}: ${key}`, type: 'error' })
             return false
         }
     }
 
-    if (!isValidCoins(player.coins, setMessage)) {
-        setMessage({ text: `Invalid coins value in player`, type: 'error' })
+    if (!isValidCoins(player.coins)) {
+        setMessage({ text: t('message.import.invalid_coins_value'), type: 'error' })
         return false
     }
 
-    if (!isValidTheme(player.theme, setMessage)) {
-        setMessage({ text: 'Invalid theme value in player', type: 'error' })
+    if (!isValidTheme(player.theme)) {
+        setMessage({ text: t('message.import.invalid_theme_value'), type: 'error' })
         return false
     }
 
     return true
 }
 
-const isValidActivity = (activity, setMessage) => {
+const isValidActivity = (activity, setMessage, t) => {
     const requiredKeys = ['id', 'name', 'reroll_cost', 'weight']
 
     for (const key of requiredKeys) {
         if (!(key in activity)) {
-            setMessage({ text: `Missing key in activity: ${key}`, type: 'error' })
+            setMessage({ text: `${t('message.import.missing_key_activity')}: ${key}`, type: 'error' })
             return false
         }
     }
 
-    if (!isValidId(activity.id, setMessage)) {
-        setMessage({ text: 'Invalid id value in activity', type: 'error' })
+    if (!isValidId(activity.id)) {
+        setMessage({ text: t('message.import.invalid_id_activity'), type: 'error' })
         return false
     }
 
-    if (!isValidRerollCost(activity.reroll_cost, setMessage)) {
-        setMessage({ text: 'Invalid reroll_cost value in activity', type: 'error' })
+    if (!isValidRerollCost(activity.reroll_cost)) {
+        setMessage({ text: t('message.import.invalid_reroll_cost_activity'), type: 'error' })
         return false
     }
 
-    if (!isValidWeight(activity.weight, setMessage)) {
-        setMessage({ text: 'Invalid weight value in activity', type: 'error' })
+    if (!isValidWeight(activity.weight)) {
+        setMessage({ text: t('message.import.invalid_weight_activity'), type: 'error' })
         return false
     }
 

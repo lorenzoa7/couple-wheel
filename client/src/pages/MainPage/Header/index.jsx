@@ -52,7 +52,7 @@ export default function Header() {
             a.click();
             document.body.removeChild(a);
         }
-
+        setOpenMenu(false)
     }
 
     const importData = e => {
@@ -67,21 +67,22 @@ export default function Header() {
                     const contents = e.target.result
                     const jsonData = JSON.parse(contents)
 
-                    if (!isValidJson(jsonData, setMessage)) return
+                    if (!isValidJson(jsonData, setMessage, t)) return
 
                     setPlayerData(jsonData)
-                    setMessage({ text: 'Successfully updated the game data.', type: 'success' })
+                    setMessage({ text: t('message.import.success'), type: 'success' })
                 } catch {
-                    setMessage({ text: 'Error while importing JSON file.', type: 'error' })
+                    setMessage({ text: t('message.import.error_master'), type: 'error' })
                 }
             }
 
 
         } else {
-            setMessage({ text: 'Invalid file format. Select a JSON file.', type: 'error' })
+            setMessage({ text: t('message.import.invalid_format'), type: 'error' })
         }
 
         setImportKey(Date.now())
+        setOpenMenu(false)
     }
 
 

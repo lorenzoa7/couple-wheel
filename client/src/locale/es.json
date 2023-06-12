@@ -52,5 +52,20 @@
             "close_button": "Cerrar",
             "confirm_button": "Confirmar"
         }
+    },
+    "message": {
+        "import": {
+            "success": "Datos del juego actualizados exitosamente",
+            "error_master": "Error al importar archivo JSON",
+            "invalid_format": "Formato de archivo inválido. Selecciona un archivo JSON",
+            "missing_key": "Clave faltante",
+            "missing_key_player": "Clave faltante en el jugador",
+            "invalid_coins_value": "Valor inválido para monedas en el jugador",
+            "invalid_theme_value": "Valor inválido para tema en el jugador",
+            "missing_key_activity": "Clave faltante en la actividad",
+            "invalid_id_activity": "Valor inválido para ID en la actividad",
+            "invalid_reroll_cost_activity": "Valor inválido para costo de re-roll en la actividad",
+            "invalid_weight_activity": "Valor inválido para peso en la actividad"
+        }
     }
 }
