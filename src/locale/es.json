@@ -55,6 +55,7 @@
         }
     },
     "help": {
+        "title": "Cómo jugar",
         "item1": {
             "question": "¿Qué es Ruleta de Pareja?",
             "answer": "Ruleta de Pareja es un juego para jugar en pareja, donde ambos jugadores seleccionan actividades que les gustaría hacer juntos y giran la ruleta para elegir una al azar. ¡Es un gran juego para parejas indecisas!"

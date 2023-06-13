@@ -61,7 +61,7 @@ export default function HelpModal({ openHelpModal, setOpenHelpModal }) {
 
                     <C.ModalContent>
                         <C.ModalTitle>
-                            How to play
+                            {t('help.title')}
                         </C.ModalTitle>
 
                         <C.HelpWrapper>

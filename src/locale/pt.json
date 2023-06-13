@@ -55,6 +55,7 @@
         }
     },
     "help": {
+        "title": "Como jogar",
         "item1": {
             "question": "O que é a Roleta do Casal?",
             "answer": "Roleta do Casal é um jogo para se jogar em dupla, no qual ambos vão selecionar atividades que gostariam de fazer juntos e rodar a roleta para sortear uma delas. Um ótimo jogo para casais indecisos!"
