@@ -9,6 +9,9 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const { setPlayerData, defaultData, configData, setConfigData, defaultConfigData } = usePlayer()
     const { t } = useTranslation()
 
+    const range = (start, stop) =>
+        Array.from({ length: stop + 1 - start }, (_, i) => start + i)
+
     const restoreGameData = () => {
         setPlayerData(defaultData)
         setConfigData(defaultConfigData)
@@ -25,8 +28,9 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [collectedCoins, setCollectedCoins] = useState({ drawn_player: 0, opposite_player: 0 })
     const [rerollSkillCost, setRerollSkillCost] = useState(1)
     const [resetWeightMultiplier, setResetWeightMultiplier] = useState(1)
+    const [rerollIncreaseMultiplier, setRerollIncreaseMultiplier] = useState(1)
 
-    const handleBlur = (configType) => {
+    const handleUpdateConfig = (configType) => {
         switch (configType) {
             case 'collected_coins':
                 setConfigData({ ...configData, collected_coins: collectedCoins })
@@ -46,6 +50,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
         setCollectedCoins(configData.collected_coins)
         setRerollSkillCost(configData.reroll_skill_cost)
         setResetWeightMultiplier(configData.reset_weight_multiplier)
+        setRerollIncreaseMultiplier(configData.reroll_increase_multiplier)
     }, [configData, openConfigModal])
 
     return (
@@ -88,7 +93,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                         ...onFocusHandler,
                                                         [e.target.name]: false,
                                                     });
-                                                    handleBlur('collected_coins')
+                                                    handleUpdateConfig('collected_coins')
                                                 }}
                                             />
                                             <C.NumberInputLabel>Drawn Player</C.NumberInputLabel>
@@ -113,7 +118,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                         ...onFocusHandler,
                                                         [e.target.name]: false,
                                                     });
-                                                    handleBlur('collected_coins')
+                                                    handleUpdateConfig('collected_coins')
                                                 }}
                                             />
                                             <C.NumberInputLabel>Opposite Player</C.NumberInputLabel>
@@ -141,7 +146,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                 ...onFocusHandler,
                                                 [e.target.name]: false,
                                             });
-                                            handleBlur('reroll_skill_cost')
+                                            handleUpdateConfig('reroll_skill_cost')
                                         }}
                                     />
                                 </C.ConfigSection>
@@ -166,9 +171,28 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                 ...onFocusHandler,
                                                 [e.target.name]: false,
                                             });
-                                            handleBlur('reset_weight_multiplier')
+                                            handleUpdateConfig('reset_weight_multiplier')
                                         }}
                                     />
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Reroll Cost Increase (after accomplish)</C.ConfigSectionLabel>
+
+                                    <C.SelectionContainer>
+                                        {range(1, 7).map(num => (
+                                            <C.Option
+                                                key={num}
+                                                $selected={num === rerollIncreaseMultiplier}
+                                                onClick={() => {
+                                                    setRerollIncreaseMultiplier(num)
+                                                    setConfigData({ ...configData, reroll_increase_multiplier: num })
+                                                }}
+                                            >
+                                                {num}
+                                            </C.Option>
+                                        ))}
+                                    </C.SelectionContainer>
                                 </C.ConfigSection>
 
                                 <C.RestoreDataButton

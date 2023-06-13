@@ -356,3 +356,31 @@ export const NumberInput = tw.input`
 export const NumberInputLabel = tw.p`
     font-medium
 `
+
+export const SelectionContainer = tw.div`
+    flex 
+    flex-wrap 
+    gap-2
+`
+
+export const Option = tw.div`
+
+    ${(props) => (
+        (props.$selected === true && 'bg-rose-800') ||
+        'bg-rose-500 hover:bg-rose-700'
+    )}
+
+    flex 
+    items-center 
+    justify-center 
+    w-7
+    h-8  
+    rounded 
+    font-medium
+    text-white
+    outline 
+    outline-1
+    outline-black
+    cursor-pointer
+    duration-300
+`
