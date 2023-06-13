@@ -203,7 +203,7 @@ export const ActivitiesCounter = tw.span`
     flex
     justify-center
     text-center
-    w-32
+    w-8
     font-medium 
     px-2 
     py-1 

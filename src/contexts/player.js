@@ -68,14 +68,14 @@ export const PlayerProvider = ({ children }) => {
         player1: {
             name: t('player_data.player1_name'),
             theme: "blue",
-            coins: 3,
+            coins: 10,
             activities: []
         },
 
         player2: {
             name: t('player_data.player2_name'),
             theme: "pink",
-            coins: 3,
+            coins: 10,
             activities: []
         },
     }

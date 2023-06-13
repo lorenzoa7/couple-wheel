@@ -87,7 +87,7 @@ export default function ActivitiesList({ player = 'player1' }) {
         <>
             <C.HeaderActivities>
                 <C.ActivitiesCounter theme={playerData[player].theme} $hide>
-                    Activities: {playerData[player].activities.length}
+                    {playerData[player].activities.length}
                 </C.ActivitiesCounter>
 
                 <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>
@@ -95,7 +95,7 @@ export default function ActivitiesList({ player = 'player1' }) {
                 </C.AddActivity>
 
                 <C.ActivitiesCounter theme={playerData[player].theme}>
-                    Activities: {playerData[player].activities.length}
+                    {playerData[player].activities.length}
                 </C.ActivitiesCounter>
             </C.HeaderActivities>
 
