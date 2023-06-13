@@ -181,6 +181,36 @@ export const ActivitySection = tw.div`
     gap-1
 `
 
+export const HeaderActivities = tw.div`
+    flex 
+    items-center 
+    justify-between 
+    w-full 
+    px-6
+`
+
+export const ActivitiesCounter = tw.span`
+
+    ${(props) => (
+        (props.$hide === true && 'invisible') ||
+        'visible'
+    )}
+
+    ${(props) => {
+        return getThemeConfiguration({ theme: props.theme, intensity: 600})
+    }}
+
+    flex
+    justify-center
+    text-center
+    w-32
+    font-medium 
+    px-2 
+    py-1 
+    text-white 
+    rounded
+`
+
 export const AddActivity = tw.button`
 
     ${(props) => {

@@ -11,7 +11,7 @@ export default function ActivitiesList({ player = 'player1' }) {
 
     const { findHighestId, getActivityIndex, playerData, setPlayerData, clampText } = usePlayer()
     const { t } = useTranslation()
-    
+
     const [modalOpen, setModalOpen] = useState(false)
     const [selectedWeightActivity, setSelectedWeightActivity] = useState(null)
     const [coins, setCoins] = useState(0)
@@ -85,7 +85,20 @@ export default function ActivitiesList({ player = 'player1' }) {
 
     return (
         <>
-            <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>+</C.AddActivity>
+            <C.HeaderActivities>
+                <C.ActivitiesCounter theme={playerData[player].theme} $hide>
+                    Activities: {playerData[player].activities.length}
+                </C.ActivitiesCounter>
+
+                <C.AddActivity theme={playerData[player].theme} onClick={addActivity}>
+                    +
+                </C.AddActivity>
+
+                <C.ActivitiesCounter theme={playerData[player].theme}>
+                    Activities: {playerData[player].activities.length}
+                </C.ActivitiesCounter>
+            </C.HeaderActivities>
+
             {playerData[player].activities.length === 0 ? (
                 <C.Label theme={playerData[player].theme}>{t('player_data.no_activity_label')}</C.Label>
             ) : (
