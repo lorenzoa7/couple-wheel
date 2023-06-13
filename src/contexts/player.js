@@ -80,6 +80,24 @@ export const PlayerProvider = ({ children }) => {
         },
     }
 
+    const defaultConfigData = {
+        collected_coins: {
+            drawn_player: 1,
+            other_player: 2
+        },
+        reroll_increase_multiplier: 1,
+        reset_weight_multiplier: 1,
+        reroll_decrease_multiplier: 1,
+        weight_decrease_multiplier: 1,
+        reroll_skill_cost: 1,
+    }
+
+    const [configData, setConfigData] = useState(
+        localStorage.getItem('configData') 
+            ? JSON.parse(localStorage.getItem('configData'))
+            : defaultConfigData
+    )
+
     const [playerData, setPlayerData] = useState(
         localStorage.getItem('playerData')
             ? JSON.parse(localStorage.getItem('playerData'))
@@ -166,7 +184,7 @@ export const PlayerProvider = ({ children }) => {
             playerData, setPlayerData, languageOptions, clampText,
             findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData,
-            message, setMessage
+            message, setMessage, configData, setConfigData, defaultConfigData
         }}>
             {children}
         </PlayerContext.Provider>
