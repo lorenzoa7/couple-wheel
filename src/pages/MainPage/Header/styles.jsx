@@ -318,7 +318,7 @@ export const ConfigSection = tw.div`
     gap-3
 `
 
-export const ConfigLabel = tw.p`
+export const ConfigSectionLabel = tw.p`
     font-bold
 `
 

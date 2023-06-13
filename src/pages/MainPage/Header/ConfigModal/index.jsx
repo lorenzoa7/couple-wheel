@@ -18,14 +18,19 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [onFocusHandler, setOnFocusHandler] = useState({
         drawn_player: false,
         opposite_player: false,
+        reroll_skill_cost: false
     })
 
     const [collectedCoins, setCollectedCoins] = useState({ drawn_player: 0, opposite_player: 0 })
+    const [rerollSkillCost, setRerollSkillCost] = useState(1)
 
     const handleBlur = (configType) => {
         switch (configType) {
             case 'collected_coins':
                 setConfigData({ ...configData, collected_coins: collectedCoins })
+                break
+            case 'reroll_skill_cost':
+                setConfigData({...configData, reroll_skill_cost: rerollSkillCost})
                 break
             default:
                 break
@@ -34,6 +39,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
 
     useEffect(() => {
         setCollectedCoins(configData.collected_coins)
+        setRerollSkillCost(configData.reroll_skill_cost)
     }, [configData, openConfigModal])
 
     return (
@@ -55,7 +61,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                             </C.ModalTitle>
                             <C.ModalMain>
                                 <C.ConfigSection>
-                                    <C.ConfigLabel>Collected Coins</C.ConfigLabel>
+                                    <C.ConfigSectionLabel>Collected Coins</C.ConfigSectionLabel>
                                     <C.ConfigCollectedCoinsContainer>
                                         <C.ConfigInputGroup>
                                             <C.NumberInput
@@ -107,6 +113,31 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                             <C.NumberInputLabel>Opposite Player</C.NumberInputLabel>
                                         </C.ConfigInputGroup>
                                     </C.ConfigCollectedCoinsContainer>
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Reroll Skill Cost</C.ConfigSectionLabel>
+                                    <C.NumberInput
+                                        name="reroll_skill_Cost"
+                                        type="number"
+                                        value={rerollSkillCost}
+                                        $focus={onFocusHandler.reroll_skill_cost}
+                                        onChange={e => setRerollSkillCost(parseInt(e.target.value))}
+                                        onFocus={e => {
+                                            setOnFocusHandler({
+                                                ...onFocusHandler,
+                                                [e.target.name]: true,
+                                            });
+                                            e.target.select();
+                                        }}
+                                        onBlur={e => {
+                                            setOnFocusHandler({
+                                                ...onFocusHandler,
+                                                [e.target.name]: false,
+                                            });
+                                            handleBlur('reroll_skill_cost')
+                                        }}
+                                    />
                                 </C.ConfigSection>
 
                                 <C.RestoreDataButton

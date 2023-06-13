@@ -104,16 +104,18 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }, [playerData, themes, t, clampText])
 
     const payCoin = player => {
-        if (coins[player] > 0) {
-            setCoins({ ...coins, [player]: coins[player] - 1 })
-            setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
+        const rerollCost = configData.reroll_skill_cost
+        if (coins[player] - rerollCost > 0) {
+            setCoins({ ...coins, [player]: coins[player] - rerollCost })
+            setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + rerollCost })
             setPaidCoinsOrder(paidCoinsOrder.concat(player))
         }
     }
 
     const retrieveCoin = player => {
-        setCoins({ ...coins, [player]: coins[player] + 1 })
-        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - 1 })
+        const rerollCost = configData.reroll_skill_cost
+        setCoins({ ...coins, [player]: coins[player] + rerollCost })
+        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - rerollCost })
     }
 
     const getOtherPlayer = player => {
@@ -245,6 +247,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                             onClick={!isReroll ? () => payCoin('player1') : null}
                                             ref={rerollButtonP1Ref}
                                         >
+                                            <C.RerollPrice>{configData.reroll_skill_cost}</C.RerollPrice>
 
                                             <VscDebugRestart size={'75%'} />
 
@@ -304,6 +307,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                             onClick={!isReroll ? () => payCoin('player2') : null}
                                             ref={rerollButtonP2Ref}
                                         >
+                                            <C.RerollPrice>{configData.reroll_skill_cost}</C.RerollPrice>
                                             <VscDebugRestart size={'75%'} />
                                         </C.RerollButton>
                                     </C.SkillsContainer>

@@ -85,11 +85,11 @@ export const PlayerProvider = ({ children }) => {
             drawn_player: 1,
             opposite_player: 2
         },
-        reroll_increase_multiplier: 1,
+        reroll_skill_cost: 1,
         reset_weight_multiplier: 1,
+        reroll_increase_multiplier: 1,
         reroll_decrease_multiplier: 1,
         weight_decrease_multiplier: 1,
-        reroll_skill_cost: 1,
     }
 
     const [configData, setConfigData] = useState(
