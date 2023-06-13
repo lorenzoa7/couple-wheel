@@ -18,11 +18,13 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [onFocusHandler, setOnFocusHandler] = useState({
         drawn_player: false,
         opposite_player: false,
-        reroll_skill_cost: false
+        reroll_skill_cost: false,
+        reset_weight_multiplier: false
     })
 
     const [collectedCoins, setCollectedCoins] = useState({ drawn_player: 0, opposite_player: 0 })
     const [rerollSkillCost, setRerollSkillCost] = useState(1)
+    const [resetWeightMultiplier, setResetWeightMultiplier] = useState(1)
 
     const handleBlur = (configType) => {
         switch (configType) {
@@ -30,7 +32,10 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                 setConfigData({ ...configData, collected_coins: collectedCoins })
                 break
             case 'reroll_skill_cost':
-                setConfigData({...configData, reroll_skill_cost: rerollSkillCost})
+                setConfigData({ ...configData, reroll_skill_cost: rerollSkillCost })
+                break
+            case 'reset_weight_multiplier':
+                setConfigData({ ...configData, reset_weight_multiplier: resetWeightMultiplier })
                 break
             default:
                 break
@@ -40,6 +45,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     useEffect(() => {
         setCollectedCoins(configData.collected_coins)
         setRerollSkillCost(configData.reroll_skill_cost)
+        setResetWeightMultiplier(configData.reset_weight_multiplier)
     }, [configData, openConfigModal])
 
     return (
@@ -52,7 +58,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                 {openConfigModal &&
                     <Modal
                         handleClose={() => setOpenConfigModal(false)}
-                        size='small'
+                        size='big'
                         animation='fadeIn'>
 
                         <C.ModalContent>
@@ -118,7 +124,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 <C.ConfigSection>
                                     <C.ConfigSectionLabel>Reroll Skill Cost</C.ConfigSectionLabel>
                                     <C.NumberInput
-                                        name="reroll_skill_Cost"
+                                        name="reroll_skill_cost"
                                         type="number"
                                         value={rerollSkillCost}
                                         $focus={onFocusHandler.reroll_skill_cost}
@@ -136,6 +142,31 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                 [e.target.name]: false,
                                             });
                                             handleBlur('reroll_skill_cost')
+                                        }}
+                                    />
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Reset Weight Multiplier</C.ConfigSectionLabel>
+                                    <C.NumberInput
+                                        name="reset_weight_multiplier"
+                                        type="number"
+                                        value={resetWeightMultiplier}
+                                        $focus={onFocusHandler.reset_weight_multiplier}
+                                        onChange={e => setResetWeightMultiplier(parseInt(e.target.value))}
+                                        onFocus={e => {
+                                            setOnFocusHandler({
+                                                ...onFocusHandler,
+                                                [e.target.name]: true,
+                                            });
+                                            e.target.select();
+                                        }}
+                                        onBlur={e => {
+                                            setOnFocusHandler({
+                                                ...onFocusHandler,
+                                                [e.target.name]: false,
+                                            });
+                                            handleBlur('reset_weight_multiplier')
                                         }}
                                     />
                                 </C.ConfigSection>

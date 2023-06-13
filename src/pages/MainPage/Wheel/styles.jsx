@@ -315,6 +315,7 @@ export const RerollButton = tw(motion.div)`
     justify-center
     cursor-pointer
     duration-300
+    select-none
     [&>*:first-child]:hover:scale-110
 
     lg:w-14 
