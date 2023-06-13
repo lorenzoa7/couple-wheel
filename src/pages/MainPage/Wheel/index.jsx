@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
-    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex, clampText } = usePlayer()
+    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex, clampText, configData } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -158,7 +158,9 @@ export default function Roulette({ mustSpin, setMustSpin }) {
             }
         }
 
-        updatedPlayerData[otherPlayer] = { ...updatedPlayerData[otherPlayer], coins: coins[otherPlayer] + 1 }
+        updatedPlayerData[player] = { ...updatedPlayerData[player], coins: coins[player] + configData.collected_coins.drawn_player }
+
+        updatedPlayerData[otherPlayer] = { ...updatedPlayerData[otherPlayer], coins: coins[otherPlayer] + configData.collected_coins.opposite_player }
 
         setPlayerData(updatedPlayerData)
         setModalOpen(false)

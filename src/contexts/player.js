@@ -83,7 +83,7 @@ export const PlayerProvider = ({ children }) => {
     const defaultConfigData = {
         collected_coins: {
             drawn_player: 1,
-            other_player: 2
+            opposite_player: 2
         },
         reroll_increase_multiplier: 1,
         reset_weight_multiplier: 1,
@@ -139,6 +139,12 @@ export const PlayerProvider = ({ children }) => {
         localStorage.setItem('playerData', jsonPlayerData)
     }, [playerData])
 
+    const saveConfigData = useCallback(() => {
+        const jsonConfigData = JSON.stringify(configData)
+
+        localStorage.setItem('configData', jsonConfigData)
+    }, [configData])
+
     const themes = {
         name: [
             'blue', 'green', 'lime',
@@ -178,6 +184,7 @@ export const PlayerProvider = ({ children }) => {
     }
 
     useEffect(() => savePlayerData(), [savePlayerData])
+    useEffect(() => saveConfigData(), [saveConfigData])
 
     return (
         <PlayerContext.Provider value={{

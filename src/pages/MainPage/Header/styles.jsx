@@ -155,10 +155,12 @@ export const ConfirmationButton = tw(motion.button)`
 
 export const ModalMain = tw.div`
     flex 
-    items-center 
+    flex-col
+    items-start 
     justify-center 
     w-full 
     h-full
+    gap-3
 `
 
 export const ModalTitle = tw.div`
@@ -307,4 +309,50 @@ export const HelpAnswer = tw.div`
     scrollbar-thumb-rose-900
     scrollbar-track-rose-400
     scrollbar-thin
+`
+
+export const ConfigSection = tw.div`
+    flex 
+    flex-col 
+    w-full 
+    gap-3
+`
+
+export const ConfigLabel = tw.p`
+    font-bold
+`
+
+export const ConfigCollectedCoinsContainer = tw.div`
+    flex
+`
+
+export const ConfigInputGroup = tw.div`
+    flex 
+    flex-col 
+    items-center 
+    w-full
+`
+
+export const NumberInput = tw.input`
+    ${(props) => (
+        (props.$focus === true && 'border-zinc-900') ||
+        'border-zinc-300'
+    )}
+
+    w-20 
+    outline-none
+    mb-2
+    mx-4
+    py-2
+    text-center
+    rounded
+    border-2
+    duration-300
+    [&::-webkit-outer-spin-button]:appearance-none 
+    [&::-webkit-inner-spin-button]:appearance-none
+    [appearance:textfield]
+`
+
+export const NumberInputLabel = tw.p`
+    font-medium
 `

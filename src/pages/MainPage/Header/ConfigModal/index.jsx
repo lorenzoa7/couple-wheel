@@ -3,15 +3,38 @@ import usePlayer from '../../../../hooks/usePlayer'
 import { AnimatePresence } from 'framer-motion'
 import Modal from '../../../../components/Modal'
 import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
 
 export default function ConfigModal({ openConfigModal, setOpenConfigModal, openConfirmationModal, setOpenConfirmationModal }) {
-    const { setPlayerData, defaultData } = usePlayer()
+    const { setPlayerData, defaultData, configData, setConfigData, defaultConfigData } = usePlayer()
     const { t } = useTranslation()
 
     const restoreGameData = () => {
         setPlayerData(defaultData)
+        setConfigData(defaultConfigData)
         setOpenConfirmationModal(false)
     }
+
+    const [onFocusHandler, setOnFocusHandler] = useState({
+        drawn_player: false,
+        opposite_player: false,
+    })
+
+    const [collectedCoins, setCollectedCoins] = useState({ drawn_player: 0, opposite_player: 0 })
+
+    const handleBlur = (configType) => {
+        switch (configType) {
+            case 'collected_coins':
+                setConfigData({ ...configData, collected_coins: collectedCoins })
+                break
+            default:
+                break
+        }
+    }
+
+    useEffect(() => {
+        setCollectedCoins(configData.collected_coins)
+    }, [configData, openConfigModal])
 
     return (
         <>
@@ -31,6 +54,61 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 {t('config.title')}
                             </C.ModalTitle>
                             <C.ModalMain>
+                                <C.ConfigSection>
+                                    <C.ConfigLabel>Collected Coins</C.ConfigLabel>
+                                    <C.ConfigCollectedCoinsContainer>
+                                        <C.ConfigInputGroup>
+                                            <C.NumberInput
+                                                name="drawn_player"
+                                                type="number"
+                                                value={collectedCoins.drawn_player}
+                                                $focus={onFocusHandler.drawn_player}
+                                                onChange={e => setCollectedCoins({ ...collectedCoins, drawn_player: parseInt(e.target.value) })}
+                                                onFocus={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: true,
+                                                    });
+                                                    e.target.select();
+                                                }}
+                                                onBlur={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: false,
+                                                    });
+                                                    handleBlur('collected_coins')
+                                                }}
+                                            />
+                                            <C.NumberInputLabel>Drawn Player</C.NumberInputLabel>
+                                        </C.ConfigInputGroup>
+
+                                        <C.ConfigInputGroup>
+                                            <C.NumberInput
+                                                name="opposite_player"
+                                                type="number"
+                                                value={collectedCoins.opposite_player}
+                                                $focus={onFocusHandler.opposite_player}
+                                                onChange={e => setCollectedCoins({ ...collectedCoins, opposite_player: parseInt(e.target.value) })}
+                                                onFocus={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: true,
+                                                    });
+                                                    e.target.select();
+                                                }}
+                                                onBlur={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: false,
+                                                    });
+                                                    handleBlur('collected_coins')
+                                                }}
+                                            />
+                                            <C.NumberInputLabel>Opposite Player</C.NumberInputLabel>
+                                        </C.ConfigInputGroup>
+                                    </C.ConfigCollectedCoinsContainer>
+                                </C.ConfigSection>
+
                                 <C.RestoreDataButton
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
