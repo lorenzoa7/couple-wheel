@@ -28,7 +28,8 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [collectedCoins, setCollectedCoins] = useState({ drawn_player: 0, opposite_player: 0 })
     const [rerollSkillCost, setRerollSkillCost] = useState(1)
     const [resetWeightMultiplier, setResetWeightMultiplier] = useState(1)
-    const [rerollIncreaseMultiplier, setRerollIncreaseMultiplier] = useState(1)
+    const [rerollCostIncrease, setRerollCostIncrease] = useState(1)
+    const [rerollCostDecrease, setRerollCostDecrease] = useState(2)
 
     const handleUpdateConfig = (configType) => {
         switch (configType) {
@@ -50,7 +51,8 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
         setCollectedCoins(configData.collected_coins)
         setRerollSkillCost(configData.reroll_skill_cost)
         setResetWeightMultiplier(configData.reset_weight_multiplier)
-        setRerollIncreaseMultiplier(configData.reroll_increase_multiplier)
+        setRerollCostIncrease(configData.reroll_cost_increase)
+        setRerollCostDecrease(configData.reroll_cost_decrease)
     }, [configData, openConfigModal])
 
     return (
@@ -177,16 +179,35 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Reroll Cost Increase (after accomplish)</C.ConfigSectionLabel>
+                                    <C.ConfigSectionLabel>Reroll Cost Increase (after reroll)</C.ConfigSectionLabel>
 
                                     <C.SelectionContainer>
                                         {range(1, 7).map(num => (
                                             <C.Option
                                                 key={num}
-                                                $selected={num === rerollIncreaseMultiplier}
+                                                $selected={num === rerollCostIncrease}
                                                 onClick={() => {
-                                                    setRerollIncreaseMultiplier(num)
-                                                    setConfigData({ ...configData, reroll_increase_multiplier: num })
+                                                    setRerollCostIncrease(num)
+                                                    setConfigData({ ...configData, reroll_cost_increase: num })
+                                                }}
+                                            >
+                                                {num}
+                                            </C.Option>
+                                        ))}
+                                    </C.SelectionContainer>
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Reroll Cost Decrease (after accomplish)</C.ConfigSectionLabel>
+
+                                    <C.SelectionContainer>
+                                        {range(1, 7).map(num => (
+                                            <C.Option
+                                                key={num}
+                                                $selected={num === rerollCostDecrease}
+                                                onClick={() => {
+                                                    setRerollCostIncrease(num)
+                                                    setConfigData({ ...configData, reroll_cost_decrease: num })
                                                 }}
                                             >
                                                 {num}

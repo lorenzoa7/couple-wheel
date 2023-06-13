@@ -128,12 +128,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         const player = wheelData[chosenActivity].player
         const { activities } = updatedPlayerData[player]
         const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
-        const rerollIncreaseMultiplier = configData.reroll_increase_multiplier
+        const rerollCostIncrease = configData.reroll_cost_increase
 
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: activities[index].reroll_cost + rerollIncreaseMultiplier < 9 ? activities[index].reroll_cost + 1 : 9
+                reroll_cost: activities[index].reroll_cost + rerollCostIncrease < 9 ? activities[index].reroll_cost + rerollCostIncrease : 9
             }
         }
 
@@ -152,11 +152,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         const otherPlayer = getOtherPlayer(player)
         const { activities } = updatedPlayerData[player]
         const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
+        const rerollCostDecrease = configData.reroll_cost_decrease
 
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: activities[index].reroll_cost > 3 ? activities[index].reroll_cost - 2 : 2,
+                reroll_cost: activities[index].reroll_cost - rerollCostDecrease > 2 ? activities[index].reroll_cost - rerollCostDecrease : 2,
                 weight: activities[index].weight > 1 ? activities[index].weight - 1 : 1
             }
         }

@@ -87,8 +87,8 @@ export const PlayerProvider = ({ children }) => {
         },
         reroll_skill_cost: 1,
         reset_weight_multiplier: 1,
-        reroll_increase_multiplier: 1,
-        reroll_decrease_multiplier: 1,
+        reroll_cost_increase: 1,
+        reroll_cost_decrease: 2,
         weight_decrease_multiplier: 1,
     }
 
