@@ -114,6 +114,7 @@ export const ModalContent = tw.div`
     w-full 
     h-full
     px-3
+    py-5
 `
 
 export const RestoreDataButton = tw(motion.button)`
@@ -128,6 +129,7 @@ export const RestoreDataButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+    mt-2
 
     hover:bg-red-700
 `
@@ -155,10 +157,12 @@ export const ConfirmationButton = tw(motion.button)`
 
 export const ModalMain = tw.div`
     flex 
+    flex-col
     items-center 
     justify-center 
     w-full 
     h-full
+    gap-5
 `
 
 export const ModalTitle = tw.div`
@@ -170,6 +174,7 @@ export const ModalTitle = tw.div`
     uppercase 
     p-3 
     w-full
+    h-20
 `
 
 export const ModalButtons = tw.div`
@@ -307,4 +312,83 @@ export const HelpAnswer = tw.div`
     scrollbar-thumb-rose-900
     scrollbar-track-rose-400
     scrollbar-thin
+`
+
+export const ConfigSection = tw.div`
+    flex 
+    flex-col 
+    w-full
+`
+
+export const ConfigSectionLabel = tw.p`
+    font-bold
+    text-center
+    h-16
+    flex
+    justify-center
+    items-center
+`
+
+export const ConfigGroup = tw.div`
+    flex
+    items-center
+    gap-1
+`
+
+export const ConfigInputGroup = tw.div`
+    flex 
+    flex-col 
+    items-center 
+    w-full
+`
+
+export const NumberInput = tw.input`
+    ${(props) => (
+        (props.$focus === true && 'border-zinc-900') ||
+        'border-zinc-300'
+    )}
+
+    w-20 
+    outline-none
+    py-2
+    text-center
+    rounded
+    border-2
+    duration-300
+    [&::-webkit-outer-spin-button]:appearance-none 
+    [&::-webkit-inner-spin-button]:appearance-none
+    [appearance:textfield]
+`
+
+export const NumberInputLabel = tw.p`
+    font-medium
+`
+
+export const SelectionContainer = tw.div`
+    flex 
+    justify-center
+    flex-wrap 
+    gap-2
+`
+
+export const Option = tw.div`
+
+    ${(props) => (
+        (props.$selected === true && 'bg-rose-800') ||
+        'bg-rose-500 hover:bg-rose-700'
+    )}
+
+    flex 
+    items-center 
+    justify-center 
+    w-7
+    h-8  
+    rounded 
+    font-medium
+    text-white
+    outline 
+    outline-1
+    outline-black
+    cursor-pointer
+    duration-300
 `

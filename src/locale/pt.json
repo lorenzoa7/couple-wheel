@@ -7,7 +7,7 @@
             "nav_config": "Config",
             "nav_open": "Abrir...",
             "nav_export": "Exportar",
-            "nav_help": "Ajuda"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,37 +46,52 @@
         }
     },
     "config": {
-        "title": "Configuração de Jogo",
+        "title": "Configurações de Jogo",
         "restore_game_data_button": "Restaurar dados do jogo",
         "restore_game_data_modal": {
             "question": "Tem certeza que deseja restaurar o jogo para suas configurações padrões?",
             "close_button": "Fechar",
             "confirm_button": "Confirmar"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Moedas Ganhas",
+            "drawn_player": "Jogador Sorteado",
+            "opposite_player": "Jogador Oposto"
+        },
+        "reroll_skill_cost": "Custo da hab. de rerolagem",
+        "reset_weight_multiplier": "Multiplicador do custo de resetar peso",
+        "reroll_cost_increase": "Aumento do Custo de Rerolagem (depois de rerolar)",
+        "reroll_cost_decrease": "Diminuição do Custo de Rerolagem (depois de realizar)",
+        "reroll_min_cost": "Custo Mínimo de Rerolagem",
+        "weight_decrease_rate": "Taxa de Diminuição do Peso (depois de realizar)"
     },
     "help": {
-        "title": "Como jogar",
+        "title": "Perguntas frequentes",
         "item1": {
             "question": "O que é a Roleta do Casal?",
             "answer": "Roleta do Casal é um jogo para se jogar em dupla, no qual ambos vão selecionar atividades que gostariam de fazer juntos e rodar a roleta para sortear uma delas. Um ótimo jogo para casais indecisos!"
         },
         "item2": {
             "question": "E se eu não quiser realizar uma atividade?",
-            "answer": "Caso a atividade sorteada não for do seu agrado, você pode pagar para rerolar e tentar sortear outra atividade. Cada ponto de rerolagem custa 1 moeda e ambos os jogadores podem contribuir para rerolar. Mas tome cuidado: cada vez que uma atividade é rerolada, seu custo aumenta em 1. Para diminuir o custo, basta realizar a atividade e seu custo de rerolagem será reduzido em 2."
+            "answer": "Caso a atividade sorteada não for do seu agrado, você pode pagar para rerolar e tentar sortear outra atividade. Cada ponto de rerolagem custa 1 moeda e ambos os jogadores podem contribuir para rerolar. Mas tome cuidado: cada vez que uma atividade é rerolada, seu custo aumenta em 1. Para diminuir o custo, basta realizar a atividade e seu custo de rerolagem será reduzido em 2. O valor que aumenta e diminui são configuráveis."
         },
         "item3": {
             "question": "O que é o número ao lado da atividade?",
-            "answer": "Toda atividade tem um peso na roleta, e esse peso é indicado pelo número do lado do nome da atividade. O peso pode ir de 10 a 1 (sendo 10 mais provável de ser sorteado e 1 sendo mais improvável), e cada vez que uma atividade é realizada, o peso diminui em 1, ou seja, fica mais difícil de ser sorteado novamente. Porém, é possível resetar esse peso, basta pagar uma quantidade em moedas ((10 - peso atual) / 2) e o peso voltará para 10!"
+            "answer": "Toda atividade tem um peso na roleta, e esse peso é indicado pelo número do lado do nome da atividade. O peso pode ir de 10 a 1 (sendo 10 mais provável de ser sorteado e 1 sendo mais improvável), e cada vez que uma atividade é realizada, o peso diminui em 1, ou seja, fica mais difícil de ser sorteado novamente. Porém, é possível resetar esse peso, basta pagar uma quantidade em moedas ((10 - peso atual) / 2) e o peso voltará para 10! O preço para resetar é configurável."
         },
         "item4": {
             "question": "Como posso ganhar mais moedas?",
-            "answer": "Para ganhar mais moedas, é muito simples: basta realizar atividades! Cada atividade realizada dá moedas ao jogador, referente a quem aquele atividade foi criada. Quando realizada, a atividade concederá 0 moedas para a pessoa que a criou e 1 moeda para a outra pessoa."
+            "answer": "Para ganhar mais moedas, é muito simples: basta realizar atividades! Cada atividade realizada dá moedas ao jogador, referente a quem aquele atividade foi criada. Quando realizada, a atividade concederá 1 moeda para a pessoa que a criou e 2 moedas para a outra pessoa. A quantidade de moedas concedidas é configurável."
         },
         "item5": {
             "question": "Eu posso salvar o meu jogo?",
             "answer": "Sim! Os dados do jogo são salvos automaticamente no seu navegador e permanecerão da mesma forma quando reentrar. Porém, se você acessar por outro navegador, seu jogo não estará da mesma forma de quando saiu. Por isso, você tem a opção de exportar o seu jogo em um pequeno arquivo que você pode usar para abri-lo em outro navegador para continuar seu jogo. Dessa forma, também é possível exportar diferentes jogos e abri-los quando quiser!"
         },
         "item6": {
+            "question": "Posso mudar algumas regras do jogo?",
+            "answer": "Nas configurações, há diversas opções para mudar alguns valores padrões do jogo. É possível definir: quantidade de moeda que cada jogador ganha ao realizar uma atividade, custo da habilidade de rerolagem, um multiplicador para o custo de resetar peso, o quanto o custo de rerolagem vai aumentar depois de uma rerolagem, o quanto o custo de rerolagem vai diminuir depois de realizar uma atividade, o custo mínimo para rerolar e o quanto o peso vai diminuir depois de realizar uma atividade. Brinque com as configurações e encontre o que mais te agrada!"
+        },
+        "item7": {
             "question": "Deu um bug! O que fazer?",
             "answer": "Caso algum bug prejudicial aconteça, sugiro que exporte o jogo e restaure os dados do jogo. Depois, basta abri-los para carregar novamente. Para qualquer tipo de problema, a melhor solução é sempre a de restaurar os dados e reportá-la no GitHub."
         }
@@ -93,7 +108,15 @@
             "missing_key_activity": "Chave ausente na atividade",
             "invalid_id_activity": "Valor inválido para ID na atividade",
             "invalid_reroll_cost_activity": "Valor inválido para custo de re-roll na atividade",
-            "invalid_weight_activity": "Valor inválido para peso na atividade"
+            "invalid_weight_activity": "Valor inválido para peso na atividade",
+            "missing_key_config": "Chave faltando na configuração",
+            "invalid_collected_coins": "Valores inválidos para moedas ganhas",
+            "invalid_reroll_skill_cost": "Valor inválido para o custo de rerolagem",
+            "invalid_reset_weigth_multiplier": "Valor inválido para o multiplicador de reset de peso",
+            "invalid_reroll_cost_increase": "Valor inválido para o aumento do custo de rerolagem",
+            "invalid_reroll_cost_decrease": "Valor inválido para a redução do custo de rerolagem",
+            "invalid_reroll_min_cost": "Valor inválido para o custo mínimo de rerolagem",
+            "invalid_weigth_decrease_rate": "Valor inválido para a taxa de redução de peso"
         }
     }
 }

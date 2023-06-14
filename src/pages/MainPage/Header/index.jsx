@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import usePlayer from '../../../hooks/usePlayer'
 import { AiOutlineImport, AiOutlineDownload, AiOutlineQuestionCircle } from 'react-icons/ai'
-import isValidJson from '../../../validations/importing'
+import isValidPlayerJson from '../../../validations/importPlayerData'
+import isValidConfigJson from '../../../validations/importConfigData'
 import HelpModal from './HelpModal'
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
     const [openHelpModal, setOpenHelpModal] = useState(false)
     const [importKey, setImportKey] = useState(Date.now())
 
-    const { languageOptions, playerData, setPlayerData, setMessage } = usePlayer()
+    const { languageOptions, playerData, setPlayerData, setMessage, configData, setConfigData } = usePlayer()
     const [openLanguageMenu, setOpenLanguageMenu] = useState(false)
     const [chosenLanguage, setChosenLanguage] = useState('en')
 
@@ -40,19 +41,20 @@ export default function Header() {
     }
 
     const exportData = () => {
-        let filename = "couplewheel_data.json";
-        let contentType = "application/json;charset=utf-8;";
+        let filename = "couplewheel_data.json"
+        let contentType = "application/json;charset=utf-8;"
+        let data = {playerData: playerData, configData: configData}
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-            let blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(playerData, null, '\t')))], { type: contentType });
-            navigator.msSaveOrOpenBlob(blob, filename);
+            let blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(data, null, '\t')))], { type: contentType })
+            navigator.msSaveOrOpenBlob(blob, filename)
         } else {
-            let a = document.createElement('a');
-            a.download = filename;
-            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(playerData, null, '\t'));
-            a.target = '_blank';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            let a = document.createElement('a')
+            a.download = filename
+            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(data, null, '\t'))
+            a.target = '_blank'
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
         }
         setOpenMenu(false)
     }
@@ -68,10 +70,14 @@ export default function Header() {
                 try {
                     const contents = e.target.result
                     const jsonData = JSON.parse(contents)
+                    const jsonPlayerData = jsonData.playerData
+                    const jsonConfigData = jsonData.configData
 
-                    if (!isValidJson(jsonData, setMessage, t)) return
+                    if (!isValidPlayerJson(jsonPlayerData, setMessage, t)) return
+                    if (!isValidConfigJson(jsonConfigData, setMessage, t)) return
 
-                    setPlayerData(jsonData)
+                    setPlayerData(jsonPlayerData)
+                    setConfigData(jsonConfigData)
                     setMessage({ text: t('message.import.success'), type: 'success' })
                 } catch {
                     setMessage({ text: t('message.import.error_master'), type: 'error' })

@@ -302,8 +302,8 @@ export const RerollButton = tw(motion.div)`
     }}
 
     ${(props) => (
-        (props.player === 'player2' && 'after:-left-1') ||
-        'after:-right-1'
+        (props.player === 'player2' && '[&>*:first-child]:-left-2') ||
+        '[&>*:first-child]:-right-2'
     )}
 
     relative
@@ -315,26 +315,28 @@ export const RerollButton = tw(motion.div)`
     justify-center
     cursor-pointer
     duration-300
-
-    after:content-['1']
-    after:flex 
-    after:items-center 
-    after:font-bold 
-    after:justify-center 
-    after:h-5
-    after:w-5 
-    after:rounded-full 
-    after:bg-gradient-to-r 
-    after:from-yellow-200 
-    after:to-yellow-500 
-    after:outline 
-    after:outline-2 
-    after:outline-black
-    after:absolute
-    after:-bottom-1
-    after:duration-300
-    hover:after:scale-110
+    select-none
+    [&>*:first-child]:hover:scale-110
 
     lg:w-14 
     lg:h-14 
+`
+
+export const RerollPrice = tw.div`
+    flex 
+    items-center 
+    font-bold 
+    justify-center 
+    h-6
+    w-6 
+    rounded-full 
+    bg-gradient-to-r 
+    from-yellow-200 
+    to-yellow-500 
+    outline 
+    outline-2 
+    outline-black
+    absolute
+    -bottom-2
+    duration-300
 `

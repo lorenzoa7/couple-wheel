@@ -44,7 +44,7 @@ export const PlayerProvider = ({ children }) => {
     */
 
     const { t } = useTranslation()
-    const [message, setMessage] = useState({text: '', type: ''})
+    const [message, setMessage] = useState({ text: '', type: '' })
 
     const languageOptions = [
         {
@@ -79,6 +79,25 @@ export const PlayerProvider = ({ children }) => {
             activities: []
         },
     }
+
+    const defaultConfigData = {
+        collected_coins: {
+            drawn_player: 1,
+            opposite_player: 2
+        },
+        reroll_skill_cost: 1,
+        reroll_cost_increase: 1,
+        reroll_cost_decrease: 2,
+        reroll_min_cost: 2,
+        reset_weight_multiplier: 1,
+        weight_decrease_rate: 1,
+    }
+
+    const [configData, setConfigData] = useState(
+        localStorage.getItem('configData')
+            ? JSON.parse(localStorage.getItem('configData'))
+            : defaultConfigData
+    )
 
     const [playerData, setPlayerData] = useState(
         localStorage.getItem('playerData')
@@ -115,11 +134,31 @@ export const PlayerProvider = ({ children }) => {
         return text.substring(0, maxLength - 3) + '...'
     }
 
+    const updateRerollCosts = () => {
+        const { reroll_min_cost } = configData
+
+        for (const playerKey in playerData) {
+            const player = playerData[playerKey]
+
+            for (const activity of player.activities) {
+                if (activity.reroll_cost < reroll_min_cost) {
+                    activity.reroll_cost = reroll_min_cost
+                }
+            }
+        }
+    }
+
     const savePlayerData = useCallback(() => {
         const jsonPlayerData = JSON.stringify(playerData)
 
         localStorage.setItem('playerData', jsonPlayerData)
     }, [playerData])
+
+    const saveConfigData = useCallback(() => {
+        const jsonConfigData = JSON.stringify(configData)
+
+        localStorage.setItem('configData', jsonConfigData)
+    }, [configData])
 
     const themes = {
         name: [
@@ -160,13 +199,15 @@ export const PlayerProvider = ({ children }) => {
     }
 
     useEffect(() => savePlayerData(), [savePlayerData])
+    useEffect(() => saveConfigData(), [saveConfigData])
 
     return (
         <PlayerContext.Provider value={{
             playerData, setPlayerData, languageOptions, clampText,
             findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData,
-            message, setMessage
+            message, setMessage, configData, setConfigData, defaultConfigData,
+            updateRerollCosts
         }}>
             {children}
         </PlayerContext.Provider>

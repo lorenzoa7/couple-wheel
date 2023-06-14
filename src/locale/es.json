@@ -7,7 +7,7 @@
             "nav_config": "Config",
             "nav_open": "Abrir...",
             "nav_export": "Exportar",
-            "nav_help": "Ayuda"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,37 +46,52 @@
         }
     },
     "config": {
-        "title": "Configuración del juego",
+        "title": "Configuraciones de juego",
         "restore_game_data_button": "Restaurar datos del juego",
         "restore_game_data_modal": {
             "question": "¿Seguro que quieres restaurar el juego a su configuración de datos predeterminada?",
             "close_button": "Cerrar",
             "confirm_button": "Confirmar"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Monedas Ganadas",
+            "drawn_player": "Jugador Seleccionado",
+            "opposite_player": "Jugador Opuesto"
+        },
+        "reroll_skill_cost": "Costo de la hab. de repetición",
+        "reset_weight_multiplier": "Multiplicador del costo de restauracion de peso",
+        "reroll_cost_increase": "Incremento del costo de repetición (después de repetir)",
+        "reroll_cost_decrease": "Reducción del costo de repetición (después de realizar)",
+        "reroll_min_cost": "Costo mínimo de repetición",
+        "weight_decrease_rate": "Tasa de reducción del peso (después de realizar)"
     },
     "help": {
-        "title": "Cómo jugar",
+        "title": "Preguntas frecuentes",
         "item1": {
             "question": "¿Qué es Ruleta de Pareja?",
             "answer": "Ruleta de Pareja es un juego para jugar en pareja, donde ambos jugadores seleccionan actividades que les gustaría hacer juntos y giran la ruleta para elegir una al azar. ¡Es un gran juego para parejas indecisas!"
         },
         "item2": {
             "question": "¿Qué pasa si no quiero hacer una actividad?",
-            "answer": "Si la actividad sorteada no te gusta, puedes pagar para volver a girar y tratar de obtener otra actividad. Cada vuelta cuesta 1 moneda, y ambos jugadores pueden contribuir a la vuelta. Pero ten cuidado: cada vez que se vuelve a girar una actividad, su costo aumenta en 1. Para reducir el costo, simplemente realiza la actividad y su costo de vuelta se reducirá en 2."
+            "answer": "Si la actividad sorteada no te gusta, puedes pagar para volver a girar y tratar de obtener otra actividad. Cada vuelta cuesta 1 moneda, y ambos jugadores pueden contribuir a la vuelta. Pero ten cuidado: cada vez que se vuelve a girar una actividad, su costo aumenta en 1. Para reducir el costo, simplemente realiza la actividad y su costo de vuelta se reducirá en 2. El valor que aumenta y disminuye son configurables."
         },
         "item3": {
             "question": "¿Qué significa el número al lado de la actividad?",
-            "answer": "Cada actividad tiene un peso en la ruleta, indicado por el número al lado de su nombre. El peso puede variar de 10 a 1 (siendo 10 más probable de ser sorteado y 1 menos probable). Cada vez que se realiza una actividad, su peso disminuye en 1, lo que dificulta que sea sorteada nuevamente. Sin embargo, puedes reiniciar el peso pagando una cierta cantidad de monedas ((10 - peso actual) / 2), ¡y el peso se restaurará a 10!"
+            "answer": "Cada actividad tiene un peso en la ruleta, indicado por el número al lado de su nombre. El peso puede variar de 10 a 1 (siendo 10 más probable de ser sorteado y 1 menos probable). Cada vez que se realiza una actividad, su peso disminuye en 1, lo que dificulta que sea sorteada nuevamente. Sin embargo, puedes reiniciar el peso pagando una cierta cantidad de monedas ((10 - peso actual) / 2), ¡y el peso se restaurará a 10! El precio para reiniciar es configurable."
         },
         "item4": {
             "question": "¿Cómo puedo ganar más monedas?",
-            "answer": "Para ganar más monedas, es muy simple: ¡simplemente realiza actividades! Cada actividad realizada recompensa al jugador con monedas, dependiendo de quién creó esa actividad. Cuando se realiza la actividad, otorga 0 monedas a la persona que la creó y 1 moneda a la otra persona."
+            "answer": "Para ganar más monedas, es muy simple: ¡simplemente realiza actividades! Cada actividad realizada recompensa al jugador con monedas, dependiendo de quién creó esa actividad. Cuando se realiza la actividad, otorga 1 moneda a la persona que la creó y 2 monedas a la otra persona. La cantidad de monedas ganadas es configurable."
         },
         "item5": {
             "question": "¿Puedo guardar mi juego?",
             "answer": "¡Sí! Los datos del juego se guardan automáticamente en tu navegador y se mantendrán iguales cuando vuelvas a entrar. Sin embargo, si accedes desde otro navegador, tu juego no estará en el mismo estado en el que lo dejaste. Por eso, tienes la opción de exportar tu juego en un archivo pequeño que puedes usar para abrirlo en otro navegador y continuar tu juego. ¡De esta manera, también puedes exportar diferentes juegos y abrirlos cuando quieras!"
         },
         "item6": {
+            "question": "¿Puedo cambiar algunas reglas del juego?",
+            "answer": "En la configuración, hay varias opciones para cambiar algunos valores predeterminados del juego. Puedes definir: la cantidad de moneda que cada jugador gana al realizar una actividad, el costo de la habilidad de repetición, un multiplicador para el costo de restablecer el peso, cuánto aumentará el costo de repetición después de repetir un giro, cuánto disminuirá el costo de repetición después de realizar una actividad, el costo mínimo para repetir y cuánto disminuirá el peso después de realizar una actividad. ¡Juega con la configuración y encuentra lo que más te convenga!"
+        },
+        "item7": {
             "question": "¡Encontré un error! ¿Qué debo hacer?",
             "answer": "Si ocurre algún error perjudicial, te sugiero exportar el juego y restaurar los datos del juego. Luego, simplemente abrirlo para cargarlo nuevamente. Para cualquier tipo de problema, la mejor solución siempre es restaurar los datos y reportarlo en GitHub."
         }
@@ -92,8 +107,16 @@
             "invalid_theme_value": "Valor inválido para tema en el jugador",
             "missing_key_activity": "Clave faltante en la actividad",
             "invalid_id_activity": "Valor inválido para ID en la actividad",
-            "invalid_reroll_cost_activity": "Valor inválido para costo de re-roll en la actividad",
-            "invalid_weight_activity": "Valor inválido para peso en la actividad"
+            "invalid_reroll_cost_activity": "Valor inválido para costo de repetición en la actividad",
+            "invalid_weight_activity": "Valor inválido para peso en la actividad",
+            "missing_key_config": "Clave faltante en la configuración",
+            "invalid_collected_coins": "Valores inválidos para monedas recolectadas",
+            "invalid_reroll_skill_cost": "Valor inválido para el costo de habilidad de repetición",
+            "invalid_reset_weigth_multiplier": "Valor inválido para el multiplicador de reinicio de peso",
+            "invalid_reroll_cost_increase": "Valor inválido para el aumento del costo de repetición",
+            "invalid_reroll_cost_decrease": "Valor inválido para la disminución del costo de repetición",
+            "invalid_reroll_min_cost": "Valor inválido para el costo mínimo de repetición",
+            "invalid_weigth_decrease_rate": "Valor inválido para la tasa de disminución de peso"
         }
     }
 }

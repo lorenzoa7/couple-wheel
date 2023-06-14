@@ -44,6 +44,10 @@ export default function HelpModal({ openHelpModal, setOpenHelpModal }) {
             question: t('help.item6.question'),
             answer: t('help.item6.answer')
         },
+        {
+            question: t('help.item7.question'),
+            answer: t('help.item7.answer')
+        },
     ]
 
 
@@ -55,7 +59,7 @@ export default function HelpModal({ openHelpModal, setOpenHelpModal }) {
         >
             {openHelpModal &&
                 <Modal
-                    size='big'
+                    size='bigger'
                     handleClose={handleClose}
                     animation='fadeIn'>
 
@@ -66,7 +70,7 @@ export default function HelpModal({ openHelpModal, setOpenHelpModal }) {
 
                         <C.HelpWrapper>
                             {content.map((item, index) => (
-                                <C.HelpItem>
+                                <C.HelpItem key={index}>
                                     <C.HelpQuestion onClick={() => toggleItem(index)}>
                                         <h2>{item.question}</h2>
                                         <span>{selected === index ? '-' : '+'}</span>

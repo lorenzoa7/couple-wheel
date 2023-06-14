@@ -64,7 +64,7 @@ const fadeIn = {
     }
 }
 
-export default function Modal({ children, size='medium', handleClose=null, animation='scaleIn' }) {
+export default function Modal({ children, size = 'medium', handleClose = null, animation = 'scaleIn' }) {
     const animationType = animation === 'scaleIn' ? scaleIn : fadeIn
 
     return (
@@ -76,7 +76,7 @@ export default function Modal({ children, size='medium', handleClose=null, anima
                 animate='visible'
                 exit='exit'
                 size={size}
-            >   
+            >
                 {children}
             </C.Modal>
         </Backdrop>

@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
-    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex, clampText } = usePlayer()
+    const { playerData, findActivityById, themes, setPlayerData, getActivityIndex, clampText, configData } = usePlayer()
     const [wheelData, setWheelData] = useState([{ option: 'Loading' }])
     const [modalOpen, setModalOpen] = useState(false)
     const [hasActivities, setHasActivities] = useState(false)
@@ -28,12 +28,27 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const getRandomInt = (min, max) => {
         min = Math.ceil(min)
         max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min) + min)
+        return Math.floor(Math.random() * (max - min)) + min
     }
 
+    const weightedRandomSelection = (data) => {
+        const totalWeight = data.reduce((sum, option) => sum + option.optionSize, 0)
+        const randomValue = getRandomInt(1, totalWeight)
+        let cumulativeWeight = 0
+      
+        for (let i = 0; i < data.length; i++) {
+          cumulativeWeight += data[i].optionSize;
+          if (randomValue <= cumulativeWeight) {
+            return i
+          }
+        }
+      
+        return 1
+      }
+      
     const handleSpinClick = () => {
         if (!mustSpin) {
-            const newChosenActivity = getRandomInt(0, wheelData.length)
+            const newChosenActivity = weightedRandomSelection(wheelData)
             setChosenActivity(newChosenActivity)
             setMustSpin(true)
         }
@@ -104,16 +119,18 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     }, [playerData, themes, t, clampText])
 
     const payCoin = player => {
-        if (coins[player] > 0) {
-            setCoins({ ...coins, [player]: coins[player] - 1 })
-            setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + 1 })
+        const rerollCost = configData.reroll_skill_cost
+        if (coins[player] - rerollCost > 0) {
+            setCoins({ ...coins, [player]: coins[player] - rerollCost })
+            setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + rerollCost })
             setPaidCoinsOrder(paidCoinsOrder.concat(player))
         }
     }
 
     const retrieveCoin = player => {
-        setCoins({ ...coins, [player]: coins[player] + 1 })
-        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - 1 })
+        const rerollCost = configData.reroll_skill_cost
+        setCoins({ ...coins, [player]: coins[player] + rerollCost })
+        setPaidCoins({ ...paidCoins, [player]: paidCoins[player] - rerollCost })
     }
 
     const getOtherPlayer = player => {
@@ -126,11 +143,12 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         const player = wheelData[chosenActivity].player
         const { activities } = updatedPlayerData[player]
         const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
+        const rerollCostIncrease = configData ? configData.reroll_cost_increase : 1
 
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: activities[index].reroll_cost < 9 ? activities[index].reroll_cost + 1 : 9
+                reroll_cost: activities[index].reroll_cost + rerollCostIncrease < 9 ? activities[index].reroll_cost + rerollCostIncrease : 9
             }
         }
 
@@ -149,16 +167,21 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         const otherPlayer = getOtherPlayer(player)
         const { activities } = updatedPlayerData[player]
         const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
+        const rerollCostDecrease = configData ? configData.reroll_cost_decrease : 2
+        const weightDecreaseRate = configData ? configData.weight_decrease_rate : 1
+        const rerollMinCost = configData ? configData.reroll_min_cost : 2
 
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
-                reroll_cost: activities[index].reroll_cost > 3 ? activities[index].reroll_cost - 2 : 2,
-                weight: activities[index].weight > 1 ? activities[index].weight - 1 : 1
+                reroll_cost: activities[index].reroll_cost - rerollCostDecrease > rerollMinCost ? activities[index].reroll_cost - rerollCostDecrease : rerollMinCost,
+                weight: activities[index].weight - weightDecreaseRate > 1 ? activities[index].weight - weightDecreaseRate : 1
             }
         }
 
-        updatedPlayerData[otherPlayer] = { ...updatedPlayerData[otherPlayer], coins: coins[otherPlayer] + 1 }
+        updatedPlayerData[player] = { ...updatedPlayerData[player], coins: coins[player] + configData.collected_coins.drawn_player }
+
+        updatedPlayerData[otherPlayer] = { ...updatedPlayerData[otherPlayer], coins: coins[otherPlayer] + configData.collected_coins.opposite_player }
 
         setPlayerData(updatedPlayerData)
         setModalOpen(false)
@@ -243,6 +266,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                             onClick={!isReroll ? () => payCoin('player1') : null}
                                             ref={rerollButtonP1Ref}
                                         >
+                                            <C.RerollPrice>{configData.reroll_skill_cost}</C.RerollPrice>
 
                                             <VscDebugRestart size={'75%'} />
 
@@ -302,6 +326,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
                                             onClick={!isReroll ? () => payCoin('player2') : null}
                                             ref={rerollButtonP2Ref}
                                         >
+                                            <C.RerollPrice>{configData.reroll_skill_cost}</C.RerollPrice>
                                             <VscDebugRestart size={'75%'} />
                                         </C.RerollButton>
                                     </C.SkillsContainer>

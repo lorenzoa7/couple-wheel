@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function ActivitiesList({ player = 'player1' }) {
 
-    const { findHighestId, getActivityIndex, playerData, setPlayerData, clampText } = usePlayer()
+    const { findHighestId, getActivityIndex, playerData, setPlayerData, clampText, configData } = usePlayer()
     const { t } = useTranslation()
 
     const [modalOpen, setModalOpen] = useState(false)
@@ -40,7 +40,8 @@ export default function ActivitiesList({ player = 'player1' }) {
     }
 
     const addActivity = () => {
-        const newActivity = { id: findHighestId(player) + 1, name: `${t('player_data.activity_name')} ${playerData[player].activities.length + 1}`, reroll_cost: 2, weight: 10 }
+        const rerollMinCost = configData ? configData.reroll_min_cost : 2
+        const newActivity = { id: findHighestId(player) + 1, name: `${t('player_data.activity_name')} ${playerData[player].activities.length + 1}`, reroll_cost: rerollMinCost, weight: 10 }
         setPlayerData({ ...playerData, [player]: { ...playerData[player], activities: playerData[player].activities.concat(newActivity) } })
     }
 
@@ -57,7 +58,8 @@ export default function ActivitiesList({ player = 'player1' }) {
     }
 
     const resetWeightCost = weight => {
-        const result = Math.ceil((10 - weight) / 2)
+        const resetWeightMultiplier = configData.reset_weight_multiplier
+        const result = Math.ceil((10 - weight) / 2) * resetWeightMultiplier
         return Math.max(result, 1)
     }
 

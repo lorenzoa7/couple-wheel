@@ -4,10 +4,10 @@
         "tooltip_menu": "Menu",
         "tooltip_language": "Language",
         "nav_menu": {
-            "nav_config": "Config",
+            "nav_config": "Settings",
             "nav_open": "Open...",
             "nav_export": "Export",
-            "nav_help": "Help"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,37 +46,52 @@
         }
     },
     "config": {
-        "title": "Game Configuration",
+        "title": "Game Settings",
         "restore_game_data_button": "Restore game data",
         "restore_game_data_modal": {
             "question": "Are you sure you want to restore the game to its default data settings?",
             "close_button": "Close",
             "confirm_button": "Confirm"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Coins Earned",
+            "drawn_player": "Drawn Player",
+            "opposite_player": "Opposite Player"
+        },
+        "reroll_skill_cost": "Reroll skill cost",
+        "reset_weight_multiplier": "Reset weight cost multiplier",
+        "reroll_cost_increase": "Reroll cost increase (after reroll)",
+        "reroll_cost_decrease": "Reroll cost decrease (after accomplish)",
+        "reroll_min_cost": "Minimum reroll cost",
+        "weight_decrease_rate": "Weight decrease rate (after accomplish)"
     },
     "help": {
-        "title": "How to play",
+        "title": "Frequently asked questions",
         "item1": {
             "question": "What is Couple Wheel?",
             "answer": "Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!"
         },
         "item2": {
             "question": "What if I don't want to do an activity?",
-            "answer": "If the drawn activity is not to your liking, you can pay to reroll and try to get another activity. Each reroll costs 1 coin, and both players can contribute to the reroll. But be careful: every time an activity is rerolled, its cost increases by 1. To decrease the cost, simply accomplish the activity, and its reroll cost will be reduced by 2."
+            "answer": "If the drawn activity is not to your liking, you can pay to reroll and try to get another activity. Each reroll costs 1 coin, and both players can contribute to the reroll. But be careful: every time an activity is rerolled, its cost increases by 1. To decrease the cost, simply accomplish the activity, and its reroll cost will be reduced by 2. The value that increases and decreases are configurable."
         },
         "item3": {
             "question": "What is the number next to the activity?",
-            "answer": "Every activity has a weight on the wheel, indicated by the number next to its name. The weight can range from 10 to 1 (with 10 being more likely to be drawn and 1 being less likely). Each time an activity is accomplished, its weight decreases by 1, making it harder to be drawn again. However, you can reset the weight by paying a certain amount of coins ((10 - current weight) / 2), and the weight will be restored to 10!"
+            "answer": "Every activity has a weight on the wheel, indicated by the number next to its name. The weight can range from 10 to 1 (with 10 being more likely to be drawn and 1 being less likely). Each time an activity is accomplished, its weight decreases by 1, making it harder to be drawn again. However, you can reset the weight by paying a certain amount of coins ((10 - current weight) / 2), and the weight will be restored to 10! The price to reset is configurable."
         },
         "item4": {
             "question": "How can I earn more coins?",
-            "answer": "To earn more coins, it's very simple: just accomplish activities! Each accomplished activity rewards the player with coins, depending on who created that activity. When accomplished, the activity grants 0 coins to the person who created it and 1 coin to the other person."
+            "answer": "To earn more coins, it's very simple: just accomplish activities! Each accomplished activity rewards the player with coins, depending on who created that activity. When accomplished, the activity grants 1 coin to the person who created it and 2 coins to the other person. The amount of coins earned is configurable."
         },
         "item5": {
             "question": "Can I save my game?",
             "answer": "Yes! The game data is automatically saved in your browser and will remain the same when you re-enter. However, if you access it from another browser, your game will not be in the same state as when you left. That's why you have the option to export your game into a small file that you can use to open it into another browser to continue your game. This way, you can also export different games and open them whenever you want!"
         },
         "item6": {
+            "question": "Can I change some game rules?",
+            "answer": "In the settings, there are several options to change some default values of the game. You can define: the amount of coins each player earns when accomplishing an activity, the cost of the reroll ability, a multiplier for the cost of resetting weight, how much the reroll cost will increase after a reroll, how much the reroll cost will decrease after accomplishing an activity, the minimum cost for rerolling and how much the weight will decrease after accomplishing an activity. Play around with the settings and find what suits you best!"
+        },
+        "item7": {
             "question": "I encountered a bug! What should I do?",
             "answer": "If any harmful bug occurs, I suggest exporting the game and restoring the game data. Then, simply open it to load again. For any kind of problem, the best solution is always to restore the data and report it on GitHub."
         }
@@ -93,7 +108,15 @@
             "missing_key_activity": "Missing key in activity",
             "invalid_id_activity": "Invalid id value in activity",
             "invalid_reroll_cost_activity": "Invalid reroll_cost value in activity",
-            "invalid_weight_activity": "Invalid weight value in activity"
+            "invalid_weight_activity": "Invalid weight value in activity",
+            "missing_key_config": "Missing key in config",
+            "invalid_collected_coins": "Invalid collected coins values",
+            "invalid_reroll_skill_cost": "Invalid reroll skill cost value",
+            "invalid_reset_weigth_multiplier": "Invalid reset weight multiplier value",
+            "invalid_reroll_cost_increase": "Invalid reroll cost increase value",
+            "invalid_reroll_cost_decrease": "Invalid reroll cost decrease value",
+            "invalid_reroll_min_cost": "Invalid reroll minimum cost value",
+            "invalid_weigth_decrease_rate": "Invalid weight decrease rate value"
         }
     }
 }
