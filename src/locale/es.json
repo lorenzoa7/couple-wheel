@@ -73,15 +73,15 @@
         },
         "item2": {
             "question": "¿Qué pasa si no quiero hacer una actividad?",
-            "answer": "Si la actividad sorteada no te gusta, puedes pagar para volver a girar y tratar de obtener otra actividad. Cada vuelta cuesta 1 moneda, y ambos jugadores pueden contribuir a la vuelta. Pero ten cuidado: cada vez que se vuelve a girar una actividad, su costo aumenta en 1. Para reducir el costo, simplemente realiza la actividad y su costo de vuelta se reducirá en 2."
+            "answer": "Si la actividad sorteada no te gusta, puedes pagar para volver a girar y tratar de obtener otra actividad. Cada vuelta cuesta 1 moneda, y ambos jugadores pueden contribuir a la vuelta. Pero ten cuidado: cada vez que se vuelve a girar una actividad, su costo aumenta en 1. Para reducir el costo, simplemente realiza la actividad y su costo de vuelta se reducirá en 2. El valor que aumenta y disminuye son configurables."
         },
         "item3": {
             "question": "¿Qué significa el número al lado de la actividad?",
-            "answer": "Cada actividad tiene un peso en la ruleta, indicado por el número al lado de su nombre. El peso puede variar de 10 a 1 (siendo 10 más probable de ser sorteado y 1 menos probable). Cada vez que se realiza una actividad, su peso disminuye en 1, lo que dificulta que sea sorteada nuevamente. Sin embargo, puedes reiniciar el peso pagando una cierta cantidad de monedas ((10 - peso actual) / 2), ¡y el peso se restaurará a 10!"
+            "answer": "Cada actividad tiene un peso en la ruleta, indicado por el número al lado de su nombre. El peso puede variar de 10 a 1 (siendo 10 más probable de ser sorteado y 1 menos probable). Cada vez que se realiza una actividad, su peso disminuye en 1, lo que dificulta que sea sorteada nuevamente. Sin embargo, puedes reiniciar el peso pagando una cierta cantidad de monedas ((10 - peso actual) / 2), ¡y el peso se restaurará a 10! El precio para reiniciar es configurable."
         },
         "item4": {
             "question": "¿Cómo puedo ganar más monedas?",
-            "answer": "Para ganar más monedas, es muy simple: ¡simplemente realiza actividades! Cada actividad realizada recompensa al jugador con monedas, dependiendo de quién creó esa actividad. Cuando se realiza la actividad, otorga 0 monedas a la persona que la creó y 1 moneda a la otra persona."
+            "answer": "Para ganar más monedas, es muy simple: ¡simplemente realiza actividades! Cada actividad realizada recompensa al jugador con monedas, dependiendo de quién creó esa actividad. Cuando se realiza la actividad, otorga 1 moneda a la persona que la creó y 2 monedas a la otra persona. La cantidad de monedas ganadas es configurable."
         },
         "item5": {
             "question": "¿Puedo guardar mi juego?",

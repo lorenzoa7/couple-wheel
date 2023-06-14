@@ -73,15 +73,15 @@
         },
         "item2": {
             "question": "E se eu não quiser realizar uma atividade?",
-            "answer": "Caso a atividade sorteada não for do seu agrado, você pode pagar para rerolar e tentar sortear outra atividade. Cada ponto de rerolagem custa 1 moeda e ambos os jogadores podem contribuir para rerolar. Mas tome cuidado: cada vez que uma atividade é rerolada, seu custo aumenta em 1. Para diminuir o custo, basta realizar a atividade e seu custo de rerolagem será reduzido em 2."
+            "answer": "Caso a atividade sorteada não for do seu agrado, você pode pagar para rerolar e tentar sortear outra atividade. Cada ponto de rerolagem custa 1 moeda e ambos os jogadores podem contribuir para rerolar. Mas tome cuidado: cada vez que uma atividade é rerolada, seu custo aumenta em 1. Para diminuir o custo, basta realizar a atividade e seu custo de rerolagem será reduzido em 2. O valor que aumenta e diminui são configuráveis."
         },
         "item3": {
             "question": "O que é o número ao lado da atividade?",
-            "answer": "Toda atividade tem um peso na roleta, e esse peso é indicado pelo número do lado do nome da atividade. O peso pode ir de 10 a 1 (sendo 10 mais provável de ser sorteado e 1 sendo mais improvável), e cada vez que uma atividade é realizada, o peso diminui em 1, ou seja, fica mais difícil de ser sorteado novamente. Porém, é possível resetar esse peso, basta pagar uma quantidade em moedas ((10 - peso atual) / 2) e o peso voltará para 10!"
+            "answer": "Toda atividade tem um peso na roleta, e esse peso é indicado pelo número do lado do nome da atividade. O peso pode ir de 10 a 1 (sendo 10 mais provável de ser sorteado e 1 sendo mais improvável), e cada vez que uma atividade é realizada, o peso diminui em 1, ou seja, fica mais difícil de ser sorteado novamente. Porém, é possível resetar esse peso, basta pagar uma quantidade em moedas ((10 - peso atual) / 2) e o peso voltará para 10! O preço para resetar é configurável."
         },
         "item4": {
             "question": "Como posso ganhar mais moedas?",
-            "answer": "Para ganhar mais moedas, é muito simples: basta realizar atividades! Cada atividade realizada dá moedas ao jogador, referente a quem aquele atividade foi criada. Quando realizada, a atividade concederá 0 moedas para a pessoa que a criou e 1 moeda para a outra pessoa."
+            "answer": "Para ganhar mais moedas, é muito simples: basta realizar atividades! Cada atividade realizada dá moedas ao jogador, referente a quem aquele atividade foi criada. Quando realizada, a atividade concederá 1 moeda para a pessoa que a criou e 2 moedas para a outra pessoa. A quantidade de moedas concedidas é configurável."
         },
         "item5": {
             "question": "Eu posso salvar o meu jogo?",

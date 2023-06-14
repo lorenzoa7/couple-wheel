@@ -73,15 +73,15 @@
         },
         "item2": {
             "question": "What if I don't want to do an activity?",
-            "answer": "If the drawn activity is not to your liking, you can pay to reroll and try to get another activity. Each reroll costs 1 coin, and both players can contribute to the reroll. But be careful: every time an activity is rerolled, its cost increases by 1. To decrease the cost, simply accomplish the activity, and its reroll cost will be reduced by 2."
+            "answer": "If the drawn activity is not to your liking, you can pay to reroll and try to get another activity. Each reroll costs 1 coin, and both players can contribute to the reroll. But be careful: every time an activity is rerolled, its cost increases by 1. To decrease the cost, simply accomplish the activity, and its reroll cost will be reduced by 2. The value that increases and decreases are configurable."
         },
         "item3": {
             "question": "What is the number next to the activity?",
-            "answer": "Every activity has a weight on the wheel, indicated by the number next to its name. The weight can range from 10 to 1 (with 10 being more likely to be drawn and 1 being less likely). Each time an activity is accomplished, its weight decreases by 1, making it harder to be drawn again. However, you can reset the weight by paying a certain amount of coins ((10 - current weight) / 2), and the weight will be restored to 10!"
+            "answer": "Every activity has a weight on the wheel, indicated by the number next to its name. The weight can range from 10 to 1 (with 10 being more likely to be drawn and 1 being less likely). Each time an activity is accomplished, its weight decreases by 1, making it harder to be drawn again. However, you can reset the weight by paying a certain amount of coins ((10 - current weight) / 2), and the weight will be restored to 10! The price to reset is configurable."
         },
         "item4": {
             "question": "How can I earn more coins?",
-            "answer": "To earn more coins, it's very simple: just accomplish activities! Each accomplished activity rewards the player with coins, depending on who created that activity. When accomplished, the activity grants 0 coins to the person who created it and 1 coin to the other person."
+            "answer": "To earn more coins, it's very simple: just accomplish activities! Each accomplished activity rewards the player with coins, depending on who created that activity. When accomplished, the activity grants 1 coin to the person who created it and 2 coins to the other person. The amount of coins earned is configurable."
         },
         "item5": {
             "question": "Can I save my game?",
