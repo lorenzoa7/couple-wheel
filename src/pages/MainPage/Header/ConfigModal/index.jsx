@@ -58,7 +58,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
         setWeightDecreaseRate(configData.weight_decrease_rate)
         setRerollMinCost(configData.reroll_min_cost)
         updateRerollCosts()
-    }, [configData, openConfigModal])
+    }, [configData, openConfigModal, updateRerollCosts])
 
     return (
         <>
@@ -70,7 +70,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                 {openConfigModal &&
                     <Modal
                         handleClose={() => setOpenConfigModal(false)}
-                        size='big'
+                        size='bigger'
                         animation='fadeIn'>
 
                         <C.ModalContent>

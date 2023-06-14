@@ -114,6 +114,7 @@ export const ModalContent = tw.div`
     w-full 
     h-full
     px-3
+    py-5
 `
 
 export const RestoreDataButton = tw(motion.button)`
@@ -173,6 +174,7 @@ export const ModalTitle = tw.div`
     uppercase 
     p-3 
     w-full
+    h-20
 `
 
 export const ModalButtons = tw.div`

@@ -66,7 +66,7 @@ export default function HelpModal({ openHelpModal, setOpenHelpModal }) {
 
                         <C.HelpWrapper>
                             {content.map((item, index) => (
-                                <C.HelpItem>
+                                <C.HelpItem key={index}>
                                     <C.HelpQuestion onClick={() => toggleItem(index)}>
                                         <h2>{item.question}</h2>
                                         <span>{selected === index ? '-' : '+'}</span>
