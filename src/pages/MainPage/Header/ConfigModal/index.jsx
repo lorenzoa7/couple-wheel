@@ -79,9 +79,9 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                             </C.ModalTitle>
                             <C.ModalMain>
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Collected Coins</C.ConfigSectionLabel>
-                                    <C.ConfigCollectedCoinsContainer>
+                                    <C.ConfigGroup>
                                         <C.ConfigInputGroup>
+                                            <C.ConfigSectionLabel>Coins Earned <br/> (Drawn Player)</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="drawn_player"
                                                 type="number"
@@ -103,10 +103,10 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                     handleUpdateConfig('collected_coins')
                                                 }}
                                             />
-                                            <C.NumberInputLabel>Drawn Player</C.NumberInputLabel>
                                         </C.ConfigInputGroup>
 
                                         <C.ConfigInputGroup>
+                                            <C.ConfigSectionLabel>Coins Earned <br /> (Opposite Player)</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="opposite_player"
                                                 type="number"
@@ -128,59 +128,64 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                     handleUpdateConfig('collected_coins')
                                                 }}
                                             />
-                                            <C.NumberInputLabel>Opposite Player</C.NumberInputLabel>
                                         </C.ConfigInputGroup>
-                                    </C.ConfigCollectedCoinsContainer>
+                                    </C.ConfigGroup>
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Reroll Skill Cost</C.ConfigSectionLabel>
-                                    <C.NumberInput
-                                        name="reroll_skill_cost"
-                                        type="number"
-                                        value={rerollSkillCost}
-                                        $focus={onFocusHandler.reroll_skill_cost}
-                                        onChange={e => setRerollSkillCost(parseInt(e.target.value))}
-                                        onFocus={e => {
-                                            setOnFocusHandler({
-                                                ...onFocusHandler,
-                                                [e.target.name]: true,
-                                            });
-                                            e.target.select();
-                                        }}
-                                        onBlur={e => {
-                                            setOnFocusHandler({
-                                                ...onFocusHandler,
-                                                [e.target.name]: false,
-                                            });
-                                            handleUpdateConfig('reroll_skill_cost')
-                                        }}
-                                    />
-                                </C.ConfigSection>
+                                    <C.ConfigGroup>
+                                        <C.ConfigInputGroup>
+                                            <C.ConfigSectionLabel>Reroll Skill Cost</C.ConfigSectionLabel>
+                                            <C.NumberInput
+                                                name="reroll_skill_cost"
+                                                type="number"
+                                                value={rerollSkillCost}
+                                                $focus={onFocusHandler.reroll_skill_cost}
+                                                onChange={e => setRerollSkillCost(parseInt(e.target.value))}
+                                                onFocus={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: true,
+                                                    });
+                                                    e.target.select();
+                                                }}
+                                                onBlur={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: false,
+                                                    });
+                                                    handleUpdateConfig('reroll_skill_cost')
+                                                }}
+                                            />
+                                        </C.ConfigInputGroup>
 
-                                <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Reset Weight Multiplier</C.ConfigSectionLabel>
-                                    <C.NumberInput
-                                        name="reset_weight_multiplier"
-                                        type="number"
-                                        value={resetWeightMultiplier}
-                                        $focus={onFocusHandler.reset_weight_multiplier}
-                                        onChange={e => setResetWeightMultiplier(parseInt(e.target.value))}
-                                        onFocus={e => {
-                                            setOnFocusHandler({
-                                                ...onFocusHandler,
-                                                [e.target.name]: true,
-                                            });
-                                            e.target.select();
-                                        }}
-                                        onBlur={e => {
-                                            setOnFocusHandler({
-                                                ...onFocusHandler,
-                                                [e.target.name]: false,
-                                            });
-                                            handleUpdateConfig('reset_weight_multiplier')
-                                        }}
-                                    />
+                                        <C.ConfigInputGroup>
+                                            <C.ConfigSectionLabel>Reset Weight Multiplier</C.ConfigSectionLabel>
+                                            <C.NumberInput
+                                                name="reset_weight_multiplier"
+                                                type="number"
+                                                value={resetWeightMultiplier}
+                                                $focus={onFocusHandler.reset_weight_multiplier}
+                                                onChange={e => setResetWeightMultiplier(parseInt(e.target.value))}
+                                                onFocus={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: true,
+                                                    });
+                                                    e.target.select();
+                                                }}
+                                                onBlur={e => {
+                                                    setOnFocusHandler({
+                                                        ...onFocusHandler,
+                                                        [e.target.name]: false,
+                                                    });
+                                                    handleUpdateConfig('reset_weight_multiplier')
+                                                }}
+                                            />
+                                        </C.ConfigInputGroup>
+
+                                    </C.ConfigGroup>
+
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>

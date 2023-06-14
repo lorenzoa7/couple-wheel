@@ -156,11 +156,11 @@ export const ConfirmationButton = tw(motion.button)`
 export const ModalMain = tw.div`
     flex 
     flex-col
-    items-start 
+    items-center 
     justify-center 
     w-full 
     h-full
-    gap-3
+    gap-5
 `
 
 export const ModalTitle = tw.div`
@@ -320,9 +320,10 @@ export const ConfigSection = tw.div`
 
 export const ConfigSectionLabel = tw.p`
     font-bold
+    text-center
 `
 
-export const ConfigCollectedCoinsContainer = tw.div`
+export const ConfigGroup = tw.div`
     flex
 `
 
@@ -359,6 +360,7 @@ export const NumberInputLabel = tw.p`
 
 export const SelectionContainer = tw.div`
     flex 
+    justify-center
     flex-wrap 
     gap-2
 `
