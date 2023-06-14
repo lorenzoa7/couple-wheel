@@ -89,7 +89,7 @@ export const PlayerProvider = ({ children }) => {
         reset_weight_multiplier: 1,
         reroll_cost_increase: 1,
         reroll_cost_decrease: 2,
-        weight_decrease_multiplier: 1,
+        weight_decrease_rate: 1,
     }
 
     const [configData, setConfigData] = useState(

@@ -30,6 +30,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [resetWeightMultiplier, setResetWeightMultiplier] = useState(1)
     const [rerollCostIncrease, setRerollCostIncrease] = useState(1)
     const [rerollCostDecrease, setRerollCostDecrease] = useState(2)
+    const [weightDecreaseRate, setWeightDecreaseRate] = useState(1)
 
     const handleUpdateConfig = (configType) => {
         switch (configType) {
@@ -53,6 +54,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
         setResetWeightMultiplier(configData.reset_weight_multiplier)
         setRerollCostIncrease(configData.reroll_cost_increase)
         setRerollCostDecrease(configData.reroll_cost_decrease)
+        setWeightDecreaseRate(configData.weight_decrease_rate)
     }, [configData, openConfigModal])
 
     return (
@@ -206,8 +208,27 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                 key={num}
                                                 $selected={num === rerollCostDecrease}
                                                 onClick={() => {
-                                                    setRerollCostIncrease(num)
+                                                    setRerollCostDecrease(num)
                                                     setConfigData({ ...configData, reroll_cost_decrease: num })
+                                                }}
+                                            >
+                                                {num}
+                                            </C.Option>
+                                        ))}
+                                    </C.SelectionContainer>
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Weight Decrease Rate (after accomplish)</C.ConfigSectionLabel>
+
+                                    <C.SelectionContainer>
+                                        {range(1, 9).map(num => (
+                                            <C.Option
+                                                key={num}
+                                                $selected={num === weightDecreaseRate}
+                                                onClick={() => {
+                                                    setWeightDecreaseRate(num)
+                                                    setConfigData({ ...configData, weight_decrease_rate: num })
                                                 }}
                                             >
                                                 {num}

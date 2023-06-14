@@ -28,12 +28,27 @@ export default function Roulette({ mustSpin, setMustSpin }) {
     const getRandomInt = (min, max) => {
         min = Math.ceil(min)
         max = Math.floor(max)
-        return Math.floor(Math.random() * (max - min) + min)
+        return Math.floor(Math.random() * (max - min)) + min
     }
 
+    const weightedRandomSelection = (data) => {
+        const totalWeight = data.reduce((sum, option) => sum + option.optionSize, 0)
+        const randomValue = getRandomInt(1, totalWeight)
+        let cumulativeWeight = 0
+      
+        for (let i = 0; i < data.length; i++) {
+          cumulativeWeight += data[i].optionSize;
+          if (randomValue <= cumulativeWeight) {
+            return i
+          }
+        }
+      
+        return 1
+      }
+      
     const handleSpinClick = () => {
         if (!mustSpin) {
-            const newChosenActivity = getRandomInt(0, wheelData.length)
+            const newChosenActivity = weightedRandomSelection(wheelData)
             setChosenActivity(newChosenActivity)
             setMustSpin(true)
         }
@@ -153,12 +168,13 @@ export default function Roulette({ mustSpin, setMustSpin }) {
         const { activities } = updatedPlayerData[player]
         const index = getActivityIndex(wheelData[chosenActivity].player, wheelData[chosenActivity].id)
         const rerollCostDecrease = configData.reroll_cost_decrease
+        const weightDecreaseRate = configData.weight_decrease_rate
 
         if (activities[index]) {
             activities[index] = {
                 ...activities[index],
                 reroll_cost: activities[index].reroll_cost - rerollCostDecrease > 2 ? activities[index].reroll_cost - rerollCostDecrease : 2,
-                weight: activities[index].weight > 1 ? activities[index].weight - 1 : 1
+                weight: activities[index].weight - weightDecreaseRate > 1 ? activities[index].weight - weightDecreaseRate : 1
             }
         }
 
