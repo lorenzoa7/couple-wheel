@@ -58,12 +58,12 @@
             "drawn_player": "Drawn Player",
             "opposite_player": "Opposite Player"
         },
-        "reroll_skill_cost": "Reroll Skill Cost",
-        "reset_weight_multiplier": "Reset Weight Cost Multiplier",
-        "reroll_cost_increase": "Reroll Cost Increase (after reroll)",
-        "reroll_cost_decrease": "Reroll Cost Decrease (after accomplish)",
-        "reroll_min_cost": "Minimum Reroll Cost",
-        "weight_decrease_rate": "Weight Decrease Rate (after accomplish)"
+        "reroll_skill_cost": "Reroll skill cost",
+        "reset_weight_multiplier": "Reset weight cost multiplier",
+        "reroll_cost_increase": "Reroll cost increase (after reroll)",
+        "reroll_cost_decrease": "Reroll cost decrease (after accomplish)",
+        "reroll_min_cost": "Minimum reroll cost",
+        "weight_decrease_rate": "Weight decrease rate (after accomplish)"
     },
     "help": {
         "title": "Frequently asked questions",
