@@ -1,4 +1,4 @@
-# 💞 <a href="https://couple-wheel.netlify.app/">Couple Wheel</a></h1>
+# 💞 <a href="https://couple-wheel.vercel.app/">Couple Wheel</a></h1>
 
 
 
@@ -9,14 +9,14 @@
   
 </div>
 
-![Wheel Demo](https://github.com/lorenzoa7/couple-wheel/blob/master/src/assets/demo_couplewheel2.gif)
+![Wheel Demo](https://github.com/lorenzoa7/couple-wheel/blob/master/src/assets/demo/demo_couplewheel.gif)
 
 
 ## 📑 About
 <p>Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!</p>
 
 
-<a href="https://couple-wheel.netlify.app/">Live Preview</a>
+<a href="https://couple-wheel.vercel.app/">Live Preview</a>
 
 ## 🌟 Features
 
@@ -27,6 +27,7 @@
 - Translation support (English, Portuguese and Spanish)
 - Theme selection for each player
 - Export and open a game (local storage)
+- Game configuration (play with the default values)
 
 ## 🎮 How to start
 
@@ -53,7 +54,7 @@
 
 ## 🔧 Credits
 <a href="https://github.com/lorenzoa7" style='display: flex; flex-direction: column; align-items: center;'>
-    <img style='border-radius: 50%; object-fit: cover;' src="https://media.discordapp.net/attachments/630201208270749696/1117852424040873994/curriculo_foto.jpg" width="100px;" height="100px;" alt="Foto do Matheus Vieira"/><br>
+    <img style='border-radius: 50%; object-fit: cover;' src="https://media.discordapp.net/attachments/630201208270749696/1117852424040873994/curriculo_foto.jpg" width="100px;" height="100px;" alt="Foto do Lorenzo Aceti"/><br>
     <sub>
         <b>Lorenzo Aceti</b>
     </sub>
