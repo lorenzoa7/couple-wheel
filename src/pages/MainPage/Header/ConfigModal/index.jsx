@@ -71,6 +71,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                     <Modal
                         handleClose={() => setOpenConfigModal(false)}
                         size='bigger'
+                        hasMaxHeigth={true}
                         animation='fadeIn'>
 
                         <C.ModalContent>

@@ -4,10 +4,10 @@
         "tooltip_menu": "Menu",
         "tooltip_language": "Language",
         "nav_menu": {
-            "nav_config": "Config",
+            "nav_config": "Settings",
             "nav_open": "Open...",
             "nav_export": "Export",
-            "nav_help": "Help"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,7 +46,7 @@
         }
     },
     "config": {
-        "title": "Game Configuration",
+        "title": "Game Settings",
         "restore_game_data_button": "Restore game data",
         "restore_game_data_modal": {
             "question": "Are you sure you want to restore the game to its default data settings?",
@@ -59,14 +59,14 @@
             "opposite_player": "Opposite Player"
         },
         "reroll_skill_cost": "Reroll Skill Cost",
-        "reset_weight_multiplier": "Reset Weight Multiplier",
+        "reset_weight_multiplier": "Reset Weight Cost Multiplier",
         "reroll_cost_increase": "Reroll Cost Increase (after reroll)",
         "reroll_cost_decrease": "Reroll Cost Decrease (after accomplish)",
         "reroll_min_cost": "Minimum Reroll Cost",
         "weight_decrease_rate": "Weight Decrease Rate (after accomplish)"
     },
     "help": {
-        "title": "How to play",
+        "title": "Frequently asked questions",
         "item1": {
             "question": "What is Couple Wheel?",
             "answer": "Couple Wheel is a game to be played in pairs, where both players select activities they would like to do together and spin the wheel to randomly choose one. It's a great game for indecisive couples!"
@@ -88,6 +88,10 @@
             "answer": "Yes! The game data is automatically saved in your browser and will remain the same when you re-enter. However, if you access it from another browser, your game will not be in the same state as when you left. That's why you have the option to export your game into a small file that you can use to open it into another browser to continue your game. This way, you can also export different games and open them whenever you want!"
         },
         "item6": {
+            "question": "Can I change some game rules?",
+            "answer": "In the settings, there are several options to change some default values of the game. You can define: the amount of coins each player earns when accomplishing an activity, the cost of the reroll ability, a multiplier for the cost of resetting weight, how much the reroll cost will increase after a reroll, how much the reroll cost will decrease after accomplishing an activity, the minimum cost for rerolling and how much the weight will decrease after accomplishing an activity. Play around with the settings and find what suits you best!"
+        },
+        "item7": {
             "question": "I encountered a bug! What should I do?",
             "answer": "If any harmful bug occurs, I suggest exporting the game and restoring the game data. Then, simply open it to load again. For any kind of problem, the best solution is always to restore the data and report it on GitHub."
         }

@@ -64,7 +64,7 @@ const fadeIn = {
     }
 }
 
-export default function Modal({ children, size='medium', handleClose=null, animation='scaleIn' }) {
+export default function Modal({ children, size='medium', handleClose=null, animation='scaleIn', hasMaxHeigth = false }) {
     const animationType = animation === 'scaleIn' ? scaleIn : fadeIn
 
     return (
@@ -76,6 +76,7 @@ export default function Modal({ children, size='medium', handleClose=null, anima
                 animate='visible'
                 exit='exit'
                 size={size}
+                $has_max_height={hasMaxHeigth}
             >   
                 {children}
             </C.Modal>

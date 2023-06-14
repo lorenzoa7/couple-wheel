@@ -7,7 +7,7 @@
             "nav_config": "Config",
             "nav_open": "Abrir...",
             "nav_export": "Exportar",
-            "nav_help": "Ajuda"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,7 +46,7 @@
         }
     },
     "config": {
-        "title": "Configuração de Jogo",
+        "title": "Configurações de Jogo",
         "restore_game_data_button": "Restaurar dados do jogo",
         "restore_game_data_modal": {
             "question": "Tem certeza que deseja restaurar o jogo para suas configurações padrões?",
@@ -59,14 +59,14 @@
             "opposite_player": "Jogador Oposto"
         },
         "reroll_skill_cost": "Custo da hab. de rerolagem",
-        "reset_weight_multiplier": "Multiplicador de resetar peso",
+        "reset_weight_multiplier": "Multiplicador do custo de resetar peso",
         "reroll_cost_increase": "Aumento do Custo de Rerolagem (depois de rerolar)",
         "reroll_cost_decrease": "Diminuição do Custo de Rerolagem (depois de realizar)",
         "reroll_min_cost": "Custo Mínimo de Rerolagem",
         "weight_decrease_rate": "Taxa de Diminuição do Peso (depois de realizar)"
     },
     "help": {
-        "title": "Como jogar",
+        "title": "Perguntas frequentes",
         "item1": {
             "question": "O que é a Roleta do Casal?",
             "answer": "Roleta do Casal é um jogo para se jogar em dupla, no qual ambos vão selecionar atividades que gostariam de fazer juntos e rodar a roleta para sortear uma delas. Um ótimo jogo para casais indecisos!"
@@ -88,6 +88,10 @@
             "answer": "Sim! Os dados do jogo são salvos automaticamente no seu navegador e permanecerão da mesma forma quando reentrar. Porém, se você acessar por outro navegador, seu jogo não estará da mesma forma de quando saiu. Por isso, você tem a opção de exportar o seu jogo em um pequeno arquivo que você pode usar para abri-lo em outro navegador para continuar seu jogo. Dessa forma, também é possível exportar diferentes jogos e abri-los quando quiser!"
         },
         "item6": {
+            "question": "Posso mudar algumas regras do jogo?",
+            "answer": "Nas configurações, há diversas opções para mudar alguns valores padrões do jogo. É possível definir: quantidade de moeda que cada jogador ganha ao realizar uma atividade, custo da habilidade de rerolagem, um multiplicador para o custo de resetar peso, o quanto o custo de rerolagem vai aumentar depois de uma rerolagem, o quanto o custo de rerolagem vai diminuir depois de realizar uma atividade, o custo mínimo para rerolar e o quanto o peso vai diminuir depois de realizar uma atividade. Brinque com as configurações e encontre o que mais te agrada!"
+        },
+        "item7": {
             "question": "Deu um bug! O que fazer?",
             "answer": "Caso algum bug prejudicial aconteça, sugiro que exporte o jogo e restaure os dados do jogo. Depois, basta abri-los para carregar novamente. Para qualquer tipo de problema, a melhor solução é sempre a de restaurar os dados e reportá-la no GitHub."
         }

@@ -7,7 +7,7 @@
             "nav_config": "Config",
             "nav_open": "Abrir...",
             "nav_export": "Exportar",
-            "nav_help": "Ayuda"
+            "nav_help": "FAQ"
         }
     },
     "player_data": {
@@ -46,7 +46,7 @@
         }
     },
     "config": {
-        "title": "Configuración del juego",
+        "title": "Configuraciones de juego",
         "restore_game_data_button": "Restaurar datos del juego",
         "restore_game_data_modal": {
             "question": "¿Seguro que quieres restaurar el juego a su configuración de datos predeterminada?",
@@ -59,14 +59,14 @@
             "opposite_player": "Jugador Opuesto"
         },
         "reroll_skill_cost": "Costo de la hab. de repetición",
-        "reset_weight_multiplier": "Multiplicador de restauracion de peso",
+        "reset_weight_multiplier": "Multiplicador del costo de restauracion de peso",
         "reroll_cost_increase": "Incremento del costo de repetición (después de repetir)",
         "reroll_cost_decrease": "Reducción del costo de repetición (después de realizar)",
         "reroll_min_cost": "Costo mínimo de repetición",
         "weight_decrease_rate": "Tasa de reducción del peso (después de realizar)"
     },
     "help": {
-        "title": "Cómo jugar",
+        "title": "Preguntas frecuentes",
         "item1": {
             "question": "¿Qué es Ruleta de Pareja?",
             "answer": "Ruleta de Pareja es un juego para jugar en pareja, donde ambos jugadores seleccionan actividades que les gustaría hacer juntos y giran la ruleta para elegir una al azar. ¡Es un gran juego para parejas indecisas!"
@@ -88,6 +88,10 @@
             "answer": "¡Sí! Los datos del juego se guardan automáticamente en tu navegador y se mantendrán iguales cuando vuelvas a entrar. Sin embargo, si accedes desde otro navegador, tu juego no estará en el mismo estado en el que lo dejaste. Por eso, tienes la opción de exportar tu juego en un archivo pequeño que puedes usar para abrirlo en otro navegador y continuar tu juego. ¡De esta manera, también puedes exportar diferentes juegos y abrirlos cuando quieras!"
         },
         "item6": {
+            "question": "¿Puedo cambiar algunas reglas del juego?",
+            "answer": "En la configuración, hay varias opciones para cambiar algunos valores predeterminados del juego. Puedes definir: la cantidad de moneda que cada jugador gana al realizar una actividad, el costo de la habilidad de repetición, un multiplicador para el costo de restablecer el peso, cuánto aumentará el costo de repetición después de repetir un giro, cuánto disminuirá el costo de repetición después de realizar una actividad, el costo mínimo para repetir y cuánto disminuirá el peso después de realizar una actividad. ¡Juega con la configuración y encuentra lo que más te convenga!"
+        },
+        "item7": {
             "question": "¡Encontré un error! ¿Qué debo hacer?",
             "answer": "Si ocurre algún error perjudicial, te sugiero exportar el juego y restaurar los datos del juego. Luego, simplemente abrirlo para cargarlo nuevamente. Para cualquier tipo de problema, la mejor solución siempre es restaurar los datos y reportarlo en GitHub."
         }

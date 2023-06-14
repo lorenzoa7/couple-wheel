@@ -7,7 +7,7 @@ export const Modal = tw(motion.div)`
         (props.size === 'tiny' && 'h-1/5') ||
         (props.size === 'small' && 'h-3/5 md:h-2/5') ||
         (props.size === 'big' && 'h-[95%] md:h-4/5') ||
-        (props.size === 'bigger' && 'max-h-[98%] overflow-y-auto sm:overflow-y-visible') ||
+        (props.size === 'bigger' && 'h-auto md:h-[98%] max-h-[98%] overflow-y-scroll md:overflow-y-visible') ||
         'h-4/5 lg:h-3/5'
     )}
 
