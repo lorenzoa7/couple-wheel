@@ -317,24 +317,28 @@ export const HelpAnswer = tw.div`
 export const ConfigSection = tw.div`
     flex 
     flex-col 
-    w-full 
-    gap-3
+    w-full
 `
 
 export const ConfigSectionLabel = tw.p`
     font-bold
     text-center
+    h-16
+    flex
+    justify-center
+    items-center
 `
 
 export const ConfigGroup = tw.div`
     flex
+    items-center
+    gap-1
 `
 
 export const ConfigInputGroup = tw.div`
     flex 
     flex-col 
     items-center 
-    justify-center
     w-full
 `
 
@@ -346,8 +350,6 @@ export const NumberInput = tw.input`
 
     w-20 
     outline-none
-    mb-2
-    mx-4
     py-2
     text-center
     rounded
