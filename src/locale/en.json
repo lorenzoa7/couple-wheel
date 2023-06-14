@@ -52,7 +52,18 @@
             "question": "Are you sure you want to restore the game to its default data settings?",
             "close_button": "Close",
             "confirm_button": "Confirm"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Coins Earned",
+            "drawn_player": "Drawn Player",
+            "opposite_player": "Opposite Player"
+        },
+        "reroll_skill_cost": "Reroll Skill Cost",
+        "reset_weight_multiplier": "Reset Weight Multiplier",
+        "reroll_cost_increase": "Reroll Cost Increase (after reroll)",
+        "reroll_cost_decrease": "Reroll Cost Decrease (after accomplish)",
+        "reroll_min_cost": "Minimum Reroll Cost",
+        "weight_decrease_rate": "Weight Decrease Rate (after accomplish)"
     },
     "help": {
         "title": "How to play",

@@ -52,7 +52,18 @@
             "question": "¿Seguro que quieres restaurar el juego a su configuración de datos predeterminada?",
             "close_button": "Cerrar",
             "confirm_button": "Confirmar"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Monedas Ganadas",
+            "drawn_player": "Jugador Seleccionado",
+            "opposite_player": "Jugador Opuesto"
+        },
+        "reroll_skill_cost": "Costo de la hab. de repetición",
+        "reset_weight_multiplier": "Multiplicador de restauracion de peso",
+        "reroll_cost_increase": "Incremento del costo de repetición (después de repetir)",
+        "reroll_cost_decrease": "Reducción del costo de repetición (después de realizar)",
+        "reroll_min_cost": "Costo mínimo de repetición",
+        "weight_decrease_rate": "Tasa de reducción del peso (después de realizar)"
     },
     "help": {
         "title": "Cómo jugar",

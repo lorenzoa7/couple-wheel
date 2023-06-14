@@ -52,7 +52,18 @@
             "question": "Tem certeza que deseja restaurar o jogo para suas configurações padrões?",
             "close_button": "Fechar",
             "confirm_button": "Confirmar"
-        }
+        },
+        "collected_coins": {
+            "coins_earned": "Moedas Ganhas",
+            "drawn_player": "Jogador Sorteado",
+            "opposite_player": "Jogador Oposto"
+        },
+        "reroll_skill_cost": "Custo da hab. de rerolagem",
+        "reset_weight_multiplier": "Multiplicador de resetar peso",
+        "reroll_cost_increase": "Aumento do Custo de Rerolagem (depois de rerolar)",
+        "reroll_cost_decrease": "Diminuição do Custo de Rerolagem (depois de realizar)",
+        "reroll_min_cost": "Custo Mínimo de Rerolagem",
+        "weight_decrease_rate": "Taxa de Diminuição do Peso (depois de realizar)"
     },
     "help": {
         "title": "Como jogar",

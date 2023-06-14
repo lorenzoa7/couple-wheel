@@ -81,7 +81,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 <C.ConfigSection>
                                     <C.ConfigGroup>
                                         <C.ConfigInputGroup>
-                                            <C.ConfigSectionLabel>Coins Earned <br/> (Drawn Player)</C.ConfigSectionLabel>
+                                            <C.ConfigSectionLabel>{t('config.collected_coins.coins_earned')} <br/> ({t('config.collected_coins.drawn_player')})</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="drawn_player"
                                                 type="number"
@@ -106,7 +106,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                         </C.ConfigInputGroup>
 
                                         <C.ConfigInputGroup>
-                                            <C.ConfigSectionLabel>Coins Earned <br /> (Opposite Player)</C.ConfigSectionLabel>
+                                            <C.ConfigSectionLabel>{t('config.collected_coins.coins_earned')} <br /> ({t('config.collected_coins.opposite_player')})</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="opposite_player"
                                                 type="number"
@@ -135,7 +135,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 <C.ConfigSection>
                                     <C.ConfigGroup>
                                         <C.ConfigInputGroup>
-                                            <C.ConfigSectionLabel>Reroll Skill Cost</C.ConfigSectionLabel>
+                                            <C.ConfigSectionLabel>{t('config.reroll_skill_cost')}</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="reroll_skill_cost"
                                                 type="number"
@@ -160,7 +160,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                         </C.ConfigInputGroup>
 
                                         <C.ConfigInputGroup>
-                                            <C.ConfigSectionLabel>Reset Weight Multiplier</C.ConfigSectionLabel>
+                                            <C.ConfigSectionLabel>{t('config.reset_weight_multiplier')}</C.ConfigSectionLabel>
                                             <C.NumberInput
                                                 name="reset_weight_multiplier"
                                                 type="number"
@@ -189,7 +189,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Reroll Cost Increase (after reroll)</C.ConfigSectionLabel>
+                                    <C.ConfigSectionLabel>{t('config.reroll_cost_increase')}</C.ConfigSectionLabel>
 
                                     <C.SelectionContainer>
                                         {range(1, 7).map(num => (
@@ -208,7 +208,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Reroll Cost Decrease (after accomplish)</C.ConfigSectionLabel>
+                                    <C.ConfigSectionLabel>{t('config.reroll_cost_decrease')}</C.ConfigSectionLabel>
 
                                     <C.SelectionContainer>
                                         {range(1, 7).map(num => (
@@ -227,26 +227,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                 </C.ConfigSection>
 
                                 <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Weight Decrease Rate (after accomplish)</C.ConfigSectionLabel>
-
-                                    <C.SelectionContainer>
-                                        {range(1, 9).map(num => (
-                                            <C.Option
-                                                key={num}
-                                                $selected={num === weightDecreaseRate}
-                                                onClick={() => {
-                                                    setWeightDecreaseRate(num)
-                                                    setConfigData({ ...configData, weight_decrease_rate: num })
-                                                }}
-                                            >
-                                                {num}
-                                            </C.Option>
-                                        ))}
-                                    </C.SelectionContainer>
-                                </C.ConfigSection>
-
-                                <C.ConfigSection>
-                                    <C.ConfigSectionLabel>Minimum Reroll Cost</C.ConfigSectionLabel>
+                                    <C.ConfigSectionLabel>{t('config.reroll_min_cost')}</C.ConfigSectionLabel>
 
                                     <C.SelectionContainer>
                                         {range(1, 9).map(num => (
@@ -264,6 +245,25 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                     </C.SelectionContainer>
                                 </C.ConfigSection>
 
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>{t('config.weight_decrease_rate')}</C.ConfigSectionLabel>
+
+                                    <C.SelectionContainer>
+                                        {range(1, 9).map(num => (
+                                            <C.Option
+                                                key={num}
+                                                $selected={num === weightDecreaseRate}
+                                                onClick={() => {
+                                                    setWeightDecreaseRate(num)
+                                                    setConfigData({ ...configData, weight_decrease_rate: num })
+                                                }}
+                                            >
+                                                {num}
+                                            </C.Option>
+                                        ))}
+                                    </C.SelectionContainer>
+                                </C.ConfigSection>
+                                
                                 <C.RestoreDataButton
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}

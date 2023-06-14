@@ -128,6 +128,7 @@ export const RestoreDataButton = tw(motion.button)`
     items-center
     uppercase
     duration-300
+    mt-2
 
     hover:bg-red-700
 `
