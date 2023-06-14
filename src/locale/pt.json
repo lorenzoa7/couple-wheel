@@ -108,7 +108,15 @@
             "missing_key_activity": "Chave ausente na atividade",
             "invalid_id_activity": "Valor inválido para ID na atividade",
             "invalid_reroll_cost_activity": "Valor inválido para custo de re-roll na atividade",
-            "invalid_weight_activity": "Valor inválido para peso na atividade"
+            "invalid_weight_activity": "Valor inválido para peso na atividade",
+            "missing_key_config": "Chave faltando na configuração",
+            "invalid_collected_coins": "Valores inválidos para moedas ganhas",
+            "invalid_reroll_skill_cost": "Valor inválido para o custo de rerolagem",
+            "invalid_reset_weigth_multiplier": "Valor inválido para o multiplicador de reset de peso",
+            "invalid_reroll_cost_increase": "Valor inválido para o aumento do custo de rerolagem",
+            "invalid_reroll_cost_decrease": "Valor inválido para a redução do custo de rerolagem",
+            "invalid_reroll_min_cost": "Valor inválido para o custo mínimo de rerolagem",
+            "invalid_weigth_decrease_rate": "Valor inválido para a taxa de redução de peso"
         }
     }
 }

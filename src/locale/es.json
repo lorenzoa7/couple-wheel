@@ -107,8 +107,16 @@
             "invalid_theme_value": "Valor inválido para tema en el jugador",
             "missing_key_activity": "Clave faltante en la actividad",
             "invalid_id_activity": "Valor inválido para ID en la actividad",
-            "invalid_reroll_cost_activity": "Valor inválido para costo de re-roll en la actividad",
-            "invalid_weight_activity": "Valor inválido para peso en la actividad"
+            "invalid_reroll_cost_activity": "Valor inválido para costo de repetición en la actividad",
+            "invalid_weight_activity": "Valor inválido para peso en la actividad",
+            "missing_key_config": "Clave faltante en la configuración",
+            "invalid_collected_coins": "Valores inválidos para monedas recolectadas",
+            "invalid_reroll_skill_cost": "Valor inválido para el costo de habilidad de repetición",
+            "invalid_reset_weigth_multiplier": "Valor inválido para el multiplicador de reinicio de peso",
+            "invalid_reroll_cost_increase": "Valor inválido para el aumento del costo de repetición",
+            "invalid_reroll_cost_decrease": "Valor inválido para la disminución del costo de repetición",
+            "invalid_reroll_min_cost": "Valor inválido para el costo mínimo de repetición",
+            "invalid_weigth_decrease_rate": "Valor inválido para la tasa de disminución de peso"
         }
     }
 }

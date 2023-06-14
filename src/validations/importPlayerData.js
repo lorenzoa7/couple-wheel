@@ -1,4 +1,4 @@
-const isValidJson = (jsonData, setMessage, t) => {
+const isValidPlayerJson = (jsonData, setMessage, t) => {
     const requiredKeys = ['player1', 'player2']
 
     for (const key of requiredKeys) {
@@ -98,4 +98,4 @@ const isValidWeight = weight => {
 }
 
 
-export default isValidJson
+export default isValidPlayerJson
