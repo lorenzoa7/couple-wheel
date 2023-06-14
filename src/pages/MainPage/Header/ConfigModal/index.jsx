@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 
 export default function ConfigModal({ openConfigModal, setOpenConfigModal, openConfirmationModal, setOpenConfirmationModal }) {
-    const { setPlayerData, defaultData, configData, setConfigData, defaultConfigData } = usePlayer()
+    const { setPlayerData, defaultData, configData, setConfigData, defaultConfigData, updateRerollCosts } = usePlayer()
     const { t } = useTranslation()
 
     const range = (start, stop) =>
@@ -31,6 +31,7 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
     const [rerollCostIncrease, setRerollCostIncrease] = useState(1)
     const [rerollCostDecrease, setRerollCostDecrease] = useState(2)
     const [weightDecreaseRate, setWeightDecreaseRate] = useState(1)
+    const [rerollMinCost, setRerollMinCost] = useState(2)
 
     const handleUpdateConfig = (configType) => {
         switch (configType) {
@@ -55,6 +56,8 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
         setRerollCostIncrease(configData.reroll_cost_increase)
         setRerollCostDecrease(configData.reroll_cost_decrease)
         setWeightDecreaseRate(configData.weight_decrease_rate)
+        setRerollMinCost(configData.reroll_min_cost)
+        updateRerollCosts()
     }, [configData, openConfigModal])
 
     return (
@@ -229,6 +232,25 @@ export default function ConfigModal({ openConfigModal, setOpenConfigModal, openC
                                                 onClick={() => {
                                                     setWeightDecreaseRate(num)
                                                     setConfigData({ ...configData, weight_decrease_rate: num })
+                                                }}
+                                            >
+                                                {num}
+                                            </C.Option>
+                                        ))}
+                                    </C.SelectionContainer>
+                                </C.ConfigSection>
+
+                                <C.ConfigSection>
+                                    <C.ConfigSectionLabel>Minimum Reroll Cost</C.ConfigSectionLabel>
+
+                                    <C.SelectionContainer>
+                                        {range(1, 9).map(num => (
+                                            <C.Option
+                                                key={num}
+                                                $selected={num === rerollMinCost}
+                                                onClick={() => {
+                                                    setRerollMinCost(num)
+                                                    setConfigData({ ...configData, reroll_min_cost: num })
                                                 }}
                                             >
                                                 {num}

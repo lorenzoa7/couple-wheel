@@ -44,7 +44,7 @@ export const PlayerProvider = ({ children }) => {
     */
 
     const { t } = useTranslation()
-    const [message, setMessage] = useState({text: '', type: ''})
+    const [message, setMessage] = useState({ text: '', type: '' })
 
     const languageOptions = [
         {
@@ -86,14 +86,15 @@ export const PlayerProvider = ({ children }) => {
             opposite_player: 2
         },
         reroll_skill_cost: 1,
-        reset_weight_multiplier: 1,
         reroll_cost_increase: 1,
         reroll_cost_decrease: 2,
+        reroll_min_cost: 2,
+        reset_weight_multiplier: 1,
         weight_decrease_rate: 1,
     }
 
     const [configData, setConfigData] = useState(
-        localStorage.getItem('configData') 
+        localStorage.getItem('configData')
             ? JSON.parse(localStorage.getItem('configData'))
             : defaultConfigData
     )
@@ -131,6 +132,20 @@ export const PlayerProvider = ({ children }) => {
         if (`${text}...`.length <= maxLength) return text
 
         return text.substring(0, maxLength - 3) + '...'
+    }
+
+    const updateRerollCosts = () => {
+        const { reroll_min_cost } = configData
+
+        for (const playerKey in playerData) {
+            const player = playerData[playerKey]
+
+            for (const activity of player.activities) {
+                if (activity.reroll_cost < reroll_min_cost) {
+                    activity.reroll_cost = reroll_min_cost
+                }
+            }
+        }
     }
 
     const savePlayerData = useCallback(() => {
@@ -191,7 +206,8 @@ export const PlayerProvider = ({ children }) => {
             playerData, setPlayerData, languageOptions, clampText,
             findHighestId, getActivityIndex, translateTheme,
             savePlayerData, findActivityById, themes, defaultData,
-            message, setMessage, configData, setConfigData, defaultConfigData
+            message, setMessage, configData, setConfigData, defaultConfigData,
+            updateRerollCosts
         }}>
             {children}
         </PlayerContext.Provider>
