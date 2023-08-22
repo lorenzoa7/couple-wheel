@@ -1,12 +1,12 @@
-import * as C from './styles'
-import usePlayer from '../../../hooks/usePlayer'
-import { useState, useEffect, useCallback, useRef } from 'react'
-import { Wheel } from 'react-custom-roulette'
-import Modal from '../../../components/Modal'
 import { AnimatePresence } from 'framer-motion'
-import Reroll from './Reroll'
-import { VscDebugRestart } from 'react-icons/vsc'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Wheel } from 'react-custom-roulette'
 import { useTranslation } from 'react-i18next'
+import { VscDebugRestart } from 'react-icons/vsc'
+import Modal from '../../../components/Modal'
+import usePlayer from '../../../hooks/usePlayer'
+import Reroll from './Reroll'
+import * as C from './styles'
 
 export default function Roulette({ mustSpin, setMustSpin }) {
 
@@ -120,7 +120,7 @@ export default function Roulette({ mustSpin, setMustSpin }) {
 
     const payCoin = player => {
         const rerollCost = configData.reroll_skill_cost
-        if (coins[player] - rerollCost > 0) {
+        if (coins[player] - rerollCost >= 0) {
             setCoins({ ...coins, [player]: coins[player] - rerollCost })
             setPaidCoins({ ...paidCoins, [player]: paidCoins[player] + rerollCost })
             setPaidCoinsOrder(paidCoinsOrder.concat(player))
